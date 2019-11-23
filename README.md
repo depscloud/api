@@ -1,4 +1,6 @@
 # api
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdeps-cloud%2Fapi.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdeps-cloud%2Fapi?ref=badge_shield)
+
 
 All deps-cloud API definitions consolidated into a single repostory.
 This repository currenlty produces 2 libraries:
@@ -83,3 +85,7 @@ You can quickly invoke this command using the `make compile-docker` target.
 
 **NOTE:** Changes to `*.js` and `*.d.ts` are done manually.
 Currently evaluating code generation options.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdeps-cloud%2Fapi.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdeps-cloud%2Fapi?ref=badge_large)
