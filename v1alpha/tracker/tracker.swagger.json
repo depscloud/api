@@ -518,6 +518,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "source_url": {
+          "type": "string"
         }
       }
     },
