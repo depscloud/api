@@ -29,4 +29,6 @@ popd
 ###///====
 
 echo "generating swagger files"
-go-bindata -fs -pkg swagger -o swagger/swagger.go $(find . -iname *.swagger.json)
+pushd swagger
+go-bindata -fs -pkg swagger -o swagger.go $(find . -iname *.swagger.json)
+popd

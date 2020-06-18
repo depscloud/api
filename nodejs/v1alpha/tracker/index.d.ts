@@ -25,8 +25,8 @@ export interface ListSourceResponse {
 }
 
 export interface ISourceService {
-    list(call: ServerUnaryCall<ListRequest>, callback: (error: Error, response: ListSourceResponse) => void): void;
-    track(call: ServerUnaryCall<SourceRequest>, callback: (error: Error, response: TrackResponse) => void): void;
+    list(call: ServerUnaryCall<ListRequest, ListSourceResponse>, callback: (error: Error, response: ListSourceResponse) => void): void;
+    track(call: ServerUnaryCall<SourceRequest, TrackResponse>, callback: (error: Error, response: TrackResponse) => void): void;
 }
 
 export class SourceService extends Client {
@@ -64,9 +64,9 @@ export interface ListManagedResponse {
 }
 
 export interface IModuleService {
-    list(call: ServerUnaryCall<ListRequest>, callback: (error: Error, response: ListModuleResponse) => void): void;
-    listSource(call: ServerUnaryCall<Module>, callback: (error: Error, response: ListSourcesResponse) => void): void;
-    listManaged(call: ServerUnaryCall<Source>, callback: (error: Error, response: ListManagedResponse) => void): void;
+    list(call: ServerUnaryCall<ListRequest, ListModuleResponse>, callback: (error: Error, response: ListModuleResponse) => void): void;
+    listSource(call: ServerUnaryCall<Module, ListSourceResponse>, callback: (error: Error, response: ListSourcesResponse) => void): void;
+    listManaged(call: ServerUnaryCall<Source, ListManagedResponse>, callback: (error: Error, response: ListManagedResponse) => void): void;
 }
 
 export class ModuleService extends Client {
@@ -100,8 +100,8 @@ export interface ListDependenciesResponse {
 }
 
 export interface IDependencyService {
-    listDependents(call: ServerUnaryCall<DependencyRequest>, callback: (error: Error, response: ListDependentsResponse) => void): void;
-    listDependencies(call: ServerUnaryCall<DependencyRequest>, callback: (error: Error, response: ListDependenciesResponse) => void): void;
+    listDependents(call: ServerUnaryCall<DependencyRequest, ListDependentsResponse>, callback: (error: Error, response: ListDependentsResponse) => void): void;
+    listDependencies(call: ServerUnaryCall<DependencyRequest, ListDependenciesResponse>, callback: (error: Error, response: ListDependenciesResponse) => void): void;
 }
 
 export class DependencyService extends Client {
@@ -111,34 +111,4 @@ export class DependencyService extends Client {
 
     public listDependents(request: DependencyRequest, callback: (error: Error, response: ListDependentsResponse) => void): void;
     public listDependencies(request: DependencyRequest, callback: (error: Error, response: ListDependenciesResponse) => void): void;
-}
-
-export interface TopologyTier {
-    tier: Array<Dependency>;
-}
-
-export interface ListDependentsTieredResponse {
-    dependents: TopologyTier[];
-}
-
-export interface ListDependenciesTieredResponse {
-    dependencies: TopologyTier[];
-}
-
-export interface ITopologyService {
-    listDependentsTopology(call: ServerUnaryCall<DependencyRequest>, callback: (error: Error, response: ListDependentsResponse) => void): void;
-    listDependentsTopologyTiered(call: ServerUnaryCall<DependencyRequest>, callback: (error: Error, response: ListDependentsTieredResponse) => void): void;
-    listDependenciesTopology(call: ServerUnaryCall<DependencyRequest>, callback: (error: Error, response: ListDependenciesResponse) => void): void;
-    listDependenciesTopologyTiered(call: ServerUnaryCall<DependencyRequest>, callback: (error: Error, response: ListDependenciesTieredResponse) => void): void;
-}
-
-export class TopologyService extends Client {
-    public static service: ServiceDefinition<ITopologyService>;
-
-    constructor(address: string, credentials: ChannelCredentials, options?: object);
-
-    public listDependentsTopology(request: DependencyRequest, callback: (error: Error, response: ListDependentsResponse) => void): void;
-    public listDependentsTopologyTiered(request: DependencyRequest, callback: (error: Error, response: ListDependentsTieredResponse) => void): void;
-    public listDependenciesTopology(request: DependencyRequest, callback: (error: Error, response: ListDependenciesResponse) => void): void;
-    public listDependenciesTopologyTiered(request: DependencyRequest, callback: (error: Error, response: ListDependenciesTieredResponse) => void): void;
 }
