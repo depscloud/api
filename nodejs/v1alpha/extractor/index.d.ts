@@ -1,5 +1,5 @@
-import {ChannelCredentials, Client, ServerUnaryCall, ServiceDefinition} from "grpc";
-import {DependencyManagementFile} from "../deps/deps";
+import {ChannelCredentials, Client, ServerUnaryCall, ServiceDefinition} from "@grpc/grpc-js";
+import {DependencyManagementFile} from "../deps";
 
 export interface MatchRequest {
     separator: string;

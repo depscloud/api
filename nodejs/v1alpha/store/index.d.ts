@@ -1,4 +1,4 @@
-import {ChannelCredentials, Client, ServerUnaryCall, ServiceDefinition} from "grpc";
+import {ChannelCredentials, Client, ServerUnaryCall, ServiceDefinition} from "@grpc/grpc-js";
 
 type GraphItemEncoding = number;
 
@@ -9,10 +9,11 @@ type GraphItemEncoding = number;
 
 export interface GraphItem {
     graphItemType: string;
-    // bytes k1 = 2;
-    // bytes k2 = 3;
+    k1: Buffer;
+    k2: Buffer;
+    k3: Buffer;
     encoding: GraphItemEncoding;
-    // bytes graphItemData = 5;
+    graphItemData: Buffer;
 }
 
 export interface GraphItemPair {

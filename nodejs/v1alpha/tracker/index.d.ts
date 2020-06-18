@@ -1,6 +1,6 @@
-import {ChannelCredentials, Client, ServerUnaryCall, ServiceDefinition} from "grpc";
-import {DependencyManagementFile} from "../deps/deps";
-import {Source,Depends,Module,Manages} from "../schema/schema";
+import {ChannelCredentials, Client, ServerUnaryCall, ServiceDefinition} from "@grpc/grpc-js";
+import {DependencyManagementFile} from "../deps";
+import {Source,Depends,Module,Manages} from "../schema";
 
 // begin proto
 
