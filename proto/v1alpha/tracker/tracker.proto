@@ -123,3 +123,35 @@ service DependencyService {
         };
     };
 }
+
+message TraversalRequest {
+    // dependencies for module
+    DependencyRequest dependencies = 1;
+
+    // dependents for module
+    DependencyRequest dependents = 2;
+
+    // modules for source
+    cloud.deps.api.v1alpha.schema.Source modules = 3;
+
+    // sources for module
+    cloud.deps.api.v1alpha.schema.Module sources = 4;
+}
+
+message TraversalResponse {
+    // dependencies for module
+    repeated Dependency dependencies = 1;
+
+    // dependents for module
+    repeated Dependency dependents = 2;
+
+    // modules for source
+    repeated ManagedModule modules = 3;
+
+    // sources for module
+    repeated ManagedSource sources = 4;
+}
+
+service TraversalService {
+    rpc Traverse(stream TraversalRequest) returns (stream TraversalResponse);
+}
