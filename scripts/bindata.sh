@@ -4,9 +4,5 @@ readonly ROOT_DIR="$(dirname "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/nul
 readonly SWAGGER_DIR="${ROOT_DIR}/swagger"
 
 pushd ${SWAGGER_DIR}
-rm -rf v1alpha
-mv depscloud_api/v1alpha v1alpha
-rm -rf depscloud_api
-
 go-bindata -fs -pkg swagger -o swagger.go $(find . -iname *.swagger.json)
 popd

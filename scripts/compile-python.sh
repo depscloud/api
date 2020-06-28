@@ -11,6 +11,7 @@ readonly PYTHON_PACKAGE_DIR="${ROOT_DIR}/packages/depscloud-api-python"
 python -m grpc_tools.protoc \
   -I=${ROOT_DIR}/proto/src \
   -I=${ROOT_DIR}/proto/lib \
+  -I=${ROOT_DIR}/proto/lib/grpc-gateway/ \
   -I=${ROOT_DIR}/proto/lib/grpc-gateway/third_party/googleapis \
   --python_out=${PYTHON_PACKAGE_DIR} \
   --grpc_python_out=${PYTHON_PACKAGE_DIR} \
