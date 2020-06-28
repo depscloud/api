@@ -1,38 +1,11 @@
 # api
 
 All deps.cloud API definitions consolidated into a single repository.
-This repository currently produces 2 libraries:
+This repository currently produces 3 libraries:
 
 * npm: [@depscloud/api](https://www.npmjs.com/package/@depscloud/api)
+* pip: [depscloud_api](#TBD)
 * vgo: [github.com/depscloud/api](https://github.com/depscloud/api)
-
-## Getting Started with NodeJS
-
-To install:
-
-``` bash
-npm install --save @depscloud/api
-```
-
-Usage:
-
-```javascript
-const grpc = require('grpc');
-
-const { DependencyExtractor } = require('@depscloud/api/v1alpha/extractor');
-const {
-    SourceService,
-    ModuleService,
-    DependencyService,
-} = require('@depscloud/api/v1alpha/tracker');
-
-const credentials = grpc.credentials.createInsecure();
-
-const dependencyExtractor = new DependencyExtractor('gateway:80', credentials);
-const sourceService = new SourceService('gateway:80', credentials);
-const moduleService = new ModuleService('gateway:80', credentials);
-const dependencyService = new DependencyService('gateway:80', credentials);
-```
 
 ## Getting Started with Go
 

@@ -1,0 +1,123 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "depscloud_api/v1alpha/store/store.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "storeDeleteResponse": {
+      "type": "object"
+    },
+    "storeFindResponse": {
+      "type": "object",
+      "properties": {
+        "pairs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/storeGraphItemPair"
+          }
+        }
+      }
+    },
+    "storeGraphItem": {
+      "type": "object",
+      "properties": {
+        "graphItemType": {
+          "type": "string"
+        },
+        "k1": {
+          "type": "string",
+          "format": "byte"
+        },
+        "k2": {
+          "type": "string",
+          "format": "byte"
+        },
+        "k3": {
+          "type": "string",
+          "format": "byte"
+        },
+        "encoding": {
+          "$ref": "#/definitions/storeGraphItemEncoding"
+        },
+        "graphItemData": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "storeGraphItemEncoding": {
+      "type": "string",
+      "enum": [
+        "RAW",
+        "JSON"
+      ],
+      "default": "RAW"
+    },
+    "storeGraphItemPair": {
+      "type": "object",
+      "properties": {
+        "edge": {
+          "$ref": "#/definitions/storeGraphItem"
+        },
+        "node": {
+          "$ref": "#/definitions/storeGraphItem"
+        }
+      }
+    },
+    "storeListResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/storeGraphItem"
+          }
+        }
+      }
+    },
+    "storePutResponse": {
+      "type": "object"
+    }
+  }
+}

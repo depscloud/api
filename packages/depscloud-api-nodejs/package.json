@@ -1,7 +1,7 @@
 {
   "name": "@depscloud/api",
   "version": "0.1.5",
-  "description": "API to backing deps.cloud services",
+  "description": "NodeJS client to the deps.cloud API",
   "main": "index.js",
   "author": "mjpitz",
   "repository": {

@@ -2,10 +2,10 @@ syntax = "proto3";
 
 package cloud.deps.api.v1alpha.tracker;
 
-import "v1alpha/deps/deps.proto";
-import "v1alpha/schema/schema.proto";
+import "depscloud_api/v1alpha/deps/deps.proto";
+import "depscloud_api/v1alpha/schema/schema.proto";
 
-import "github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis/google/api/annotations.proto";
+import "grpc-gateway/third_party/googleapis/google/api/annotations.proto";
 
 option go_package = "github.com/depscloud/api/v1alpha/tracker";
 
