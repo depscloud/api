@@ -13,7 +13,6 @@ _sym_db = _symbol_database.Default()
 
 from depscloud_api.v1alpha.deps import deps_pb2 as depscloud__api_dot_v1alpha_dot_deps_dot_deps__pb2
 from depscloud_api.v1alpha.schema import schema_pb2 as depscloud__api_dot_v1alpha_dot_schema_dot_schema__pb2
-from grpc_gateway.third_party.googleapis.google.api import annotations_pb2 as grpc__gateway_dot_third__party_dot_googleapis_dot_google_dot_api_dot_annotations__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -22,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z(github.com/depscloud/api/v1alpha/tracker',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n+depscloud_api/v1alpha/tracker/tracker.proto\x12\x1e\x63loud.deps.api.v1alpha.tracker\x1a%depscloud_api/v1alpha/deps/deps.proto\x1a)depscloud_api/v1alpha/schema/schema.proto\x1a@grpc-gateway/third_party/googleapis/google/api/annotations.proto\"\x96\x01\n\rSourceRequest\x12\x35\n\x06source\x18\x01 \x01(\x0b\x32%.cloud.deps.api.v1alpha.schema.Source\x12N\n\x0fmanagementFiles\x18\x02 \x03(\x0b\x32\x35.cloud.deps.api.v1alpha.deps.DependencyManagementFile\"*\n\x0bListRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\r\n\x05\x63ount\x18\x02 \x01(\x05\"!\n\rTrackResponse\x12\x10\n\x08tracking\x18\x01 \x01(\x08\"i\n\x12ListSourceResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\r\n\x05\x63ount\x18\x02 \x01(\x05\x12\x36\n\x07sources\x18\x03 \x03(\x0b\x32%.cloud.deps.api.v1alpha.schema.Source\"i\n\x12ListModuleResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\r\n\x05\x63ount\x18\x02 \x01(\x05\x12\x36\n\x07modules\x18\x03 \x03(\x0b\x32%.cloud.deps.api.v1alpha.schema.Module\"\x7f\n\rManagedSource\x12\x35\n\x06source\x18\x01 \x01(\x0b\x32%.cloud.deps.api.v1alpha.schema.Source\x12\x37\n\x07manages\x18\x02 \x01(\x0b\x32&.cloud.deps.api.v1alpha.schema.Manages\"\x7f\n\rManagedModule\x12\x37\n\x07manages\x18\x01 \x01(\x0b\x32&.cloud.deps.api.v1alpha.schema.Manages\x12\x35\n\x06module\x18\x02 \x01(\x0b\x32%.cloud.deps.api.v1alpha.schema.Module\"U\n\x13ListSourcesResponse\x12>\n\x07sources\x18\x01 \x03(\x0b\x32-.cloud.deps.api.v1alpha.tracker.ManagedSource\"U\n\x13ListManagedResponse\x12>\n\x07modules\x18\x01 \x03(\x0b\x32-.cloud.deps.api.v1alpha.tracker.ManagedModule\"K\n\x11\x44\x65pendencyRequest\x12\x10\n\x08language\x18\x01 \x01(\t\x12\x14\n\x0corganization\x18\x05 \x01(\t\x12\x0e\n\x06module\x18\x06 \x01(\t\"|\n\nDependency\x12\x37\n\x07\x64\x65pends\x18\x01 \x01(\x0b\x32&.cloud.deps.api.v1alpha.schema.Depends\x12\x35\n\x06module\x18\x02 \x01(\x0b\x32%.cloud.deps.api.v1alpha.schema.Module\"X\n\x16ListDependentsResponse\x12>\n\ndependents\x18\x01 \x03(\x0b\x32*.cloud.deps.api.v1alpha.tracker.Dependency\"\\\n\x18ListDependenciesResponse\x12@\n\x0c\x64\x65pendencies\x18\x01 \x03(\x0b\x32*.cloud.deps.api.v1alpha.tracker.Dependency2\x9e\x02\n\rSourceService\x12\x81\x01\n\x04List\x12+.cloud.deps.api.v1alpha.tracker.ListRequest\x1a\x32.cloud.deps.api.v1alpha.tracker.ListSourceResponse\"\x18\x82\xd3\xe4\x93\x02\x12\x12\x10/v1alpha/sources\x12\x88\x01\n\x05Track\x12-.cloud.deps.api.v1alpha.tracker.SourceRequest\x1a-.cloud.deps.api.v1alpha.tracker.TrackResponse\"!\x82\xd3\xe4\x93\x02\x1b\"\x16/v1alpha/sources/track:\x01*2\xae\x03\n\rModuleService\x12\x81\x01\n\x04List\x12+.cloud.deps.api.v1alpha.tracker.ListRequest\x1a\x32.cloud.deps.api.v1alpha.tracker.ListModuleResponse\"\x18\x82\xd3\xe4\x93\x02\x12\x12\x10/v1alpha/modules\x12\x8a\x01\n\x0bListSources\x12%.cloud.deps.api.v1alpha.schema.Module\x1a\x33.cloud.deps.api.v1alpha.tracker.ListSourcesResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\x12\x17/v1alpha/modules/source\x12\x8b\x01\n\x0bListManaged\x12%.cloud.deps.api.v1alpha.schema.Source\x1a\x33.cloud.deps.api.v1alpha.tracker.ListManagedResponse\" \x82\xd3\xe4\x93\x02\x1a\x12\x18/v1alpha/modules/managed2\xf1\x02\n\x11\x44\x65pendencyService\x12\xa9\x01\n\x0eListDependents\x12\x31.cloud.deps.api.v1alpha.tracker.DependencyRequest\x1a\x36.cloud.deps.api.v1alpha.tracker.ListDependentsResponse\",\x82\xd3\xe4\x93\x02&\x12$/v1alpha/graph/{language}/dependents\x12\xaf\x01\n\x10ListDependencies\x12\x31.cloud.deps.api.v1alpha.tracker.DependencyRequest\x1a\x38.cloud.deps.api.v1alpha.tracker.ListDependenciesResponse\".\x82\xd3\xe4\x93\x02(\x12&/v1alpha/graph/{language}/dependenciesB*Z(github.com/depscloud/api/v1alpha/trackerb\x06proto3'
+  serialized_pb=b'\n+depscloud_api/v1alpha/tracker/tracker.proto\x12\x1e\x63loud.deps.api.v1alpha.tracker\x1a%depscloud_api/v1alpha/deps/deps.proto\x1a)depscloud_api/v1alpha/schema/schema.proto\"\x96\x01\n\rSourceRequest\x12\x35\n\x06source\x18\x01 \x01(\x0b\x32%.cloud.deps.api.v1alpha.schema.Source\x12N\n\x0fmanagementFiles\x18\x02 \x03(\x0b\x32\x35.cloud.deps.api.v1alpha.deps.DependencyManagementFile\"*\n\x0bListRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\r\n\x05\x63ount\x18\x02 \x01(\x05\"!\n\rTrackResponse\x12\x10\n\x08tracking\x18\x01 \x01(\x08\"i\n\x12ListSourceResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\r\n\x05\x63ount\x18\x02 \x01(\x05\x12\x36\n\x07sources\x18\x03 \x03(\x0b\x32%.cloud.deps.api.v1alpha.schema.Source\"i\n\x12ListModuleResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\r\n\x05\x63ount\x18\x02 \x01(\x05\x12\x36\n\x07modules\x18\x03 \x03(\x0b\x32%.cloud.deps.api.v1alpha.schema.Module\"\x7f\n\rManagedSource\x12\x35\n\x06source\x18\x01 \x01(\x0b\x32%.cloud.deps.api.v1alpha.schema.Source\x12\x37\n\x07manages\x18\x02 \x01(\x0b\x32&.cloud.deps.api.v1alpha.schema.Manages\"\x7f\n\rManagedModule\x12\x37\n\x07manages\x18\x01 \x01(\x0b\x32&.cloud.deps.api.v1alpha.schema.Manages\x12\x35\n\x06module\x18\x02 \x01(\x0b\x32%.cloud.deps.api.v1alpha.schema.Module\"U\n\x13ListSourcesResponse\x12>\n\x07sources\x18\x01 \x03(\x0b\x32-.cloud.deps.api.v1alpha.tracker.ManagedSource\"U\n\x13ListManagedResponse\x12>\n\x07modules\x18\x01 \x03(\x0b\x32-.cloud.deps.api.v1alpha.tracker.ManagedModule\"K\n\x11\x44\x65pendencyRequest\x12\x10\n\x08language\x18\x01 \x01(\t\x12\x14\n\x0corganization\x18\x05 \x01(\t\x12\x0e\n\x06module\x18\x06 \x01(\t\"|\n\nDependency\x12\x37\n\x07\x64\x65pends\x18\x01 \x01(\x0b\x32&.cloud.deps.api.v1alpha.schema.Depends\x12\x35\n\x06module\x18\x02 \x01(\x0b\x32%.cloud.deps.api.v1alpha.schema.Module\"X\n\x16ListDependentsResponse\x12>\n\ndependents\x18\x01 \x03(\x0b\x32*.cloud.deps.api.v1alpha.tracker.Dependency\"\\\n\x18ListDependenciesResponse\x12@\n\x0c\x64\x65pendencies\x18\x01 \x03(\x0b\x32*.cloud.deps.api.v1alpha.tracker.Dependency2\xdf\x01\n\rSourceService\x12g\n\x04List\x12+.cloud.deps.api.v1alpha.tracker.ListRequest\x1a\x32.cloud.deps.api.v1alpha.tracker.ListSourceResponse\x12\x65\n\x05Track\x12-.cloud.deps.api.v1alpha.tracker.SourceRequest\x1a-.cloud.deps.api.v1alpha.tracker.TrackResponse2\xce\x02\n\rModuleService\x12g\n\x04List\x12+.cloud.deps.api.v1alpha.tracker.ListRequest\x1a\x32.cloud.deps.api.v1alpha.tracker.ListModuleResponse\x12i\n\x0bListSources\x12%.cloud.deps.api.v1alpha.schema.Module\x1a\x33.cloud.deps.api.v1alpha.tracker.ListSourcesResponse\x12i\n\x0bListManaged\x12%.cloud.deps.api.v1alpha.schema.Source\x1a\x33.cloud.deps.api.v1alpha.tracker.ListManagedResponse2\x91\x02\n\x11\x44\x65pendencyService\x12{\n\x0eListDependents\x12\x31.cloud.deps.api.v1alpha.tracker.DependencyRequest\x1a\x36.cloud.deps.api.v1alpha.tracker.ListDependentsResponse\x12\x7f\n\x10ListDependencies\x12\x31.cloud.deps.api.v1alpha.tracker.DependencyRequest\x1a\x38.cloud.deps.api.v1alpha.tracker.ListDependenciesResponseB*Z(github.com/depscloud/api/v1alpha/trackerb\x06proto3'
   ,
-  dependencies=[depscloud__api_dot_v1alpha_dot_deps_dot_deps__pb2.DESCRIPTOR,depscloud__api_dot_v1alpha_dot_schema_dot_schema__pb2.DESCRIPTOR,grpc__gateway_dot_third__party_dot_googleapis_dot_google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[depscloud__api_dot_v1alpha_dot_deps_dot_deps__pb2.DESCRIPTOR,depscloud__api_dot_v1alpha_dot_schema_dot_schema__pb2.DESCRIPTOR,])
 
 
 
@@ -63,8 +62,8 @@ _SOURCEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=228,
-  serialized_end=378,
+  serialized_start=162,
+  serialized_end=312,
 )
 
 
@@ -102,8 +101,8 @@ _LISTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=380,
-  serialized_end=422,
+  serialized_start=314,
+  serialized_end=356,
 )
 
 
@@ -134,8 +133,8 @@ _TRACKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=424,
-  serialized_end=457,
+  serialized_start=358,
+  serialized_end=391,
 )
 
 
@@ -180,8 +179,8 @@ _LISTSOURCERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=459,
-  serialized_end=564,
+  serialized_start=393,
+  serialized_end=498,
 )
 
 
@@ -226,8 +225,8 @@ _LISTMODULERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=566,
-  serialized_end=671,
+  serialized_start=500,
+  serialized_end=605,
 )
 
 
@@ -265,8 +264,8 @@ _MANAGEDSOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=673,
-  serialized_end=800,
+  serialized_start=607,
+  serialized_end=734,
 )
 
 
@@ -304,8 +303,8 @@ _MANAGEDMODULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=802,
-  serialized_end=929,
+  serialized_start=736,
+  serialized_end=863,
 )
 
 
@@ -336,8 +335,8 @@ _LISTSOURCESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=931,
-  serialized_end=1016,
+  serialized_start=865,
+  serialized_end=950,
 )
 
 
@@ -368,8 +367,8 @@ _LISTMANAGEDRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1018,
-  serialized_end=1103,
+  serialized_start=952,
+  serialized_end=1037,
 )
 
 
@@ -414,8 +413,8 @@ _DEPENDENCYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1105,
-  serialized_end=1180,
+  serialized_start=1039,
+  serialized_end=1114,
 )
 
 
@@ -453,8 +452,8 @@ _DEPENDENCY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1182,
-  serialized_end=1306,
+  serialized_start=1116,
+  serialized_end=1240,
 )
 
 
@@ -485,8 +484,8 @@ _LISTDEPENDENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1308,
-  serialized_end=1396,
+  serialized_start=1242,
+  serialized_end=1330,
 )
 
 
@@ -517,8 +516,8 @@ _LISTDEPENDENCIESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1398,
-  serialized_end=1490,
+  serialized_start=1332,
+  serialized_end=1424,
 )
 
 _SOURCEREQUEST.fields_by_name['source'].message_type = depscloud__api_dot_v1alpha_dot_schema_dot_schema__pb2._SOURCE
@@ -651,8 +650,8 @@ _SOURCESERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1493,
-  serialized_end=1779,
+  serialized_start=1427,
+  serialized_end=1650,
   methods=[
   _descriptor.MethodDescriptor(
     name='List',
@@ -661,7 +660,7 @@ _SOURCESERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_LISTREQUEST,
     output_type=_LISTSOURCERESPONSE,
-    serialized_options=b'\202\323\344\223\002\022\022\020/v1alpha/sources',
+    serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -671,7 +670,7 @@ _SOURCESERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_SOURCEREQUEST,
     output_type=_TRACKRESPONSE,
-    serialized_options=b'\202\323\344\223\002\033\"\026/v1alpha/sources/track:\001*',
+    serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
 ])
@@ -687,8 +686,8 @@ _MODULESERVICE = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1782,
-  serialized_end=2212,
+  serialized_start=1653,
+  serialized_end=1987,
   methods=[
   _descriptor.MethodDescriptor(
     name='List',
@@ -697,7 +696,7 @@ _MODULESERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_LISTREQUEST,
     output_type=_LISTMODULERESPONSE,
-    serialized_options=b'\202\323\344\223\002\022\022\020/v1alpha/modules',
+    serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -707,7 +706,7 @@ _MODULESERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=depscloud__api_dot_v1alpha_dot_schema_dot_schema__pb2._MODULE,
     output_type=_LISTSOURCESRESPONSE,
-    serialized_options=b'\202\323\344\223\002\031\022\027/v1alpha/modules/source',
+    serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -717,7 +716,7 @@ _MODULESERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=depscloud__api_dot_v1alpha_dot_schema_dot_schema__pb2._SOURCE,
     output_type=_LISTMANAGEDRESPONSE,
-    serialized_options=b'\202\323\344\223\002\032\022\030/v1alpha/modules/managed',
+    serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
 ])
@@ -733,8 +732,8 @@ _DEPENDENCYSERVICE = _descriptor.ServiceDescriptor(
   index=2,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2215,
-  serialized_end=2584,
+  serialized_start=1990,
+  serialized_end=2263,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListDependents',
@@ -743,7 +742,7 @@ _DEPENDENCYSERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_DEPENDENCYREQUEST,
     output_type=_LISTDEPENDENTSRESPONSE,
-    serialized_options=b'\202\323\344\223\002&\022$/v1alpha/graph/{language}/dependents',
+    serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -753,7 +752,7 @@ _DEPENDENCYSERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_DEPENDENCYREQUEST,
     output_type=_LISTDEPENDENCIESRESPONSE,
-    serialized_options=b'\202\323\344\223\002(\022&/v1alpha/graph/{language}/dependencies',
+    serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
 ])

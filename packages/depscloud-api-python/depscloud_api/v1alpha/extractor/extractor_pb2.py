@@ -12,7 +12,6 @@ _sym_db = _symbol_database.Default()
 
 
 from depscloud_api.v1alpha.deps import deps_pb2 as depscloud__api_dot_v1alpha_dot_deps_dot_deps__pb2
-from grpc_gateway.third_party.googleapis.google.api import annotations_pb2 as grpc__gateway_dot_third__party_dot_googleapis_dot_google_dot_api_dot_annotations__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -21,9 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z*github.com/depscloud/api/v1alpha/extractor',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n/depscloud_api/v1alpha/extractor/extractor.proto\x12 cloud.deps.api.v1alpha.extractor\x1a%depscloud_api/v1alpha/deps/deps.proto\x1a@grpc-gateway/third_party/googleapis/google/api/annotations.proto\"\xbf\x01\n\x0e\x45xtractRequest\x12\x11\n\tseparator\x18\x01 \x01(\t\x12X\n\x0c\x66ileContents\x18\x02 \x03(\x0b\x32\x42.cloud.deps.api.v1alpha.extractor.ExtractRequest.FileContentsEntry\x12\x0b\n\x03url\x18\x03 \x01(\t\x1a\x33\n\x11\x46ileContentsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"a\n\x0f\x45xtractResponse\x12N\n\x0fmanagementFiles\x18\x01 \x03(\x0b\x32\x35.cloud.deps.api.v1alpha.deps.DependencyManagementFile\"0\n\x0cMatchRequest\x12\x11\n\tseparator\x18\x01 \x01(\t\x12\r\n\x05paths\x18\x02 \x03(\t\"%\n\rMatchResponse\x12\x14\n\x0cmatchedPaths\x18\x01 \x03(\t2\xc3\x02\n\x13\x44\x65pendencyExtractor\x12\x90\x01\n\x05Match\x12..cloud.deps.api.v1alpha.extractor.MatchRequest\x1a/.cloud.deps.api.v1alpha.extractor.MatchResponse\"&\x82\xd3\xe4\x93\x02 \"\x1b/v1alpha/dependencies/match:\x01*\x12\x98\x01\n\x07\x45xtract\x12\x30.cloud.deps.api.v1alpha.extractor.ExtractRequest\x1a\x31.cloud.deps.api.v1alpha.extractor.ExtractResponse\"(\x82\xd3\xe4\x93\x02\"\"\x1d/v1alpha/dependencies/extract:\x01*B,Z*github.com/depscloud/api/v1alpha/extractorb\x06proto3'
+  serialized_pb=b'\n/depscloud_api/v1alpha/extractor/extractor.proto\x12 cloud.deps.api.v1alpha.extractor\x1a%depscloud_api/v1alpha/deps/deps.proto\"\xbf\x01\n\x0e\x45xtractRequest\x12\x11\n\tseparator\x18\x01 \x01(\t\x12X\n\x0c\x66ileContents\x18\x02 \x03(\x0b\x32\x42.cloud.deps.api.v1alpha.extractor.ExtractRequest.FileContentsEntry\x12\x0b\n\x03url\x18\x03 \x01(\t\x1a\x33\n\x11\x46ileContentsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"a\n\x0f\x45xtractResponse\x12N\n\x0fmanagementFiles\x18\x01 \x03(\x0b\x32\x35.cloud.deps.api.v1alpha.deps.DependencyManagementFile\"0\n\x0cMatchRequest\x12\x11\n\tseparator\x18\x01 \x01(\t\x12\r\n\x05paths\x18\x02 \x03(\t\"%\n\rMatchResponse\x12\x14\n\x0cmatchedPaths\x18\x01 \x03(\t2\xef\x01\n\x13\x44\x65pendencyExtractor\x12h\n\x05Match\x12..cloud.deps.api.v1alpha.extractor.MatchRequest\x1a/.cloud.deps.api.v1alpha.extractor.MatchResponse\x12n\n\x07\x45xtract\x12\x30.cloud.deps.api.v1alpha.extractor.ExtractRequest\x1a\x31.cloud.deps.api.v1alpha.extractor.ExtractResponseB,Z*github.com/depscloud/api/v1alpha/extractorb\x06proto3'
   ,
-  dependencies=[depscloud__api_dot_v1alpha_dot_deps_dot_deps__pb2.DESCRIPTOR,grpc__gateway_dot_third__party_dot_googleapis_dot_google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[depscloud__api_dot_v1alpha_dot_deps_dot_deps__pb2.DESCRIPTOR,])
 
 
 
@@ -62,8 +61,8 @@ _EXTRACTREQUEST_FILECONTENTSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=331,
-  serialized_end=382,
+  serialized_start=265,
+  serialized_end=316,
 )
 
 _EXTRACTREQUEST = _descriptor.Descriptor(
@@ -107,8 +106,8 @@ _EXTRACTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=191,
-  serialized_end=382,
+  serialized_start=125,
+  serialized_end=316,
 )
 
 
@@ -139,8 +138,8 @@ _EXTRACTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=384,
-  serialized_end=481,
+  serialized_start=318,
+  serialized_end=415,
 )
 
 
@@ -178,8 +177,8 @@ _MATCHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=483,
-  serialized_end=531,
+  serialized_start=417,
+  serialized_end=465,
 )
 
 
@@ -210,8 +209,8 @@ _MATCHRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=533,
-  serialized_end=570,
+  serialized_start=467,
+  serialized_end=504,
 )
 
 _EXTRACTREQUEST_FILECONTENTSENTRY.containing_type = _EXTRACTREQUEST
@@ -270,8 +269,8 @@ _DEPENDENCYEXTRACTOR = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=573,
-  serialized_end=896,
+  serialized_start=507,
+  serialized_end=746,
   methods=[
   _descriptor.MethodDescriptor(
     name='Match',
@@ -280,7 +279,7 @@ _DEPENDENCYEXTRACTOR = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_MATCHREQUEST,
     output_type=_MATCHRESPONSE,
-    serialized_options=b'\202\323\344\223\002 \"\033/v1alpha/dependencies/match:\001*',
+    serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -290,7 +289,7 @@ _DEPENDENCYEXTRACTOR = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_EXTRACTREQUEST,
     output_type=_EXTRACTRESPONSE,
-    serialized_options=b'\202\323\344\223\002\"\"\035/v1alpha/dependencies/extract:\001*',
+    serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
 ])

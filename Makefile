@@ -11,6 +11,8 @@ builder-grpc-nodejs:
 builder-grpc-python:
 	docker build docker/builder-grpc-python/ -t depscloud/builder-grpc-python
 
+builder: builder-grpc-golang builder-grpc-nodejs builder-grpc-python
+
 ## =========
 ## Protolibs
 ## =========
@@ -44,12 +46,6 @@ compile-python:
 		-w /depscloud/api \
 		depscloud/builder-grpc-python \
 		bash scripts/compile-files.sh compile-python
-	# pythons special and requires this as well.
-	docker run --rm -it \
-    		-v $(PWD):/depscloud/api \
-    		-w /depscloud/api \
-    		depscloud/builder-grpc-python \
-    		bash scripts/compile-files.sh compile-python lib
 	cp LICENSE packages/depscloud-api-python
 
 compile-swagger:
