@@ -13,13 +13,6 @@ builder-grpc-python:
 
 builder: builder-grpc-golang builder-grpc-nodejs builder-grpc-python
 
-## =========
-## Protolibs
-## =========
-
-deps:
-	git submodule update --init --recursive
-
 ## ===================
 ## Compilation Targets
 ## ===================
