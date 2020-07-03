@@ -3,6 +3,7 @@
 To install:
 
 ```txt
+protobuf==3.12.2
 grpcio==1.30.0
 depscloud_api==0.1.5
 ```
@@ -11,9 +12,14 @@ Usage:
 
 ```python
 import grpc
-from depscloud_api.v1alpha1.tacker import tracker_pb2_grpc
+from depscloud_api.v1alpha.tracker import tracker_pb2_grpc, tracker_pb2
 
-sourceService = tracker_pb2_grpc.SourceServiceStub(grpc.insecure_channel('gateway:80'))
-moduleService = tracker_pb2_grpc.ModuleServiceStub(grpc.insecure_channel('gateway:80'))
-dependencyService = tracker_pb2_grpc.DependencyServiceStub(grpc.insecure_channel('gateway:80'))
+target = "api.deps.cloud:443"
+creds = grpc.ssl_channel_credentials()
+
+channel = grpc.secure_channel(target, creds)
+
+sourceService = tracker_pb2_grpc.SourceServiceStub(channel)
+moduleService = tracker_pb2_grpc.ModuleServiceStub(channel)
+dependencyService = tracker_pb2_grpc.DependencyServiceStub(channel)
 ```

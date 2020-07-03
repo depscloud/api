@@ -9,7 +9,7 @@ npm install --save @depscloud/api
 Usage:
 
 ```javascript
-const grpc = require('grpc');
+const grpc = require('@grpc/grpc-js');
 
 const { DependencyExtractor } = require('@depscloud/api/v1alpha/extractor');
 const {
@@ -18,10 +18,10 @@ const {
     DependencyService,
 } = require('@depscloud/api/v1alpha/tracker');
 
-const credentials = grpc.credentials.createInsecure();
+const target = "api.deps.cloud:443";
+const creds = grpc.credentials.createSsl();
 
-const dependencyExtractor = new DependencyExtractor('gateway:80', credentials);
-const sourceService = new SourceService('gateway:80', credentials);
-const moduleService = new ModuleService('gateway:80', credentials);
-const dependencyService = new DependencyService('gateway:80', credentials);
+const sourceService = new SourceService(target, creds);
+const moduleService = new ModuleService(target, creds);
+const dependencyService = new DependencyService(target, creds);
 ```

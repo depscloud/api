@@ -46,7 +46,7 @@ compile-python:
 		-w /depscloud/api \
 		depscloud/builder-grpc-python \
 		bash scripts/compile-files.sh compile-python
-	cp LICENSE packages/depscloud-api-python
+	cp LICENSE packages/depscloud-api-python/LICENSE.txt
 
 compile-swagger:
 	docker run --rm -it \
