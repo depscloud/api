@@ -321,13 +321,13 @@
         "modules": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/schemaModule"
+            "$ref": "#/definitions/trackerManagedModule"
           }
         },
         "sources": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/schemaSource"
+            "$ref": "#/definitions/trackerManagedSource"
           }
         }
       }

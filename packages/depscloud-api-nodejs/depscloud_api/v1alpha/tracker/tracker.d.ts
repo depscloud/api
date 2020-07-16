@@ -21,10 +21,10 @@ import {
 } from "../deps/deps";
 
 import {
-  Source,
-  Module,
-  Manages,
   Depends,
+  Manages,
+  Module,
+  Source,
 } from "../schema/schema";
 
 export interface SourceRequest {
@@ -102,8 +102,8 @@ export interface SearchResponse {
   request: SearchRequest;
   dependents: Array<Dependency>;
   dependencies: Array<Dependency>;
-  modules: Array<Module>;
-  sources: Array<Source>;
+  modules: Array<ManagedModule>;
+  sources: Array<ManagedSource>;
 }
 
 export interface ISourceService { 

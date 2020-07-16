@@ -107,8 +107,8 @@ message SearchResponse {
 
     repeated Dependency dependents = 5;
     repeated Dependency dependencies = 6;
-    repeated cloud.deps.api.v1alpha.schema.Module modules = 7;
-    repeated cloud.deps.api.v1alpha.schema.Source sources = 8;
+    repeated ManagedModule modules = 7;
+    repeated ManagedSource sources = 8;
 }
 
 service SearchService {
