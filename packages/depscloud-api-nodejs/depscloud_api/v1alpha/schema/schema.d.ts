@@ -21,7 +21,7 @@ export interface Module {
 
 export interface Depends {
   language: string;
-  version_constraint: string;
+  versionConstraint: string;
   scopes: Array<string>;
   ref: string;
 }
