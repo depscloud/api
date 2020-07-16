@@ -2,18 +2,18 @@
 // source: depscloud_api/v1alpha/store/store.proto
 
 import {
-	ChannelCredentials, 
-    Client, 
-    ClientUnaryCall,
-    ClientReadableStream,
-    ClientWritableStream,
-    ClientDuplexStream,
-	Metadata,
-    ServerUnaryCall,
-    ServerReadableStream,
-    ServerWritableStream,
-    ServerDuplexStream,
-    ServiceDefinition,
+  ChannelCredentials, 
+  Client, 
+  ClientUnaryCall,
+  ClientReadableStream,
+  ClientWritableStream,
+  ClientDuplexStream,
+  Metadata,
+  ServerUnaryCall,
+  ServerReadableStream,
+  ServerWritableStream,
+  ServerDuplexStream,
+  ServiceDefinition,
 } from "@grpc/grpc-js";
 
 export enum GraphItemEncoding {
@@ -70,26 +70,26 @@ export interface FindResponse {
 }
 
 export interface IGraphStore { 
-    put(call: ServerUnaryCall<PutRequest, PutResponse>, callback: (error: Error, response: PutResponse) => void): void; 
-    delete(call: ServerUnaryCall<DeleteRequest, DeleteResponse>, callback: (error: Error, response: DeleteResponse) => void): void; 
-    list(call: ServerUnaryCall<ListRequest, ListResponse>, callback: (error: Error, response: ListResponse) => void): void; 
-    findUpstream(call: ServerUnaryCall<FindRequest, FindResponse>, callback: (error: Error, response: FindResponse) => void): void; 
-    findDownstream(call: ServerUnaryCall<FindRequest, FindResponse>, callback: (error: Error, response: FindResponse) => void): void;
+  put(call: ServerUnaryCall<PutRequest, PutResponse>, callback: (error: Error, response: PutResponse) => void): void; 
+  delete(call: ServerUnaryCall<DeleteRequest, DeleteResponse>, callback: (error: Error, response: DeleteResponse) => void): void; 
+  list(call: ServerUnaryCall<ListRequest, ListResponse>, callback: (error: Error, response: ListResponse) => void): void; 
+  findUpstream(call: ServerUnaryCall<FindRequest, FindResponse>, callback: (error: Error, response: FindResponse) => void): void; 
+  findDownstream(call: ServerUnaryCall<FindRequest, FindResponse>, callback: (error: Error, response: FindResponse) => void): void;
 }
 
 export class GraphStore extends Client {
-    public static service: ServiceDefinition<IGraphStore>;
+  public static service: ServiceDefinition<IGraphStore>;
 
-    constructor(address: string, credentials: ChannelCredentials, options?: object); 
-    public put(request: PutRequest, callback: (error: Error, response: PutResponse) => void): void;
-    public put(request: PutRequest, metadata: Metadata, callback: (error: Error, response: PutResponse) => void): void; 
-    public delete(request: DeleteRequest, callback: (error: Error, response: DeleteResponse) => void): void;
-    public delete(request: DeleteRequest, metadata: Metadata, callback: (error: Error, response: DeleteResponse) => void): void; 
-    public list(request: ListRequest, callback: (error: Error, response: ListResponse) => void): void;
-    public list(request: ListRequest, metadata: Metadata, callback: (error: Error, response: ListResponse) => void): void; 
-    public findUpstream(request: FindRequest, callback: (error: Error, response: FindResponse) => void): void;
-    public findUpstream(request: FindRequest, metadata: Metadata, callback: (error: Error, response: FindResponse) => void): void; 
-    public findDownstream(request: FindRequest, callback: (error: Error, response: FindResponse) => void): void;
-    public findDownstream(request: FindRequest, metadata: Metadata, callback: (error: Error, response: FindResponse) => void): void;
+  constructor(address: string, credentials: ChannelCredentials, options?: object); 
+  public put(request: PutRequest, callback: (error: Error, response: PutResponse) => void): void;
+  public put(request: PutRequest, metadata: Metadata, callback: (error: Error, response: PutResponse) => void): void; 
+  public delete(request: DeleteRequest, callback: (error: Error, response: DeleteResponse) => void): void;
+  public delete(request: DeleteRequest, metadata: Metadata, callback: (error: Error, response: DeleteResponse) => void): void; 
+  public list(request: ListRequest, callback: (error: Error, response: ListResponse) => void): void;
+  public list(request: ListRequest, metadata: Metadata, callback: (error: Error, response: ListResponse) => void): void; 
+  public findUpstream(request: FindRequest, callback: (error: Error, response: FindResponse) => void): void;
+  public findUpstream(request: FindRequest, metadata: Metadata, callback: (error: Error, response: FindResponse) => void): void; 
+  public findDownstream(request: FindRequest, callback: (error: Error, response: FindResponse) => void): void;
+  public findDownstream(request: FindRequest, metadata: Metadata, callback: (error: Error, response: FindResponse) => void): void;
 }
 

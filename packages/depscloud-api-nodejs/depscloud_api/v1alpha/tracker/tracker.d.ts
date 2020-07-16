@@ -2,18 +2,18 @@
 // source: depscloud_api/v1alpha/tracker/tracker.proto
 
 import {
-	ChannelCredentials, 
-    Client, 
-    ClientUnaryCall,
-    ClientReadableStream,
-    ClientWritableStream,
-    ClientDuplexStream,
-	Metadata,
-    ServerUnaryCall,
-    ServerReadableStream,
-    ServerWritableStream,
-    ServerDuplexStream,
-    ServiceDefinition,
+  ChannelCredentials, 
+  Client, 
+  ClientUnaryCall,
+  ClientReadableStream,
+  ClientWritableStream,
+  ClientDuplexStream,
+  Metadata,
+  ServerUnaryCall,
+  ServerReadableStream,
+  ServerWritableStream,
+  ServerDuplexStream,
+  ServiceDefinition,
 } from "@grpc/grpc-js";
 
 import {
@@ -107,68 +107,68 @@ export interface SearchResponse {
 }
 
 export interface ISourceService { 
-    list(call: ServerUnaryCall<ListRequest, ListSourceResponse>, callback: (error: Error, response: ListSourceResponse) => void): void; 
-    track(call: ServerUnaryCall<SourceRequest, TrackResponse>, callback: (error: Error, response: TrackResponse) => void): void;
+  list(call: ServerUnaryCall<ListRequest, ListSourceResponse>, callback: (error: Error, response: ListSourceResponse) => void): void; 
+  track(call: ServerUnaryCall<SourceRequest, TrackResponse>, callback: (error: Error, response: TrackResponse) => void): void;
 }
 
 export class SourceService extends Client {
-    public static service: ServiceDefinition<ISourceService>;
+  public static service: ServiceDefinition<ISourceService>;
 
-    constructor(address: string, credentials: ChannelCredentials, options?: object); 
-    public list(request: ListRequest, callback: (error: Error, response: ListSourceResponse) => void): void;
-    public list(request: ListRequest, metadata: Metadata, callback: (error: Error, response: ListSourceResponse) => void): void; 
-    public track(request: SourceRequest, callback: (error: Error, response: TrackResponse) => void): void;
-    public track(request: SourceRequest, metadata: Metadata, callback: (error: Error, response: TrackResponse) => void): void;
+  constructor(address: string, credentials: ChannelCredentials, options?: object); 
+  public list(request: ListRequest, callback: (error: Error, response: ListSourceResponse) => void): void;
+  public list(request: ListRequest, metadata: Metadata, callback: (error: Error, response: ListSourceResponse) => void): void; 
+  public track(request: SourceRequest, callback: (error: Error, response: TrackResponse) => void): void;
+  public track(request: SourceRequest, metadata: Metadata, callback: (error: Error, response: TrackResponse) => void): void;
 }
 
 export interface IModuleService { 
-    list(call: ServerUnaryCall<ListRequest, ListModuleResponse>, callback: (error: Error, response: ListModuleResponse) => void): void; 
-    listSources(call: ServerUnaryCall<Module, ListSourcesResponse>, callback: (error: Error, response: ListSourcesResponse) => void): void; 
-    listManaged(call: ServerUnaryCall<Source, ListManagedResponse>, callback: (error: Error, response: ListManagedResponse) => void): void;
+  list(call: ServerUnaryCall<ListRequest, ListModuleResponse>, callback: (error: Error, response: ListModuleResponse) => void): void; 
+  listSources(call: ServerUnaryCall<Module, ListSourcesResponse>, callback: (error: Error, response: ListSourcesResponse) => void): void; 
+  listManaged(call: ServerUnaryCall<Source, ListManagedResponse>, callback: (error: Error, response: ListManagedResponse) => void): void;
 }
 
 export class ModuleService extends Client {
-    public static service: ServiceDefinition<IModuleService>;
+  public static service: ServiceDefinition<IModuleService>;
 
-    constructor(address: string, credentials: ChannelCredentials, options?: object); 
-    public list(request: ListRequest, callback: (error: Error, response: ListModuleResponse) => void): void;
-    public list(request: ListRequest, metadata: Metadata, callback: (error: Error, response: ListModuleResponse) => void): void; 
-    public listSources(request: Module, callback: (error: Error, response: ListSourcesResponse) => void): void;
-    public listSources(request: Module, metadata: Metadata, callback: (error: Error, response: ListSourcesResponse) => void): void; 
-    public listManaged(request: Source, callback: (error: Error, response: ListManagedResponse) => void): void;
-    public listManaged(request: Source, metadata: Metadata, callback: (error: Error, response: ListManagedResponse) => void): void;
+  constructor(address: string, credentials: ChannelCredentials, options?: object); 
+  public list(request: ListRequest, callback: (error: Error, response: ListModuleResponse) => void): void;
+  public list(request: ListRequest, metadata: Metadata, callback: (error: Error, response: ListModuleResponse) => void): void; 
+  public listSources(request: Module, callback: (error: Error, response: ListSourcesResponse) => void): void;
+  public listSources(request: Module, metadata: Metadata, callback: (error: Error, response: ListSourcesResponse) => void): void; 
+  public listManaged(request: Source, callback: (error: Error, response: ListManagedResponse) => void): void;
+  public listManaged(request: Source, metadata: Metadata, callback: (error: Error, response: ListManagedResponse) => void): void;
 }
 
 export interface IDependencyService { 
-    listDependents(call: ServerUnaryCall<DependencyRequest, ListDependentsResponse>, callback: (error: Error, response: ListDependentsResponse) => void): void; 
-    listDependencies(call: ServerUnaryCall<DependencyRequest, ListDependenciesResponse>, callback: (error: Error, response: ListDependenciesResponse) => void): void;
+  listDependents(call: ServerUnaryCall<DependencyRequest, ListDependentsResponse>, callback: (error: Error, response: ListDependentsResponse) => void): void; 
+  listDependencies(call: ServerUnaryCall<DependencyRequest, ListDependenciesResponse>, callback: (error: Error, response: ListDependenciesResponse) => void): void;
 }
 
 export class DependencyService extends Client {
-    public static service: ServiceDefinition<IDependencyService>;
+  public static service: ServiceDefinition<IDependencyService>;
 
-    constructor(address: string, credentials: ChannelCredentials, options?: object); 
-    public listDependents(request: DependencyRequest, callback: (error: Error, response: ListDependentsResponse) => void): void;
-    public listDependents(request: DependencyRequest, metadata: Metadata, callback: (error: Error, response: ListDependentsResponse) => void): void; 
-    public listDependencies(request: DependencyRequest, callback: (error: Error, response: ListDependenciesResponse) => void): void;
-    public listDependencies(request: DependencyRequest, metadata: Metadata, callback: (error: Error, response: ListDependenciesResponse) => void): void;
+  constructor(address: string, credentials: ChannelCredentials, options?: object); 
+  public listDependents(request: DependencyRequest, callback: (error: Error, response: ListDependentsResponse) => void): void;
+  public listDependents(request: DependencyRequest, metadata: Metadata, callback: (error: Error, response: ListDependentsResponse) => void): void; 
+  public listDependencies(request: DependencyRequest, callback: (error: Error, response: ListDependenciesResponse) => void): void;
+  public listDependencies(request: DependencyRequest, metadata: Metadata, callback: (error: Error, response: ListDependenciesResponse) => void): void;
 }
 
 export interface ISearchService {
-	search(call: ServerDuplexStream<SearchRequest, SearchResponse>): void;
-	breadthFirstSearch(call: ServerDuplexStream<SearchRequest, SearchResponse>): void;
-	depthFirstSearch(call: ServerDuplexStream<SearchRequest, SearchResponse>): void;
+  search(call: ServerDuplexStream<SearchRequest, SearchResponse>): void;
+  breadthFirstSearch(call: ServerDuplexStream<SearchRequest, SearchResponse>): void;
+  depthFirstSearch(call: ServerDuplexStream<SearchRequest, SearchResponse>): void;
 }
 
 export class SearchService extends Client {
-    public static service: ServiceDefinition<ISearchService>;
+  public static service: ServiceDefinition<ISearchService>;
 
-    constructor(address: string, credentials: ChannelCredentials, options?: object);
-	public search(): ClientDuplexStream<SearchRequest, SearchResponse>
-	public search(metadata: Metadata): ClientDuplexStream<SearchRequest, SearchResponse>
-	public breadthFirstSearch(): ClientDuplexStream<SearchRequest, SearchResponse>
-	public breadthFirstSearch(metadata: Metadata): ClientDuplexStream<SearchRequest, SearchResponse>
-	public depthFirstSearch(): ClientDuplexStream<SearchRequest, SearchResponse>
-	public depthFirstSearch(metadata: Metadata): ClientDuplexStream<SearchRequest, SearchResponse>
+  constructor(address: string, credentials: ChannelCredentials, options?: object);
+  public search(): ClientDuplexStream<SearchRequest, SearchResponse>
+  public search(metadata: Metadata): ClientDuplexStream<SearchRequest, SearchResponse>
+  public breadthFirstSearch(): ClientDuplexStream<SearchRequest, SearchResponse>
+  public breadthFirstSearch(metadata: Metadata): ClientDuplexStream<SearchRequest, SearchResponse>
+  public depthFirstSearch(): ClientDuplexStream<SearchRequest, SearchResponse>
+  public depthFirstSearch(metadata: Metadata): ClientDuplexStream<SearchRequest, SearchResponse>
 }
 

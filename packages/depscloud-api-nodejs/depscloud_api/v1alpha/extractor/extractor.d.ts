@@ -2,18 +2,18 @@
 // source: depscloud_api/v1alpha/extractor/extractor.proto
 
 import {
-	ChannelCredentials, 
-    Client, 
-    ClientUnaryCall,
-    ClientReadableStream,
-    ClientWritableStream,
-    ClientDuplexStream,
-	Metadata,
-    ServerUnaryCall,
-    ServerReadableStream,
-    ServerWritableStream,
-    ServerDuplexStream,
-    ServiceDefinition,
+  ChannelCredentials, 
+  Client, 
+  ClientUnaryCall,
+  ClientReadableStream,
+  ClientWritableStream,
+  ClientDuplexStream,
+  Metadata,
+  ServerUnaryCall,
+  ServerReadableStream,
+  ServerWritableStream,
+  ServerDuplexStream,
+  ServiceDefinition,
 } from "@grpc/grpc-js";
 
 import {
@@ -42,17 +42,17 @@ export interface MatchResponse {
 }
 
 export interface IDependencyExtractor { 
-    match(call: ServerUnaryCall<MatchRequest, MatchResponse>, callback: (error: Error, response: MatchResponse) => void): void; 
-    extract(call: ServerUnaryCall<ExtractRequest, ExtractResponse>, callback: (error: Error, response: ExtractResponse) => void): void;
+  match(call: ServerUnaryCall<MatchRequest, MatchResponse>, callback: (error: Error, response: MatchResponse) => void): void; 
+  extract(call: ServerUnaryCall<ExtractRequest, ExtractResponse>, callback: (error: Error, response: ExtractResponse) => void): void;
 }
 
 export class DependencyExtractor extends Client {
-    public static service: ServiceDefinition<IDependencyExtractor>;
+  public static service: ServiceDefinition<IDependencyExtractor>;
 
-    constructor(address: string, credentials: ChannelCredentials, options?: object); 
-    public match(request: MatchRequest, callback: (error: Error, response: MatchResponse) => void): void;
-    public match(request: MatchRequest, metadata: Metadata, callback: (error: Error, response: MatchResponse) => void): void; 
-    public extract(request: ExtractRequest, callback: (error: Error, response: ExtractResponse) => void): void;
-    public extract(request: ExtractRequest, metadata: Metadata, callback: (error: Error, response: ExtractResponse) => void): void;
+  constructor(address: string, credentials: ChannelCredentials, options?: object); 
+  public match(request: MatchRequest, callback: (error: Error, response: MatchResponse) => void): void;
+  public match(request: MatchRequest, metadata: Metadata, callback: (error: Error, response: MatchResponse) => void): void; 
+  public extract(request: ExtractRequest, callback: (error: Error, response: ExtractResponse) => void): void;
+  public extract(request: ExtractRequest, metadata: Metadata, callback: (error: Error, response: ExtractResponse) => void): void;
 }
 
