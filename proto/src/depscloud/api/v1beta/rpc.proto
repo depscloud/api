@@ -1,3 +1,9 @@
+//
+// This file attempts to follow common styles and design patterns described by
+// Google Cloud based on their extensive use of protocol buffers.
+//
+// - See here for more: https://cloud.google.com/apis/design/design_patterns
+//
 syntax = "proto3";
 
 package depscloud.api.v1beta;
