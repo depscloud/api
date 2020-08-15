@@ -1,0 +1,17 @@
+type: google.api.Service
+config_version: 3
+
+http:
+  rules:
+    # /v1beta/manifests
+    ## ManifestExtractionService
+    - selector: depscloud.api.v1beta.ManifestExtractionService.Match
+      post: /v1beta/manifests/match
+      body: "*"
+    - selector: depscloud.api.v1beta.ManifestExtractionService.Extract
+      post: /v1beta/manifests/extract
+      body: "*"
+    ## ManifestStorageService
+    - selector: depscloud.api.v1beta.ManifestStorageService.Store
+      post: /v1beta/manifests
+      body: "*"

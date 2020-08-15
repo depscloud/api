@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package depscloud.api.v1beta;
+
+option go_package = "github.com/depscloud/api/v1beta";
+
+message Source {
+    string url = 1;
+    string ref = 2;
+    string kind = 3;
+}
+
+message Module {
+    string language = 1;
+    string name = 2;
+}
+
+message Manages {
+    string language = 1;
+    string system = 2;
+    string version = 3;
+}
+
+message DependsOn {
+    string language = 1;
+    string version_constraint = 2;
+    repeated string scopes = 3;
+    string ref = 4;
+}

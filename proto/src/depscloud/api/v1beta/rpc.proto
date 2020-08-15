@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+package depscloud.api.v1beta;
+
+import "depscloud/api/v1beta/core.proto";
+
+option go_package = "github.com/depscloud/api/v1beta";
+
+// source and module rpc
+
+message ListRequest {
+    string parent = 1;
+    int32 page_size = 2;
+    string page_token = 3;
+}
+
+message ListSourcesResponse {
+    string next_page_token = 1;
+    repeated Source sources = 2;
+}
+
+message ListModulesResponse {
+    string next_page_token = 1;
+    repeated Module modules = 2;
+}
+
+message ManagedModule {
+    Module module = 1;
+    repeated Manages edge_data = 2;
+}
+
+message ManagedSource {
+    Source source = 1;
+    repeated Manages edge_data = 2;
+}
+
+message ListManagedSourcesResponse {
+    repeated ManagedSource sources = 1;
+}
+
+message ListManagedModulesResponse {
+    repeated ManagedModule modules = 1;
+}
+
+service SourceService {
+    rpc List(ListRequest) returns (ListSourcesResponse);
+    rpc ListModules(ManagedSource) returns (ListManagedModulesResponse);
+}
+
+service ModuleService {
+    rpc List(ListRequest) returns (ListModulesResponse);
+    rpc ListSources(ManagedModule) returns (ListManagedSourcesResponse);
+}
+
+// traversal rpc
+
+message Dependency {
+    Module module = 1;
+    repeated DependsOn edge_data = 2;
+}
+
+message DependentsResponse {
+    repeated Dependency dependents = 1;
+}
+
+message DependenciesResponse {
+    repeated Dependency dependencies = 1;
+}
+
+message SearchRequest {
+    bool cancel = 1;
+
+    // one of the following
+
+    ManagedSource modulesFor = 5;
+    Dependency dependenciesFor = 6;
+    Dependency dependentsOf = 7;
+    ManagedModule sourcesOf = 8;
+}
+
+message SearchResponse {
+    SearchRequest request = 1;
+
+    // one of the following, based on the associated request
+
+    repeated ManagedModule modules = 5;
+    repeated Dependency dependencies = 6;
+    repeated Dependency dependents = 7;
+    repeated ManagedSource sources = 8;
+}
+
+service TraversalService {
+    rpc GetDependents(Dependency) returns (DependentsResponse);
+    rpc GetDependencies(Dependency) returns (DependenciesResponse);
+
+    rpc Search(stream SearchRequest) returns (stream SearchResponse);
+    rpc BreadthFirstSearch(stream SearchRequest) returns (stream SearchResponse);
+    rpc DepthFirstSearch(stream SearchRequest) returns (stream SearchResponse);
+}
