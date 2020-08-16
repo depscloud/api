@@ -1,0 +1,30 @@
+type: google.api.Service
+config_version: 3
+
+http:
+  rules:
+    # /v1beta/graph
+    ## GraphStore
+    ### Put
+    - selector: graphstore.api.v1beta.GraphStore.Put
+      put: /v1beta/graph
+      body: "*"
+    ### Delete
+    - selector: graphstore.api.v1beta.GraphStore.Delete
+      delete: /v1beta/graph
+      body: "*"
+    ### List
+    - selector: graphstore.api.v1beta.GraphStore.List
+      get: /v1beta/graph
+    - selector: graphstore.api.v1beta.GraphStore.List
+      get: /v1beta/graph/{kind}
+    ### Neighbors
+    #### all neighbors
+    - selector: graphstore.api.v1beta.GraphStore.Neighbors
+      get: /v1beta/graph/{node.kind}/{node.key}/neighbors
+    #### neighbors on the receiving end of edges
+    - selector: graphstore.api.v1beta.GraphStore.Neighbors
+      get: /v1beta/graph/{from.kind}/{from.key}/neighbors/from
+    #### neighbors on the initiating end of edges
+    - selector: graphstore.api.v1beta.GraphStore.Neighbors
+      get: /v1beta/graph/{to.kind}/{to.key}/neighbors/to
