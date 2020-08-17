@@ -114,6 +114,20 @@ message NeighborsResponse {
     repeated Neighbor neighbors = 1;
 }
 
+// TraverseRequest is used to navigate the graph, optionally halting once the
+// desired node is found.
+message TraverseRequest {
+    bool cancel = 1;
+    NeighborsRequest request = 2;
+}
+
+// TraverseResponse is used to encapsulate a traversal request and its
+// associated response data.
+message TraverseResponse {
+    NeighborsRequest request = 1;
+    NeighborsResponse response = 2;
+}
+
 // GraphStore represents a graph data structure. It provides functionality
 // that you can expect to find on most graph structures, but over a distributed
 // protocol.
@@ -126,4 +140,6 @@ service GraphStore {
     rpc List(ListRequest) returns (ListResponse);
     // Used to query data within the store.
     rpc Neighbors(NeighborsRequest) returns (NeighborsResponse);
+    // Used to navigate the graph.
+    rpc Traverse(stream TraverseRequest) returns (stream TraverseResponse);
 }

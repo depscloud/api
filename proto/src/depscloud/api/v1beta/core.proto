@@ -10,26 +10,44 @@ package depscloud.api.v1beta;
 
 option go_package = "github.com/depscloud/api/v1beta";
 
+// A source in depscloud represents an origin for information. This includes,
+// but is not limited to, repositories and artifactories.
 message Source {
+    // The address of the source, typically a git url or artifact path.
     string url = 1;
+    // A ref reference for this source, typically a branch name or version.
     string ref = 2;
+    // The kind of source, typically repository or artifactory.
     string kind = 3;
 }
 
+// A module in depscloud is a generic representation of an application or library.
 message Module {
+    // The language associated with the module.
     string language = 1;
+    // The name of the application or library.
     string name = 2;
 }
 
-message Manages {
+// SourceModule describes the relationship between a project and a module.
+message SourceModule {
+    // The language associated with the target module.
     string language = 1;
+    // The system used to manage dependencies for the target module.
     string system = 2;
+    // The version of the target module.
     string version = 3;
 }
 
-message DependsOn {
+// ModuleDependency describes the relationship between two modules. Because
+// of this circular relationship, traditional database modeling is difficult.
+message ModuleDependency {
+    // The language associated with the module module.
     string language = 1;
+    // The version constraint defined by the project.
     string version_constraint = 2;
+    // The scopes at which the requested module is needed.
     repeated string scopes = 3;
+    // The project ref associated with this edge.
     string ref = 4;
 }

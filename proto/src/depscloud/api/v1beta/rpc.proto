@@ -32,12 +32,12 @@ message ListModulesResponse {
 
 message ManagedModule {
     Module module = 1;
-    repeated Manages edge_data = 2;
+    repeated SourceModule edge_data = 2;
 }
 
 message ManagedSource {
     Source source = 1;
-    repeated Manages edge_data = 2;
+    repeated SourceModule edge_data = 2;
 }
 
 message ListManagedSourcesResponse {
@@ -62,7 +62,7 @@ service ModuleService {
 
 message Dependency {
     Module module = 1;
-    repeated DependsOn edge_data = 2;
+    repeated ModuleDependency edge_data = 2;
 }
 
 message DependentsResponse {
@@ -78,10 +78,10 @@ message SearchRequest {
 
     // one of the following
 
-    ManagedSource modulesFor = 5;
-    Dependency dependenciesFor = 6;
-    Dependency dependentsOf = 7;
-    ManagedModule sourcesOf = 8;
+    ManagedSource modules_for = 5;
+    Dependency dependencies_for = 6;
+    Dependency dependents_of = 7;
+    ManagedModule sources_of = 8;
 }
 
 message SearchResponse {
