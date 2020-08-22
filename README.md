@@ -45,4 +45,7 @@ func main() {
 }
 ```
 
-![Google Analytics](https://www.google-analytics.com/collect?v=1&cid=555&t=pageview&ec=repo&ea=open&dp=api&dt=api&tid=UA-143087272-2)
+## License Check
+
+[![fossa](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdepscloud%2Fapi.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdepscloud%2Fapi?ref=badge_large)
+![analytics](https://www.google-analytics.com/collect?v=1&cid=555&t=pageview&ec=repo&ea=open&dp=api&dt=api&tid=UA-143087272-2)
