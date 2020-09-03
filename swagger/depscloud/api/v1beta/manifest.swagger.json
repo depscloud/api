@@ -1,0 +1,281 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "depscloud/api/v1beta/manifest.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1beta/manifests": {
+      "post": {
+        "summary": "Store accepts information about discovered manifest files and persists them.",
+        "operationId": "ManifestStorageService_Store",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1betaStoreResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1betaStoreRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ManifestStorageService"
+        ]
+      }
+    },
+    "/v1beta/manifests/extract": {
+      "post": {
+        "summary": "Extract parses supplied files and returns standard representations of manifests.",
+        "operationId": "ManifestExtractionService_Extract",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1betaExtractResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1betaExtractRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ManifestExtractionService"
+        ]
+      }
+    },
+    "/v1beta/manifests/match": {
+      "post": {
+        "summary": "Match matches files that we support extracting content from.",
+        "operationId": "ManifestExtractionService_Match",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1betaMatchResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1betaMatchRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ManifestExtractionService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1betaExtractRequest": {
+      "type": "object",
+      "properties": {
+        "separator": {
+          "type": "string"
+        },
+        "file_contents": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "ExtractRequest encapsulates requirements for the `Extract` operation."
+    },
+    "v1betaExtractResponse": {
+      "type": "object",
+      "properties": {
+        "manifest_files": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1betaManifestFile"
+          }
+        }
+      },
+      "description": "ExtractResponse encapsulates response data for the `Extract` operation."
+    },
+    "v1betaManifestDependency": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the dependency."
+        },
+        "version_constraint": {
+          "type": "string",
+          "description": "The version constraint applied at resolution."
+        },
+        "scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The scopes at which this dependency is required."
+        }
+      }
+    },
+    "v1betaManifestFile": {
+      "type": "object",
+      "properties": {
+        "language": {
+          "type": "string",
+          "description": "The language associated with the manifest file."
+        },
+        "system": {
+          "type": "string",
+          "description": "The dependency management system associated with this file."
+        },
+        "source_url": {
+          "type": "string",
+          "description": "The identified source url from the manifest file."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the module associated with this manifest file."
+        },
+        "version": {
+          "type": "string",
+          "description": "The version of the module represented by this manifest file."
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1betaManifestDependency"
+          },
+          "description": "The associated dependencies for this manifest file."
+        }
+      },
+      "description": "ManifestFile represents a file who identifies dependencies."
+    },
+    "v1betaMatchRequest": {
+      "type": "object",
+      "properties": {
+        "separator": {
+          "type": "string"
+        },
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "MatchRequest encapsulates requirements for the `Match` operation."
+    },
+    "v1betaMatchResponse": {
+      "type": "object",
+      "properties": {
+        "matched_paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "MatchResponse encapsulates response data for the `Match` operation."
+    },
+    "v1betaStoreRequest": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "manifest_files": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1betaManifestFile"
+          }
+        }
+      },
+      "description": "StoreRequest stores information about manifest files."
+    },
+    "v1betaStoreResponse": {
+      "type": "object",
+      "description": "StoreResponse encapsulates any response data from the `Store` operation."
+    }
+  }
+}

@@ -1,6 +1,8 @@
 packages/**/LICENSE
 
+packages/depscloud-api-nodejs/depscloud/**/*.yaml
 packages/depscloud-api-nodejs/depscloud_api/**/*.yaml
+packages/depscloud-api-nodejs/graphstore/**/*.yaml
 packages/depscloud-api-nodejs/coverage/
 packages/depscloud-api-nodejs/node_modules/
 packages/depscloud-api-nodejs/.npmrc
