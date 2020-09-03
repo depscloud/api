@@ -449,7 +449,7 @@
       "properties": {
         "version": {
           "type": "string",
-          "description": "The version associated with the module."
+          "description": "The version associated with the dependent module."
         },
         "version_constraint": {
           "type": "string",
@@ -549,17 +549,13 @@
     "v1betaSourceModule": {
       "type": "object",
       "properties": {
-        "language": {
+        "version": {
           "type": "string",
-          "description": "The language associated with the target module."
+          "description": "The version associated with the module."
         },
         "system": {
           "type": "string",
           "description": "The system used to manage dependencies for the target module."
-        },
-        "version": {
-          "type": "string",
-          "description": "The version of the target module."
         },
         "labels": {
           "type": "object",

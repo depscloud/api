@@ -57,12 +57,10 @@ message Module {
 
 // SourceModule describes the relationship between a project and a module.
 message SourceModule {
-    // The language associated with the target module.
-    string language = 1;
+    // The version associated with the module.
+    string version = 1;
     // The system used to manage dependencies for the target module.
     string system = 2;
-    // The version of the target module.
-    string version = 3;
 
     // Labels contain additional metadata about the association
     map<string, string> labels = 5;
@@ -71,7 +69,7 @@ message SourceModule {
 // ModuleDependency describes the relationship between two modules. Because
 // of this circular relationship, traditional database modeling is difficult.
 message ModuleDependency {
-    // The version associated with the module.
+    // The version associated with the dependent module.
     string version = 1;
     // The version constraint defined by the project.
     string version_constraint = 2;

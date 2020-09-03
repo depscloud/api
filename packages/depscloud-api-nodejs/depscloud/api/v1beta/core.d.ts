@@ -25,9 +25,8 @@ export interface Module {
 export type Module_LabelsEntry = { [key: string]: string }
 
 export interface SourceModule {
-  language: string;
-  system: string;
   version: string;
+  system: string;
   labels: SourceModule_LabelsEntry;
 }
 

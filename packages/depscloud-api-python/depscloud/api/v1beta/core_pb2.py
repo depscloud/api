@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\037github.com/depscloud/api/v1beta',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1f\x64\x65pscloud/api/v1beta/core.proto\x12\x14\x64\x65pscloud.api.v1beta\"N\n\x0bProviderURL\x12\x10\n\x08provider\x18\x01 \x01(\t\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x0c\n\x04path\x18\x03 \x01(\t\x12\x11\n\treference\x18\x04 \x01(\t\"\x8c\x01\n\x06Source\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x0b\n\x03url\x18\x02 \x01(\t\x12\x38\n\x06labels\x18\x05 \x03(\x0b\x32(.depscloud.api.v1beta.Source.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x91\x01\n\x06Module\x12\x10\n\x08language\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x38\n\x06labels\x18\x05 \x03(\x0b\x32(.depscloud.api.v1beta.Module.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xb0\x01\n\x0cSourceModule\x12\x10\n\x08language\x18\x01 \x01(\t\x12\x0e\n\x06system\x18\x02 \x01(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\x12>\n\x06labels\x18\x05 \x03(\x0b\x32..depscloud.api.v1beta.SourceModule.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xc2\x01\n\x10ModuleDependency\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x1a\n\x12version_constraint\x18\x02 \x01(\t\x12\x0e\n\x06scopes\x18\x03 \x03(\t\x12\x42\n\x06labels\x18\x05 \x03(\x0b\x32\x32.depscloud.api.v1beta.ModuleDependency.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42!Z\x1fgithub.com/depscloud/api/v1betab\x06proto3'
+  serialized_pb=b'\n\x1f\x64\x65pscloud/api/v1beta/core.proto\x12\x14\x64\x65pscloud.api.v1beta\"N\n\x0bProviderURL\x12\x10\n\x08provider\x18\x01 \x01(\t\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x0c\n\x04path\x18\x03 \x01(\t\x12\x11\n\treference\x18\x04 \x01(\t\"\x8c\x01\n\x06Source\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x0b\n\x03url\x18\x02 \x01(\t\x12\x38\n\x06labels\x18\x05 \x03(\x0b\x32(.depscloud.api.v1beta.Source.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x91\x01\n\x06Module\x12\x10\n\x08language\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x38\n\x06labels\x18\x05 \x03(\x0b\x32(.depscloud.api.v1beta.Module.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x9e\x01\n\x0cSourceModule\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x0e\n\x06system\x18\x02 \x01(\t\x12>\n\x06labels\x18\x05 \x03(\x0b\x32..depscloud.api.v1beta.SourceModule.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xc2\x01\n\x10ModuleDependency\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x1a\n\x12version_constraint\x18\x02 \x01(\t\x12\x0e\n\x06scopes\x18\x03 \x03(\t\x12\x42\n\x06labels\x18\x05 \x03(\x0b\x32\x32.depscloud.api.v1beta.ModuleDependency.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42!Z\x1fgithub.com/depscloud/api/v1betab\x06proto3'
 )
 
 
@@ -293,7 +293,7 @@ _SOURCEMODULE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='language', full_name='depscloud.api.v1beta.SourceModule.language', index=0,
+      name='version', full_name='depscloud.api.v1beta.SourceModule.version', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -307,14 +307,7 @@ _SOURCEMODULE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='version', full_name='depscloud.api.v1beta.SourceModule.version', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='labels', full_name='depscloud.api.v1beta.SourceModule.labels', index=3,
+      name='labels', full_name='depscloud.api.v1beta.SourceModule.labels', index=2,
       number=5, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -333,7 +326,7 @@ _SOURCEMODULE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=429,
-  serialized_end=605,
+  serialized_end=587,
 )
 
 
@@ -423,8 +416,8 @@ _MODULEDEPENDENCY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=608,
-  serialized_end=802,
+  serialized_start=590,
+  serialized_end=784,
 )
 
 _SOURCE_LABELSENTRY.containing_type = _SOURCE
