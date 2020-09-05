@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -21,9 +22,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\037github.com/depscloud/api/v1beta',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n&graphstore/api/v1beta/graphstore.proto\x12\x15graphstore.api.v1beta\x1a\x19google/protobuf/any.proto\"~\n\tGraphItem\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\n\n\x02k1\x18\x02 \x01(\x0c\x12\n\n\x02k2\x18\x03 \x01(\x0c\x12\n\n\x02k3\x18\x04 \x01(\x0c\x12\x31\n\x08\x65ncoding\x18\x05 \x01(\x0e\x32\x1f.graphstore.api.v1beta.Encoding\x12\x0c\n\x04\x64\x61ta\x18\x06 \x01(\x0c\"E\n\x04Node\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x0b\n\x03key\x18\x02 \x01(\x0c\x12\"\n\x04\x62ody\x18\x03 \x01(\x0b\x32\x14.google.protobuf.Any\"g\n\x04\x45\x64ge\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x10\n\x08\x66rom_key\x18\x02 \x01(\x0c\x12\x0e\n\x06to_key\x18\x03 \x01(\x0c\x12\x0b\n\x03key\x18\x04 \x01(\x0c\x12\"\n\x04\x62ody\x18\x05 \x01(\x0b\x32\x14.google.protobuf.Any\"d\n\nPutRequest\x12*\n\x05nodes\x18\x01 \x03(\x0b\x32\x1b.graphstore.api.v1beta.Node\x12*\n\x05\x65\x64ges\x18\x02 \x03(\x0b\x32\x1b.graphstore.api.v1beta.Edge\"\r\n\x0bPutResponse\"g\n\rDeleteRequest\x12*\n\x05nodes\x18\x01 \x03(\x0b\x32\x1b.graphstore.api.v1beta.Node\x12*\n\x05\x65\x64ges\x18\x02 \x03(\x0b\x32\x1b.graphstore.api.v1beta.Edge\"\x10\n\x0e\x44\x65leteResponse\"R\n\x0bListRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0c\n\x04kind\x18\x04 \x01(\t\"\x7f\n\x0cListResponse\x12\x17\n\x0fnext_page_token\x18\x01 \x01(\t\x12*\n\x05nodes\x18\x02 \x03(\x0b\x32\x1b.graphstore.api.v1beta.Node\x12*\n\x05\x65\x64ges\x18\x03 \x03(\x0b\x32\x1b.graphstore.api.v1beta.Edge\"a\n\x08Neighbor\x12)\n\x04node\x18\x01 \x01(\x0b\x32\x1b.graphstore.api.v1beta.Node\x12*\n\x05\x65\x64ges\x18\x02 \x03(\x0b\x32\x1b.graphstore.api.v1beta.Edge\">\n\nEdgeFilter\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\"\n\x04\x62ody\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any\"\xc4\x01\n\x10NeighborsRequest\x12)\n\x04node\x18\x01 \x01(\x0b\x32\x1b.graphstore.api.v1beta.Node\x12)\n\x04\x66rom\x18\x02 \x01(\x0b\x32\x1b.graphstore.api.v1beta.Node\x12\'\n\x02to\x18\x03 \x01(\x0b\x32\x1b.graphstore.api.v1beta.Node\x12\x31\n\x06\x66ilter\x18\x04 \x03(\x0b\x32!.graphstore.api.v1beta.EdgeFilter\"G\n\x11NeighborsResponse\x12\x32\n\tneighbors\x18\x01 \x03(\x0b\x32\x1f.graphstore.api.v1beta.Neighbor\"[\n\x0fTraverseRequest\x12\x0e\n\x06\x63\x61ncel\x18\x01 \x01(\x08\x12\x38\n\x07request\x18\x02 \x01(\x0b\x32\'.graphstore.api.v1beta.NeighborsRequest\"\x88\x01\n\x10TraverseResponse\x12\x38\n\x07request\x18\x01 \x01(\x0b\x32\'.graphstore.api.v1beta.NeighborsRequest\x12:\n\x08response\x18\x02 \x01(\x0b\x32(.graphstore.api.v1beta.NeighborsResponse*;\n\x08\x45ncoding\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04JSON\x10\x01\x12\x14\n\x10PROTOCOL_BUFFERS\x10\x02\x32\xc3\x03\n\nGraphStore\x12L\n\x03Put\x12!.graphstore.api.v1beta.PutRequest\x1a\".graphstore.api.v1beta.PutResponse\x12U\n\x06\x44\x65lete\x12$.graphstore.api.v1beta.DeleteRequest\x1a%.graphstore.api.v1beta.DeleteResponse\x12O\n\x04List\x12\".graphstore.api.v1beta.ListRequest\x1a#.graphstore.api.v1beta.ListResponse\x12^\n\tNeighbors\x12\'.graphstore.api.v1beta.NeighborsRequest\x1a(.graphstore.api.v1beta.NeighborsResponse\x12_\n\x08Traverse\x12&.graphstore.api.v1beta.TraverseRequest\x1a\'.graphstore.api.v1beta.TraverseResponse(\x01\x30\x01\x42!Z\x1fgithub.com/depscloud/api/v1betab\x06proto3'
+  serialized_pb=b'\n&graphstore/api/v1beta/graphstore.proto\x12\x15graphstore.api.v1beta\x1a\x19google/protobuf/any.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe3\x01\n\tGraphItem\x12\n\n\x02k1\x18\x01 \x01(\x0c\x12\n\n\x02k2\x18\x02 \x01(\x0c\x12\n\n\x02k3\x18\x03 \x01(\x0c\x12\x0c\n\x04kind\x18\x04 \x01(\t\x12\x31\n\x08\x65ncoding\x18\x05 \x01(\x0e\x32\x1f.graphstore.api.v1beta.Encoding\x12\x0c\n\x04\x64\x61ta\x18\x06 \x01(\x0c\x12\x30\n\x0c\x64\x61te_deleted\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x31\n\rlast_modified\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"7\n\x04Node\x12\x0b\n\x03key\x18\x01 \x01(\x0c\x12\"\n\x04\x62ody\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any\"Y\n\x04\x45\x64ge\x12\x10\n\x08\x66rom_key\x18\x01 \x01(\x0c\x12\x0e\n\x06to_key\x18\x02 \x01(\x0c\x12\x0b\n\x03key\x18\x03 \x01(\x0c\x12\"\n\x04\x62ody\x18\x04 \x01(\x0b\x32\x14.google.protobuf.Any\"d\n\nPutRequest\x12*\n\x05nodes\x18\x01 \x03(\x0b\x32\x1b.graphstore.api.v1beta.Node\x12*\n\x05\x65\x64ges\x18\x02 \x03(\x0b\x32\x1b.graphstore.api.v1beta.Edge\"\r\n\x0bPutResponse\"g\n\rDeleteRequest\x12*\n\x05nodes\x18\x01 \x03(\x0b\x32\x1b.graphstore.api.v1beta.Node\x12*\n\x05\x65\x64ges\x18\x02 \x03(\x0b\x32\x1b.graphstore.api.v1beta.Edge\"\x10\n\x0e\x44\x65leteResponse\"R\n\x0bListRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0c\n\x04kind\x18\x04 \x01(\t\"\x7f\n\x0cListResponse\x12\x17\n\x0fnext_page_token\x18\x01 \x01(\t\x12*\n\x05nodes\x18\x02 \x03(\x0b\x32\x1b.graphstore.api.v1beta.Node\x12*\n\x05\x65\x64ges\x18\x03 \x03(\x0b\x32\x1b.graphstore.api.v1beta.Edge\"a\n\x08Neighbor\x12)\n\x04node\x18\x01 \x01(\x0b\x32\x1b.graphstore.api.v1beta.Node\x12*\n\x05\x65\x64ges\x18\x02 \x03(\x0b\x32\x1b.graphstore.api.v1beta.Edge\"0\n\nEdgeFilter\x12\"\n\x04\x62ody\x18\x01 \x01(\x0b\x32\x14.google.protobuf.Any\"\xc4\x01\n\x10NeighborsRequest\x12)\n\x04node\x18\x01 \x01(\x0b\x32\x1b.graphstore.api.v1beta.Node\x12)\n\x04\x66rom\x18\x02 \x01(\x0b\x32\x1b.graphstore.api.v1beta.Node\x12\'\n\x02to\x18\x03 \x01(\x0b\x32\x1b.graphstore.api.v1beta.Node\x12\x31\n\x06\x66ilter\x18\x04 \x03(\x0b\x32!.graphstore.api.v1beta.EdgeFilter\"G\n\x11NeighborsResponse\x12\x32\n\tneighbors\x18\x01 \x03(\x0b\x32\x1f.graphstore.api.v1beta.Neighbor\"[\n\x0fTraverseRequest\x12\x0e\n\x06\x63\x61ncel\x18\x01 \x01(\x08\x12\x38\n\x07request\x18\x02 \x01(\x0b\x32\'.graphstore.api.v1beta.NeighborsRequest\"\x88\x01\n\x10TraverseResponse\x12\x38\n\x07request\x18\x01 \x01(\x0b\x32\'.graphstore.api.v1beta.NeighborsRequest\x12:\n\x08response\x18\x02 \x01(\x0b\x32(.graphstore.api.v1beta.NeighborsResponse*;\n\x08\x45ncoding\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04JSON\x10\x01\x12\x14\n\x10PROTOCOL_BUFFERS\x10\x02\x32\xc3\x03\n\nGraphStore\x12L\n\x03Put\x12!.graphstore.api.v1beta.PutRequest\x1a\".graphstore.api.v1beta.PutResponse\x12U\n\x06\x44\x65lete\x12$.graphstore.api.v1beta.DeleteRequest\x1a%.graphstore.api.v1beta.DeleteResponse\x12O\n\x04List\x12\".graphstore.api.v1beta.ListRequest\x1a#.graphstore.api.v1beta.ListResponse\x12^\n\tNeighbors\x12\'.graphstore.api.v1beta.NeighborsRequest\x1a(.graphstore.api.v1beta.NeighborsResponse\x12_\n\x08Traverse\x12&.graphstore.api.v1beta.TraverseRequest\x1a\'.graphstore.api.v1beta.TraverseResponse(\x01\x30\x01\x42!Z\x1fgithub.com/depscloud/api/v1betab\x06proto3'
   ,
-  dependencies=[google_dot_protobuf_dot_any__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 _ENCODING = _descriptor.EnumDescriptor(
   name='Encoding',
@@ -50,8 +51,8 @@ _ENCODING = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1516,
-  serialized_end=1575,
+  serialized_start=1609,
+  serialized_end=1668,
 )
 _sym_db.RegisterEnumDescriptor(_ENCODING)
 
@@ -71,30 +72,30 @@ _GRAPHITEM = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='kind', full_name='graphstore.api.v1beta.GraphItem.kind', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      name='k1', full_name='graphstore.api.v1beta.GraphItem.k1', index=0,
+      number=1, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='k1', full_name='graphstore.api.v1beta.GraphItem.k1', index=1,
+      name='k2', full_name='graphstore.api.v1beta.GraphItem.k2', index=1,
       number=2, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='k2', full_name='graphstore.api.v1beta.GraphItem.k2', index=2,
+      name='k3', full_name='graphstore.api.v1beta.GraphItem.k3', index=2,
       number=3, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='k3', full_name='graphstore.api.v1beta.GraphItem.k3', index=3,
-      number=4, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"",
+      name='kind', full_name='graphstore.api.v1beta.GraphItem.kind', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -112,6 +113,20 @@ _GRAPHITEM = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='date_deleted', full_name='graphstore.api.v1beta.GraphItem.date_deleted', index=6,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='last_modified', full_name='graphstore.api.v1beta.GraphItem.last_modified', index=7,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -124,8 +139,8 @@ _GRAPHITEM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=92,
-  serialized_end=218,
+  serialized_start=126,
+  serialized_end=353,
 )
 
 
@@ -138,22 +153,15 @@ _NODE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='kind', full_name='graphstore.api.v1beta.Node.kind', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='key', full_name='graphstore.api.v1beta.Node.key', index=1,
-      number=2, type=12, cpp_type=9, label=1,
+      name='key', full_name='graphstore.api.v1beta.Node.key', index=0,
+      number=1, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='body', full_name='graphstore.api.v1beta.Node.body', index=2,
-      number=3, type=11, cpp_type=10, label=1,
+      name='body', full_name='graphstore.api.v1beta.Node.body', index=1,
+      number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -170,8 +178,8 @@ _NODE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=220,
-  serialized_end=289,
+  serialized_start=355,
+  serialized_end=410,
 )
 
 
@@ -184,36 +192,29 @@ _EDGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='kind', full_name='graphstore.api.v1beta.Edge.kind', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      name='from_key', full_name='graphstore.api.v1beta.Edge.from_key', index=0,
+      number=1, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='from_key', full_name='graphstore.api.v1beta.Edge.from_key', index=1,
+      name='to_key', full_name='graphstore.api.v1beta.Edge.to_key', index=1,
       number=2, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='to_key', full_name='graphstore.api.v1beta.Edge.to_key', index=2,
+      name='key', full_name='graphstore.api.v1beta.Edge.key', index=2,
       number=3, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='key', full_name='graphstore.api.v1beta.Edge.key', index=3,
-      number=4, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"",
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='body', full_name='graphstore.api.v1beta.Edge.body', index=4,
-      number=5, type=11, cpp_type=10, label=1,
+      name='body', full_name='graphstore.api.v1beta.Edge.body', index=3,
+      number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -230,8 +231,8 @@ _EDGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=291,
-  serialized_end=394,
+  serialized_start=412,
+  serialized_end=501,
 )
 
 
@@ -269,8 +270,8 @@ _PUTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=396,
-  serialized_end=496,
+  serialized_start=503,
+  serialized_end=603,
 )
 
 
@@ -294,8 +295,8 @@ _PUTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=498,
-  serialized_end=511,
+  serialized_start=605,
+  serialized_end=618,
 )
 
 
@@ -333,8 +334,8 @@ _DELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=513,
-  serialized_end=616,
+  serialized_start=620,
+  serialized_end=723,
 )
 
 
@@ -358,8 +359,8 @@ _DELETERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=618,
-  serialized_end=634,
+  serialized_start=725,
+  serialized_end=741,
 )
 
 
@@ -411,8 +412,8 @@ _LISTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=636,
-  serialized_end=718,
+  serialized_start=743,
+  serialized_end=825,
 )
 
 
@@ -457,8 +458,8 @@ _LISTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=720,
-  serialized_end=847,
+  serialized_start=827,
+  serialized_end=954,
 )
 
 
@@ -496,8 +497,8 @@ _NEIGHBOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=849,
-  serialized_end=946,
+  serialized_start=956,
+  serialized_end=1053,
 )
 
 
@@ -510,15 +511,8 @@ _EDGEFILTER = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='kind', full_name='graphstore.api.v1beta.EdgeFilter.kind', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='body', full_name='graphstore.api.v1beta.EdgeFilter.body', index=1,
-      number=2, type=11, cpp_type=10, label=1,
+      name='body', full_name='graphstore.api.v1beta.EdgeFilter.body', index=0,
+      number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -535,8 +529,8 @@ _EDGEFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=948,
-  serialized_end=1010,
+  serialized_start=1055,
+  serialized_end=1103,
 )
 
 
@@ -588,8 +582,8 @@ _NEIGHBORSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1013,
-  serialized_end=1209,
+  serialized_start=1106,
+  serialized_end=1302,
 )
 
 
@@ -620,8 +614,8 @@ _NEIGHBORSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1211,
-  serialized_end=1282,
+  serialized_start=1304,
+  serialized_end=1375,
 )
 
 
@@ -659,8 +653,8 @@ _TRAVERSEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1284,
-  serialized_end=1375,
+  serialized_start=1377,
+  serialized_end=1468,
 )
 
 
@@ -698,11 +692,13 @@ _TRAVERSERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1378,
-  serialized_end=1514,
+  serialized_start=1471,
+  serialized_end=1607,
 )
 
 _GRAPHITEM.fields_by_name['encoding'].enum_type = _ENCODING
+_GRAPHITEM.fields_by_name['date_deleted'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_GRAPHITEM.fields_by_name['last_modified'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _NODE.fields_by_name['body'].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _EDGE.fields_by_name['body'].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _PUTREQUEST.fields_by_name['nodes'].message_type = _NODE
@@ -855,8 +851,8 @@ _GRAPHSTORE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1578,
-  serialized_end=2029,
+  serialized_start=1671,
+  serialized_end=2122,
   methods=[
   _descriptor.MethodDescriptor(
     name='Put',

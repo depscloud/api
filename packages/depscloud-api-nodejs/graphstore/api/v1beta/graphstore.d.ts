@@ -18,7 +18,11 @@ import {
 
 import {
   Any,
-} from "../../../google/protobuf/any";
+} from "@grpc/grpc-js/src/generated/google/protobuf/any";
+
+import {
+  Timestamp,
+} from "@grpc/grpc-js/src/generated/google/protobuf/timestamp";
 
 export enum Encoding {
   UNSPECIFIED = 0,
@@ -27,22 +31,22 @@ export enum Encoding {
 }
 
 export interface GraphItem {
-  kind: string;
   k1: Buffer;
   k2: Buffer;
   k3: Buffer;
+  kind: string;
   encoding: Encoding;
   data: Buffer;
+  dateDeleted: Timestamp;
+  lastModified: Timestamp;
 }
 
 export interface Node {
-  kind: string;
   key: Buffer;
   body: Any;
 }
 
 export interface Edge {
-  kind: string;
   fromKey: Buffer;
   toKey: Buffer;
   key: Buffer;
@@ -84,7 +88,6 @@ export interface Neighbor {
 }
 
 export interface EdgeFilter {
-  kind: string;
   body: Any;
 }
 

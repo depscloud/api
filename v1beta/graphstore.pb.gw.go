@@ -208,7 +208,7 @@ func local_request_GraphStore_List_1(ctx context.Context, marshaler runtime.Mars
 }
 
 var (
-	filter_GraphStore_Neighbors_0 = &utilities.DoubleArray{Encoding: map[string]int{"node": 0, "kind": 1, "key": 2}, Base: []int{1, 1, 1, 2, 0, 0}, Check: []int{0, 1, 2, 2, 3, 4}}
+	filter_GraphStore_Neighbors_0 = &utilities.DoubleArray{Encoding: map[string]int{"node": 0, "key": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
 func request_GraphStore_Neighbors_0(ctx context.Context, marshaler runtime.Marshaler, client GraphStoreClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
@@ -221,17 +221,6 @@ func request_GraphStore_Neighbors_0(ctx context.Context, marshaler runtime.Marsh
 		err error
 		_   = err
 	)
-
-	val, ok = pathParams["node.kind"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "node.kind")
-	}
-
-	err = runtime.PopulateFieldFromPath(&protoReq, "node.kind", val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "node.kind", err)
-	}
 
 	val, ok = pathParams["node.key"]
 	if !ok {
@@ -267,17 +256,6 @@ func local_request_GraphStore_Neighbors_0(ctx context.Context, marshaler runtime
 		_   = err
 	)
 
-	val, ok = pathParams["node.kind"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "node.kind")
-	}
-
-	err = runtime.PopulateFieldFromPath(&protoReq, "node.kind", val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "node.kind", err)
-	}
-
 	val, ok = pathParams["node.key"]
 	if !ok {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "node.key")
@@ -302,7 +280,7 @@ func local_request_GraphStore_Neighbors_0(ctx context.Context, marshaler runtime
 }
 
 var (
-	filter_GraphStore_Neighbors_1 = &utilities.DoubleArray{Encoding: map[string]int{"from": 0, "kind": 1, "key": 2}, Base: []int{1, 1, 1, 2, 0, 0}, Check: []int{0, 1, 2, 2, 3, 4}}
+	filter_GraphStore_Neighbors_1 = &utilities.DoubleArray{Encoding: map[string]int{"from": 0, "key": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
 func request_GraphStore_Neighbors_1(ctx context.Context, marshaler runtime.Marshaler, client GraphStoreClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
@@ -315,17 +293,6 @@ func request_GraphStore_Neighbors_1(ctx context.Context, marshaler runtime.Marsh
 		err error
 		_   = err
 	)
-
-	val, ok = pathParams["from.kind"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "from.kind")
-	}
-
-	err = runtime.PopulateFieldFromPath(&protoReq, "from.kind", val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "from.kind", err)
-	}
 
 	val, ok = pathParams["from.key"]
 	if !ok {
@@ -361,17 +328,6 @@ func local_request_GraphStore_Neighbors_1(ctx context.Context, marshaler runtime
 		_   = err
 	)
 
-	val, ok = pathParams["from.kind"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "from.kind")
-	}
-
-	err = runtime.PopulateFieldFromPath(&protoReq, "from.kind", val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "from.kind", err)
-	}
-
 	val, ok = pathParams["from.key"]
 	if !ok {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "from.key")
@@ -396,7 +352,7 @@ func local_request_GraphStore_Neighbors_1(ctx context.Context, marshaler runtime
 }
 
 var (
-	filter_GraphStore_Neighbors_2 = &utilities.DoubleArray{Encoding: map[string]int{"to": 0, "kind": 1, "key": 2}, Base: []int{1, 1, 1, 2, 0, 0}, Check: []int{0, 1, 2, 2, 3, 4}}
+	filter_GraphStore_Neighbors_2 = &utilities.DoubleArray{Encoding: map[string]int{"to": 0, "key": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
 func request_GraphStore_Neighbors_2(ctx context.Context, marshaler runtime.Marshaler, client GraphStoreClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
@@ -409,17 +365,6 @@ func request_GraphStore_Neighbors_2(ctx context.Context, marshaler runtime.Marsh
 		err error
 		_   = err
 	)
-
-	val, ok = pathParams["to.kind"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "to.kind")
-	}
-
-	err = runtime.PopulateFieldFromPath(&protoReq, "to.kind", val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "to.kind", err)
-	}
 
 	val, ok = pathParams["to.key"]
 	if !ok {
@@ -454,17 +399,6 @@ func local_request_GraphStore_Neighbors_2(ctx context.Context, marshaler runtime
 		err error
 		_   = err
 	)
-
-	val, ok = pathParams["to.kind"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "to.kind")
-	}
-
-	err = runtime.PopulateFieldFromPath(&protoReq, "to.kind", val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "to.kind", err)
-	}
 
 	val, ok = pathParams["to.key"]
 	if !ok {
@@ -828,11 +762,11 @@ var (
 
 	pattern_GraphStore_List_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1beta", "graph", "kind"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_GraphStore_Neighbors_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"v1beta", "graph", "node.kind", "node.key", "neighbors"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_GraphStore_Neighbors_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1beta", "graph", "node.key", "neighbors"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_GraphStore_Neighbors_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 1, 0, 4, 1, 5, 3, 2, 4, 2, 5}, []string{"v1beta", "graph", "from.kind", "from.key", "neighbors", "from"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_GraphStore_Neighbors_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3, 2, 4}, []string{"v1beta", "graph", "from.key", "neighbors", "from"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_GraphStore_Neighbors_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 1, 0, 4, 1, 5, 3, 2, 4, 2, 5}, []string{"v1beta", "graph", "to.kind", "to.key", "neighbors", "to"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_GraphStore_Neighbors_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3, 2, 4}, []string{"v1beta", "graph", "to.key", "neighbors", "to"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (

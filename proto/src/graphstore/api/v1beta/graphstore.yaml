@@ -21,10 +21,10 @@ http:
     ### Neighbors
     #### all neighbors
     - selector: graphstore.api.v1beta.GraphStore.Neighbors
-      get: /v1beta/graph/{node.kind}/{node.key}/neighbors
+      get: /v1beta/graph/{node.key}/neighbors
     #### neighbors on the receiving end of edges
     - selector: graphstore.api.v1beta.GraphStore.Neighbors
-      get: /v1beta/graph/{from.kind}/{from.key}/neighbors/from
+      get: /v1beta/graph/{from.key}/neighbors/from
     #### neighbors on the initiating end of edges
     - selector: graphstore.api.v1beta.GraphStore.Neighbors
-      get: /v1beta/graph/{to.kind}/{to.key}/neighbors/to
+      get: /v1beta/graph/{to.key}/neighbors/to

@@ -12,6 +12,7 @@ package graphstore.api.v1beta;
 option go_package = "github.com/depscloud/api/v1beta";
 
 import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
 
 enum Encoding {
     // Data format not specified, defaults to JSON.
@@ -24,34 +25,36 @@ enum Encoding {
 
 // GraphItem represents an element of a graph, serialized to a database row.
 message GraphItem {
-    // The kind represents the type of data stored
-    string kind = 1;
     // k1 is the first part of the key
-    bytes k1 = 2;
+    bytes k1 = 1;
     // k2 is the second part of the key
-    bytes k2 = 3;
+    bytes k2 = 2;
     // k3 is the third part of the key
-    bytes k3 = 4;
+    bytes k3 = 3;
+    // The kind represents the type of data stored
+    string kind = 4;
     // Encoding represents how data is serialized.
     Encoding encoding = 5;
     // The encoded data.
     bytes data = 6;
+    // The date the entry was deleted
+    google.protobuf.Timestamp date_deleted = 8;
+    // The date the entry was last modified
+    google.protobuf.Timestamp last_modified = 9;
 }
 
 // Nodes represent entities in a graph.
 message Node {
-    string kind = 1;
-    bytes key = 2;
-    google.protobuf.Any body = 3;
+    bytes key = 1;
+    google.protobuf.Any body = 2;
 }
 
 // Edges represent associations between nodes.
 message Edge {
-    string kind = 1;
-    bytes from_key = 2;
-    bytes to_key = 3;
-    bytes key = 4;      // optional
-    google.protobuf.Any body = 5;
+    bytes from_key = 1;
+    bytes to_key = 2;
+    bytes key = 3;      // optional
+    google.protobuf.Any body = 4;
 }
 
 // PutRequest encapsulates elements we are inserting into the database.
@@ -93,8 +96,7 @@ message Neighbor {
 
 // EdgeFilter is used to reduce the considered edges
 message EdgeFilter {
-    string kind = 1;
-    google.protobuf.Any body = 2;
+    google.protobuf.Any body = 1;
 }
 
 // NeighborsRequest encapsulates the variety of ways neighbors can be looked up.

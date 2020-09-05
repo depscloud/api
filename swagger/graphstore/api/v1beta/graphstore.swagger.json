@@ -123,7 +123,7 @@
         ]
       }
     },
-    "/v1beta/graph/{from.kind}/{from.key}/neighbors/from": {
+    "/v1beta/graph/{from.key}/neighbors/from": {
       "get": {
         "summary": "Used to query data within the store.",
         "operationId": "GraphStore_Neighbors2",
@@ -142,12 +142,6 @@
           }
         },
         "parameters": [
-          {
-            "name": "from.kind",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
           {
             "name": "from.key",
             "in": "path",
@@ -256,7 +250,7 @@
         ]
       }
     },
-    "/v1beta/graph/{node.kind}/{node.key}/neighbors": {
+    "/v1beta/graph/{node.key}/neighbors": {
       "get": {
         "summary": "Used to query data within the store.",
         "operationId": "GraphStore_Neighbors",
@@ -275,12 +269,6 @@
           }
         },
         "parameters": [
-          {
-            "name": "node.kind",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
           {
             "name": "node.key",
             "in": "path",
@@ -339,7 +327,7 @@
         ]
       }
     },
-    "/v1beta/graph/{to.kind}/{to.key}/neighbors/to": {
+    "/v1beta/graph/{to.key}/neighbors/to": {
       "get": {
         "summary": "Used to query data within the store.",
         "operationId": "GraphStore_Neighbors3",
@@ -358,12 +346,6 @@
           }
         },
         "parameters": [
-          {
-            "name": "to.kind",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
           {
             "name": "to.key",
             "in": "path",
@@ -509,9 +491,6 @@
     "v1betaEdge": {
       "type": "object",
       "properties": {
-        "kind": {
-          "type": "string"
-        },
         "from_key": {
           "type": "string",
           "format": "byte"
@@ -533,9 +512,6 @@
     "v1betaEdgeFilter": {
       "type": "object",
       "properties": {
-        "kind": {
-          "type": "string"
-        },
         "body": {
           "$ref": "#/definitions/protobufAny"
         }
@@ -618,9 +594,6 @@
     "v1betaNode": {
       "type": "object",
       "properties": {
-        "kind": {
-          "type": "string"
-        },
         "key": {
           "type": "string",
           "format": "byte"
