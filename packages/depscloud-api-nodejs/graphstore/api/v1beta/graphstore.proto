@@ -9,7 +9,7 @@ syntax = "proto3";
 package graphstore.api.v1beta;
 
 // for now
-option go_package = "github.com/depscloud/api/v1beta";
+option go_package = "github.com/depscloud/api/v1beta/graphstore";
 
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";

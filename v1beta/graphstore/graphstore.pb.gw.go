@@ -2,11 +2,11 @@
 // source: graphstore/api/v1beta/graphstore.proto
 
 /*
-Package v1beta is a reverse proxy.
+Package graphstore is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package v1beta
+package graphstore
 
 import (
 	"context"
