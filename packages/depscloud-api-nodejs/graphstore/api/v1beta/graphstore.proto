@@ -12,36 +12,6 @@ package graphstore.api.v1beta;
 option go_package = "github.com/depscloud/api/v1beta/graphstore";
 
 import "google/protobuf/any.proto";
-import "google/protobuf/timestamp.proto";
-
-enum Encoding {
-    // Data format not specified, defaults to JSON.
-    UNSPECIFIED = 0;
-    // Data is stored as JSON for human readability.
-    JSON = 1;
-    // Data is stored as serialized protocol buffers for efficiency.
-    PROTOCOL_BUFFERS = 2;
-}
-
-// GraphItem represents an element of a graph, serialized to a database row.
-message GraphItem {
-    // k1 is the first part of the key
-    bytes k1 = 1;
-    // k2 is the second part of the key
-    bytes k2 = 2;
-    // k3 is the third part of the key
-    bytes k3 = 3;
-    // The kind represents the type of data stored
-    string kind = 4;
-    // Encoding represents how data is serialized.
-    Encoding encoding = 5;
-    // The encoded data.
-    bytes data = 6;
-    // The date the entry was deleted
-    google.protobuf.Timestamp date_deleted = 8;
-    // The date the entry was last modified
-    google.protobuf.Timestamp last_modified = 9;
-}
 
 // Nodes represent entities in a graph.
 message Node {

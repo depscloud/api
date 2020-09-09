@@ -20,27 +20,6 @@ import {
   Any,
 } from "@grpc/grpc-js/src/generated/google/protobuf/any";
 
-import {
-  Timestamp,
-} from "@grpc/grpc-js/src/generated/google/protobuf/timestamp";
-
-export enum Encoding {
-  UNSPECIFIED = 0,
-  JSON = 1,
-  PROTOCOL_BUFFERS = 2,
-}
-
-export interface GraphItem {
-  k1: Buffer;
-  k2: Buffer;
-  k3: Buffer;
-  kind: string;
-  encoding: Encoding;
-  data: Buffer;
-  dateDeleted: Timestamp;
-  lastModified: Timestamp;
-}
-
 export interface Node {
   key: Buffer;
   body: Any;
