@@ -1,0 +1,81 @@
+//
+// This file attempts to follow common styles and design patterns described by
+// Google Cloud based on their extensive use of protocol buffers.
+//
+// - See here for more: https://cloud.google.com/apis/design/design_patterns
+//
+syntax = "proto3";
+
+package depscloud.api.v1beta;
+
+option go_package = "github.com/depscloud/api/v1beta";
+
+// ProviderURL is a specifically formatted URI to create standard a standard
+// representation for a source. The following shows example ProviderURL:
+//  # General Format
+//  - {provider}://{host}{path}#{reference}
+//  # VCS Integrations
+//  - github:///depscloud/tracker#main
+//  - github://github.deps.cloud/oss/tracker#main
+//  - gitlab:///depscloud/terraform#main
+//  - gitlab://gitlab.deps.cloud/infra/terraform#main
+//  - bitbucket:///depscloud/test#main
+//  # Artifactory Integrations
+//  - jfrog://jfrog.deps.cloud/oss/tracker#0.2.19
+//  - nexus3://nexus3.deps.cloud/oss/tracker#0.2.19
+message ProviderURL {
+    string provider = 1;    // gitlab
+    string host = 2;        // gitlab.corp.net || gitlab.com
+    string path = 3;        // /{group}/{repo}[/{path}]
+    string reference = 4;   // main
+}
+
+// A source in depscloud represents an origin for information. This includes,
+// but is not limited to, repositories and artifactories.
+message Source {
+    // The kind of source, typically repository or artifactory. This was kept
+    // separate from the URL as systems like GitHub and GitLab offer some
+    // artifact support.
+    string kind = 1;
+    // A string formatted ProviderURL
+    string url = 2;
+
+    // Labels contain additional metadata about the entity
+    map<string, string> labels = 5;
+}
+
+// A module in depscloud is a generic representation of an application or library.
+message Module {
+    // The language associated with the module.
+    string language = 1;
+    // The name of the application or library.
+    string name = 2;
+
+    // Labels contain additional metadata about the entity
+    map<string, string> labels = 5;
+}
+
+// SourceModule describes the relationship between a project and a module.
+message SourceModule {
+    // The version associated with the module.
+    string version = 1;
+    // The system used to manage dependencies for the target module.
+    string system = 2;
+
+    // Labels contain additional metadata about the association
+    map<string, string> labels = 5;
+}
+
+// ModuleDependency describes the relationship between two modules. Because
+// of this circular relationship, traditional database modeling is difficult.
+message ModuleDependency {
+    // The version associated with the dependent module.
+    string version = 1;
+    // The version constraint defined by the project.
+    string version_constraint = 2;
+    // The scopes at which the requested module is needed.
+    repeated string scopes = 3;
+
+    // Labels contain additional metadata about the entity
+    map<string, string> labels = 5;
+}

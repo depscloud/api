@@ -1,0 +1,571 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "depscloud/api/v1beta/rpc.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1beta/modules": {
+      "get": {
+        "operationId": "ModuleService_List",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1betaListModulesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "parent",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page_token",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ModuleService"
+        ]
+      }
+    },
+    "/v1beta/modules/{module.language}/{module.name}/dependencies": {
+      "get": {
+        "operationId": "TraversalService_GetDependencies",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1betaDependenciesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "module.language",
+            "description": "The language associated with the module.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "module.name",
+            "description": "The name of the application or library.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "TraversalService"
+        ]
+      }
+    },
+    "/v1beta/modules/{module.language}/{module.name}/dependents": {
+      "get": {
+        "operationId": "TraversalService_GetDependents",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1betaDependentsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "module.language",
+            "description": "The language associated with the module.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "module.name",
+            "description": "The name of the application or library.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "TraversalService"
+        ]
+      }
+    },
+    "/v1beta/modules/{module.language}/{module.name}/sources": {
+      "get": {
+        "operationId": "ModuleService_ListSources",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1betaListManagedSourcesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "module.language",
+            "description": "The language associated with the module.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "module.name",
+            "description": "The name of the application or library.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ModuleService"
+        ]
+      }
+    },
+    "/v1beta/sources": {
+      "get": {
+        "operationId": "SourceService_List",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1betaListSourcesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "parent",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page_token",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SourceService"
+        ]
+      }
+    },
+    "/v1beta/sources/{source.url}/modules": {
+      "get": {
+        "operationId": "SourceService_ListModules",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1betaListManagedModulesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "source.url",
+            "description": "A string formatted ProviderURL",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "source.kind",
+            "description": "The kind of source, typically repository or artifactory. This was kept\nseparate from the URL as systems like GitHub and GitLab offer some\nartifact support.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SourceService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "runtimeStreamError": {
+      "type": "object",
+      "properties": {
+        "grpc_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "http_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "http_status": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1betaDependenciesResponse": {
+      "type": "object",
+      "properties": {
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1betaDependency"
+          }
+        }
+      }
+    },
+    "v1betaDependency": {
+      "type": "object",
+      "properties": {
+        "module": {
+          "$ref": "#/definitions/v1betaModule"
+        },
+        "edge_data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1betaModuleDependency"
+          }
+        }
+      }
+    },
+    "v1betaDependentsResponse": {
+      "type": "object",
+      "properties": {
+        "dependents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1betaDependency"
+          }
+        }
+      }
+    },
+    "v1betaListManagedModulesResponse": {
+      "type": "object",
+      "properties": {
+        "modules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1betaManagedModule"
+          }
+        }
+      }
+    },
+    "v1betaListManagedSourcesResponse": {
+      "type": "object",
+      "properties": {
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1betaManagedSource"
+          }
+        }
+      }
+    },
+    "v1betaListModulesResponse": {
+      "type": "object",
+      "properties": {
+        "next_page_token": {
+          "type": "string"
+        },
+        "modules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1betaModule"
+          }
+        }
+      }
+    },
+    "v1betaListSourcesResponse": {
+      "type": "object",
+      "properties": {
+        "next_page_token": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1betaSource"
+          }
+        }
+      }
+    },
+    "v1betaManagedModule": {
+      "type": "object",
+      "properties": {
+        "module": {
+          "$ref": "#/definitions/v1betaModule"
+        },
+        "edge_data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1betaSourceModule"
+          }
+        }
+      }
+    },
+    "v1betaManagedSource": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "$ref": "#/definitions/v1betaSource"
+        },
+        "edge_data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1betaSourceModule"
+          }
+        }
+      }
+    },
+    "v1betaModule": {
+      "type": "object",
+      "properties": {
+        "language": {
+          "type": "string",
+          "description": "The language associated with the module."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the application or library."
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Labels contain additional metadata about the entity"
+        }
+      },
+      "description": "A module in depscloud is a generic representation of an application or library."
+    },
+    "v1betaModuleDependency": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "The version associated with the dependent module."
+        },
+        "version_constraint": {
+          "type": "string",
+          "description": "The version constraint defined by the project."
+        },
+        "scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The scopes at which the requested module is needed."
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Labels contain additional metadata about the entity"
+        }
+      },
+      "description": "ModuleDependency describes the relationship between two modules. Because\nof this circular relationship, traditional database modeling is difficult."
+    },
+    "v1betaSearchRequest": {
+      "type": "object",
+      "properties": {
+        "cancel": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "modules_for": {
+          "$ref": "#/definitions/v1betaManagedSource"
+        },
+        "dependencies_for": {
+          "$ref": "#/definitions/v1betaDependency"
+        },
+        "dependents_of": {
+          "$ref": "#/definitions/v1betaDependency"
+        },
+        "sources_of": {
+          "$ref": "#/definitions/v1betaManagedModule"
+        }
+      }
+    },
+    "v1betaSearchResponse": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/v1betaSearchRequest"
+        },
+        "modules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1betaManagedModule"
+          }
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1betaDependency"
+          }
+        },
+        "dependents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1betaDependency"
+          }
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1betaManagedSource"
+          }
+        }
+      }
+    },
+    "v1betaSource": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "description": "The kind of source, typically repository or artifactory. This was kept\nseparate from the URL as systems like GitHub and GitLab offer some\nartifact support."
+        },
+        "url": {
+          "type": "string",
+          "title": "A string formatted ProviderURL"
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Labels contain additional metadata about the entity"
+        }
+      },
+      "description": "A source in depscloud represents an origin for information. This includes,\nbut is not limited to, repositories and artifactories."
+    },
+    "v1betaSourceModule": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "The version associated with the module."
+        },
+        "system": {
+          "type": "string",
+          "description": "The system used to manage dependencies for the target module."
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Labels contain additional metadata about the association"
+        }
+      },
+      "description": "SourceModule describes the relationship between a project and a module."
+    }
+  }
+}

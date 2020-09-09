@@ -1,0 +1,117 @@
+//
+// This file attempts to follow common styles and design patterns described by
+// Google Cloud based on their extensive use of protocol buffers.
+//
+// - See here for more: https://cloud.google.com/apis/design/design_patterns
+//
+syntax = "proto3";
+
+package graphstore.api.v1beta;
+
+// for now
+option go_package = "github.com/depscloud/api/v1beta/graphstore";
+
+import "google/protobuf/any.proto";
+
+// Nodes represent entities in a graph.
+message Node {
+    bytes key = 1;
+    google.protobuf.Any body = 2;
+}
+
+// Edges represent associations between nodes.
+message Edge {
+    bytes from_key = 1;
+    bytes to_key = 2;
+    bytes key = 3;      // optional
+    google.protobuf.Any body = 4;
+}
+
+// PutRequest encapsulates elements we are inserting into the database.
+message PutRequest {
+    repeated Node nodes = 1;
+    repeated Edge edges = 2;
+}
+
+message PutResponse {}
+
+// DeleteRequest encapsulates elements we are removing from the database.
+message DeleteRequest {
+    repeated Node nodes = 1;
+    repeated Edge edges = 2;
+}
+
+message DeleteResponse {}
+
+// ListRequest encapsulates requirements for listing data from the database.
+message ListRequest {
+    string parent = 1;
+    int32 page_size = 2;
+    string page_token = 3;
+    string kind = 4;
+}
+
+// ListResponse encapsulates listed response data.
+message ListResponse {
+    string next_page_token = 1;
+    repeated Node nodes = 2;
+    repeated Edge edges = 3;
+}
+
+// Neighbor represents a node and all the edges pointing to it.
+message Neighbor {
+    Node node = 1;
+    repeated Edge edges = 2;
+}
+
+// EdgeFilter is used to reduce the considered edges
+message EdgeFilter {
+    google.protobuf.Any body = 1;
+}
+
+// NeighborsRequest encapsulates the variety of ways neighbors can be looked up.
+message NeighborsRequest {
+    // Used to fetch all neighbors of a node, regardless of directionality.
+    Node node = 1;
+    // Used to fetch all neighbors on the receiving end of edges.
+    Node from = 2;
+    // Used to fetch all neighbors on the initiating end of edges.
+    Node to = 3;
+    // Used to reduce the edges considered when finding neighbors.
+    repeated EdgeFilter filter = 4;
+}
+
+// NeighborsResponse returns all neighbors from the query.
+message NeighborsResponse {
+    repeated Neighbor neighbors = 1;
+}
+
+// TraverseRequest is used to navigate the graph, optionally halting once the
+// desired node is found.
+message TraverseRequest {
+    bool cancel = 1;
+    NeighborsRequest request = 2;
+}
+
+// TraverseResponse is used to encapsulate a traversal request and its
+// associated response data.
+message TraverseResponse {
+    NeighborsRequest request = 1;
+    NeighborsResponse response = 2;
+}
+
+// GraphStore represents a graph data structure. It provides functionality
+// that you can expect to find on most graph structures, but over a distributed
+// protocol.
+service GraphStore {
+    // Used to insert data into the store.
+    rpc Put(PutRequest) returns (PutResponse);
+    // Used to delete data from the store.
+    rpc Delete(DeleteRequest) returns (DeleteResponse);
+    // Used to list data within the store.
+    rpc List(ListRequest) returns (ListResponse);
+    // Used to query data within the store.
+    rpc Neighbors(NeighborsRequest) returns (NeighborsResponse);
+    // Used to navigate the graph.
+    rpc Traverse(stream TraverseRequest) returns (stream TraverseResponse);
+}

@@ -1,0 +1,22 @@
+type: google.api.Service
+config_version: 3
+
+http:
+  rules:
+    # /v1beta/sources
+    ## SourceService
+    - selector: depscloud.api.v1beta.SourceService.List
+      get: /v1beta/sources
+    - selector: depscloud.api.v1beta.SourceService.ListModules
+      get: /v1beta/sources/{source.url}/modules
+    # /v1beta/modules
+    ## ModuleService
+    - selector: depscloud.api.v1beta.ModuleService.List
+      get: /v1beta/modules
+    - selector: depscloud.api.v1beta.ModuleService.ListSources
+      get: /v1beta/modules/{module.language}/{module.name}/sources
+    ## TraversalService
+    - selector: depscloud.api.v1beta.TraversalService.GetDependents
+      get: /v1beta/modules/{module.language}/{module.name}/dependents
+    - selector: depscloud.api.v1beta.TraversalService.GetDependencies
+      get: /v1beta/modules/{module.language}/{module.name}/dependencies

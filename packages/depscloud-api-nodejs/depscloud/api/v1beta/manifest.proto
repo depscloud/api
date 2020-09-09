@@ -1,0 +1,83 @@
+//
+// This file attempts to follow common styles and design patterns described by
+// Google Cloud based on their extensive use of protocol buffers.
+//
+// - See here for more: https://cloud.google.com/apis/design/design_patterns
+//
+syntax = "proto3";
+
+package depscloud.api.v1beta;
+
+option go_package = "github.com/depscloud/api/v1beta";
+
+message ManifestDependency {
+    // The name of the dependency.
+    string name = 1;
+    // The version constraint applied at resolution.
+    string version_constraint = 2;
+    // The scopes at which this dependency is required.
+    repeated string scopes = 3;
+}
+
+// ManifestFile represents a file who identifies dependencies.
+message ManifestFile {
+    // The language associated with the manifest file.
+    string language = 1;
+    // The dependency management system associated with this file.
+    string system = 2;
+    // The identified source url from the manifest file.
+    string source_url = 3;
+    // The name of the module associated with this manifest file.
+    string name = 4;
+    // The version of the module represented by this manifest file.
+    string version = 5;
+    // The associated dependencies for this manifest file.
+    repeated ManifestDependency dependencies = 6;
+}
+
+// MatchRequest encapsulates requirements for the `Match` operation.
+message MatchRequest {
+    string separator = 1;
+    repeated string paths = 2;
+}
+
+// MatchResponse encapsulates response data for the `Match` operation.
+message MatchResponse {
+    repeated string matched_paths = 1;
+}
+
+// ExtractRequest encapsulates requirements for the `Extract` operation.
+message ExtractRequest {
+    string separator = 1;
+    map<string, string> file_contents = 2;
+}
+
+// ExtractResponse encapsulates response data for the `Extract` operation.
+message ExtractResponse {
+    repeated ManifestFile manifest_files = 1;
+}
+
+// ManifestService encapsulates operations around manifest files.
+service ManifestExtractionService {
+    // Match matches files that we support extracting content from.
+    rpc Match(MatchRequest) returns (MatchResponse);
+    // Extract parses supplied files and returns standard representations of manifests.
+    rpc Extract(ExtractRequest) returns (ExtractResponse);
+}
+
+// StoreRequest stores information about manifest files.
+message StoreRequest {
+    string url = 1;
+    string ref = 2;
+    string kind = 3;
+    repeated ManifestFile manifest_files = 4;
+}
+
+// StoreResponse encapsulates any response data from the `Store` operation.
+message StoreResponse {}
+
+// ManifestStorageService encapsulates logic around storing manifest files.
+service ManifestStorageService {
+    // Store accepts information about discovered manifest files and persists them.
+    rpc Store(StoreRequest) returns (StoreResponse);
+}

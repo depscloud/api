@@ -17,6 +17,6 @@ readonly SWAGGER_DIR="${ROOT_DIR}/swagger"
 protoc \
   -I=${ROOT_DIR}/proto/src \
   --gogo_out=plugins=grpc:$GOPATH/src \
-  --grpc-gateway_out=logtostderr=true${api_configuration}:$GOPATH/src \
-  --swagger_out=logtostderr=true${api_configuration}:${SWAGGER_DIR} \
+  --grpc-gateway_out=allow_delete_body=true,logtostderr=true${api_configuration}:$GOPATH/src \
+  --swagger_out=allow_delete_body=true,logtostderr=true${api_configuration}:${SWAGGER_DIR} \
   ${1}
