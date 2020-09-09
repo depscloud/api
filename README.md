@@ -64,7 +64,7 @@ func main() {
 
 # Support
 
-Join our [mailing list] and ask any questions there.
+Join our [mailing list] to get access to virtual events and ask any questions there.
 
 We also have a [Slack] channel.
 
