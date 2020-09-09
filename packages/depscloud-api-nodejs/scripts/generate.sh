@@ -26,22 +26,7 @@ EOF
 
 ## TODO: EVENTUALLY REMOVE THESE
 
-function file_d_ts() {
-cat <<EOF
-export * from "./index"
-EOF
-}
-
-function file_js() {
-cat <<EOF | tee "${directory}/${file_base}.js"
-module.exports = require("./index");
-EOF
-}
-
 function root_js() {
-  root_pkg="${1}"
-  shift
-
   filenames=""
   for file in "$@"; do
     filenames="${filenames}"$'\n'"filenames.push(path.join(__dirname, ${file//\//\", \"}));"
@@ -71,7 +56,10 @@ const packageDefinition = protoLoader.loadSync(
 
 const descriptor = grpc.loadPackageDefinition(packageDefinition);
 
-module.exports = descriptor.${root_pkg};
+module.exports = {
+    v1alpha: descriptor.cloud.deps.api.v1alpha,
+    v1beta: descriptor.depscloud.api.v1beta,
+};
 EOF
 }
 
@@ -92,5 +80,5 @@ for file in $(find . -name *.proto | cut -c 3-); do
 done
 popd
 
-root_js "cloud.deps.api" $(find . -name *.proto | grep -v node_modules | cut -c 3- | xargs -I {} echo '"{}"') > index.js
+root_js $(find . -name *.proto | grep -v node_modules | sort | uniq | cut -c 3- | xargs -I {} echo '"{}"') > index.js
 index_test_ts "api" > index_test.ts
