@@ -94,6 +94,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "name": {
+          "type": "string"
         }
       }
     },
@@ -123,6 +126,9 @@
           "items": {
             "$ref": "#/definitions/depsDependency"
           }
+        },
+        "name": {
+          "type": "string"
         }
       }
     },

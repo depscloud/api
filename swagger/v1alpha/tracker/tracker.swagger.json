@@ -315,6 +315,9 @@
           "items": {
             "$ref": "#/definitions/v1alphadepsDependency"
           }
+        },
+        "name": {
+          "type": "string"
         }
       }
     },
@@ -649,6 +652,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "name": {
+          "type": "string"
         }
       }
     },

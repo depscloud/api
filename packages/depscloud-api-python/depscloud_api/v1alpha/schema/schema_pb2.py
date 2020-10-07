@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\'github.com/depscloud/api/v1alpha/schema',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n)depscloud_api/v1alpha/schema/schema.proto\x12\x1d\x63loud.deps.api.v1alpha.schema\"0\n\x06Source\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x0b\n\x03ref\x18\x02 \x01(\t\x12\x0c\n\x04kind\x18\x03 \x01(\t\"<\n\x07Manages\x12\x10\n\x08language\x18\x01 \x01(\t\x12\x0e\n\x06system\x18\x02 \x01(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\"@\n\x06Module\x12\x10\n\x08language\x18\x01 \x01(\t\x12\x14\n\x0corganization\x18\x02 \x01(\t\x12\x0e\n\x06module\x18\x03 \x01(\t\"T\n\x07\x44\x65pends\x12\x10\n\x08language\x18\x01 \x01(\t\x12\x1a\n\x12version_constraint\x18\x02 \x01(\t\x12\x0e\n\x06scopes\x18\x03 \x03(\t\x12\x0b\n\x03ref\x18\x04 \x01(\tB)Z\'github.com/depscloud/api/v1alpha/schemab\x06proto3'
+  serialized_pb=b'\n)depscloud_api/v1alpha/schema/schema.proto\x12\x1d\x63loud.deps.api.v1alpha.schema\"0\n\x06Source\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x0b\n\x03ref\x18\x02 \x01(\t\x12\x0c\n\x04kind\x18\x03 \x01(\t\"<\n\x07Manages\x12\x10\n\x08language\x18\x01 \x01(\t\x12\x0e\n\x06system\x18\x02 \x01(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\"H\n\x06Module\x12\x10\n\x08language\x18\x01 \x01(\t\x12\x18\n\x0corganization\x18\x02 \x01(\tB\x02\x18\x01\x12\x12\n\x06module\x18\x03 \x01(\tB\x02\x18\x01\"T\n\x07\x44\x65pends\x12\x10\n\x08language\x18\x01 \x01(\t\x12\x1a\n\x12version_constraint\x18\x02 \x01(\t\x12\x0e\n\x06scopes\x18\x03 \x03(\t\x12\x0b\n\x03ref\x18\x04 \x01(\tB)Z\'github.com/depscloud/api/v1alpha/schemab\x06proto3'
 )
 
 
@@ -138,14 +138,14 @@ _MODULE = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='module', full_name='cloud.deps.api.v1alpha.schema.Module.module', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -159,7 +159,7 @@ _MODULE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=188,
-  serialized_end=252,
+  serialized_end=260,
 )
 
 
@@ -211,8 +211,8 @@ _DEPENDS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=254,
-  serialized_end=338,
+  serialized_start=262,
+  serialized_end=346,
 )
 
 DESCRIPTOR.message_types_by_name['Source'] = _SOURCE
@@ -251,4 +251,6 @@ _sym_db.RegisterMessage(Depends)
 
 
 DESCRIPTOR._options = None
+_MODULE.fields_by_name['organization']._options = None
+_MODULE.fields_by_name['module']._options = None
 # @@protoc_insertion_point(module_scope)

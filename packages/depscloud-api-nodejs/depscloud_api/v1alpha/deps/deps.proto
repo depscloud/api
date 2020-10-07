@@ -5,10 +5,11 @@ package cloud.deps.api.v1alpha.deps;
 option go_package = "github.com/depscloud/api/v1alpha/deps";
 
 message Dependency {
-    optional string organization = 1;
-    optional string module = 2;
+    optional string organization = 1 [deprecated = true];   // use name
+    optional string module = 2 [deprecated = true];         // use name
     optional string versionConstraint = 3;
     repeated string scopes = 4;
+    optional string name = 5;
 }
 
 message DependencyManagementFile {
@@ -16,8 +17,9 @@ message DependencyManagementFile {
     optional string system = 2; // npm, ivy, maven, gradle, godeps
     optional string sourceUrl = 3;
 
-    optional string organization = 5;
-    optional string module = 6;
+    optional string organization = 5 [deprecated = true];   // use name
+    optional string module = 6 [deprecated = true];         // use name
     optional string version = 7;
     repeated Dependency dependencies = 8;
+    optional string name = 9;
 }

@@ -18,8 +18,8 @@ message Manages {
 
 message Module {
     string language = 1;
-    string organization = 2;
-    string module = 3;
+    string organization = 2 [deprecated = true];    // use name
+    string module = 3 [deprecated = true];          // use name
 }
 
 message Depends {

@@ -6,6 +6,7 @@ export interface Dependency {
   module: string;
   versionConstraint: string;
   scopes: Array<string>;
+  name: string;
 }
 
 export interface DependencyManagementFile {
@@ -16,5 +17,6 @@ export interface DependencyManagementFile {
   module: string;
   version: string;
   dependencies: Array<Dependency>;
+  name: string;
 }
 
