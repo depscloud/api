@@ -9,14 +9,14 @@
     "url": "git@github.com:depscloud/api.git"
   },
   "dependencies": {
-    "@grpc/grpc-js": "1.1.5",
+    "@grpc/grpc-js": "1.1.7",
     "@grpc/proto-loader": "0.5.5"
   },
   "devDependencies": {
-    "@types/jest": "26.0.13",
+    "@types/jest": "26.0.14",
     "jest": "26.4.2",
-    "ts-jest": "26.3.0",
-    "typescript": "4.0.2"
+    "ts-jest": "26.4.0",
+    "typescript": "4.0.3"
   },
   "scripts": {
     "test": "jest --coverage",
