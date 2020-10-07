@@ -7,8 +7,14 @@ cd ../..
 readonly version="$(jq -r .version ./packages/depscloud-api-nodejs/package.json)"
 echo "version: ${version}"
 
+which_sed=sed
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  echo "detected osx, using gsed"
+  which_sed=gsed
+fi
+
 # set version on python
-sed -i "s:version=.*$:version='${version}',:g" ./packages/depscloud-api-python/setup.py
+${which_sed} -i "s:version=.*$:version='${version}',:g" ./packages/depscloud-api-python/setup.py
 
 # commit
 git commit -a -m "v${version}"
