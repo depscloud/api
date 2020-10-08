@@ -69,8 +69,8 @@ message SourceModule {
 // ModuleDependency describes the relationship between two modules. Because
 // of this circular relationship, traditional database modeling is difficult.
 message ModuleDependency {
-    // The version associated with the dependent module.
-    string version = 1;
+    // A reference to the associated dependent module (version or branch).
+    string ref = 1;
     // The version constraint defined by the project.
     string version_constraint = 2;
     // The scopes at which the requested module is needed.

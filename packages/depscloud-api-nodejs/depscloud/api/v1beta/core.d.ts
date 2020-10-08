@@ -33,7 +33,7 @@ export interface SourceModule {
 export type SourceModule_LabelsEntry = { [key: string]: string }
 
 export interface ModuleDependency {
-  version: string;
+  ref: string;
   versionConstraint: string;
   scopes: Array<string>;
   labels: ModuleDependency_LabelsEntry;

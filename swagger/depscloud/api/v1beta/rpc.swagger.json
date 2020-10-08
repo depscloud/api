@@ -447,9 +447,9 @@
     "v1betaModuleDependency": {
       "type": "object",
       "properties": {
-        "version": {
+        "ref": {
           "type": "string",
-          "description": "The version associated with the dependent module."
+          "description": "A reference to the associated dependent module (version or branch)."
         },
         "version_constraint": {
           "type": "string",
@@ -476,8 +476,7 @@
       "type": "object",
       "properties": {
         "cancel": {
-          "type": "boolean",
-          "format": "boolean"
+          "type": "boolean"
         },
         "modules_for": {
           "$ref": "#/definitions/v1betaManagedSource"
