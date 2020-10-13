@@ -75,6 +75,7 @@ export interface DependencyRequest {
   language: string;
   organization: string;
   module: string;
+  name: string;
 }
 
 export interface Dependency {

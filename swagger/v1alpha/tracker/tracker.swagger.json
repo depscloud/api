@@ -46,6 +46,12 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -85,6 +91,12 @@
           },
           {
             "name": "module",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
             "in": "query",
             "required": false,
             "type": "string"
@@ -207,6 +219,12 @@
           },
           {
             "name": "module",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
             "in": "query",
             "required": false,
             "type": "string"
@@ -424,6 +442,9 @@
         },
         "module": {
           "type": "string"
+        },
+        "name": {
+          "type": "string"
         }
       }
     },
@@ -451,6 +472,9 @@
           "type": "string"
         },
         "module": {
+          "type": "string"
+        },
+        "name": {
           "type": "string"
         }
       }

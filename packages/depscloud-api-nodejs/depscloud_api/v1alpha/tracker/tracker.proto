@@ -67,8 +67,9 @@ service ModuleService {
 message DependencyRequest {
     string language = 1;
 
-    string organization = 5;
-    string module = 6;
+    string organization = 5 [deprecated = true];    // use name
+    string module = 6 [deprecated = true];          // use name
+    string name = 7;
 }
 
 message Dependency {

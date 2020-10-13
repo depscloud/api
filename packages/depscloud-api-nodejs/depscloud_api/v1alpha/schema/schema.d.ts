@@ -17,6 +17,7 @@ export interface Module {
   language: string;
   organization: string;
   module: string;
+  name: string;
 }
 
 export interface Depends {
