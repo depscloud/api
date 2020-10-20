@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`schema require 1`] = `
+Array [
+  "Source",
+  "Manages",
+  "Module",
+  "Depends",
+]
+`;

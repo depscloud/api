@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`v1beta require 1`] = `
+Array [
+  "ProviderURL",
+  "Source",
+  "Module",
+  "SourceModule",
+  "ModuleDependency",
+  "ManifestDependency",
+  "ManifestFile",
+  "MatchRequest",
+  "MatchResponse",
+  "ExtractRequest",
+  "ExtractResponse",
+  "ManifestExtractionService",
+  "StoreRequest",
+  "StoreResponse",
+  "ManifestStorageService",
+  "ListRequest",
+  "ListSourcesResponse",
+  "ListModulesResponse",
+  "ManagedModule",
+  "ManagedSource",
+  "ListManagedSourcesResponse",
+  "ListManagedModulesResponse",
+  "SourceService",
+  "ModuleService",
+  "Dependency",
+  "DependentsResponse",
+  "DependenciesResponse",
+  "SearchRequest",
+  "SearchResponse",
+  "TraversalService",
+]
+`;

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`store require 1`] = `
+Array [
+  "GraphItemEncoding",
+  "GraphItem",
+  "GraphItemPair",
+  "PutRequest",
+  "PutResponse",
+  "DeleteRequest",
+  "DeleteResponse",
+  "ListRequest",
+  "ListResponse",
+  "FindRequest",
+  "FindResponse",
+  "GraphStore",
+]
+`;

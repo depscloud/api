@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`extractor require 1`] = `
+Array [
+  "ExtractRequest",
+  "ExtractResponse",
+  "MatchRequest",
+  "MatchResponse",
+  "DependencyExtractor",
+]
+`;

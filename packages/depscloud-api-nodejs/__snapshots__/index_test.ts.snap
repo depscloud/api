@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`api require 1`] = `
+Array [
+  "v1alpha",
+  "v1beta",
+]
+`;

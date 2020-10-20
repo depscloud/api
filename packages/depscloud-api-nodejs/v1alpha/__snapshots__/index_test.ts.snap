@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`v1alpha require 1`] = `
+Array [
+  "deps",
+  "extractor",
+  "schema",
+  "store",
+  "tracker",
+]
+`;

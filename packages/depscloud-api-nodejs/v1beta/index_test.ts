@@ -1,4 +1,4 @@
-describe("schema", () => {
+describe("v1beta", () => {
     test("require", () => {
         const schema = require("./index");
 
