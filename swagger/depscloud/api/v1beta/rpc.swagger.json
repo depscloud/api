@@ -476,7 +476,8 @@
       "type": "object",
       "properties": {
         "cancel": {
-          "type": "boolean"
+          "type": "boolean",
+          "format": "boolean"
         },
         "modules_for": {
           "$ref": "#/definitions/v1betaManagedSource"

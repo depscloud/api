@@ -20,7 +20,6 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/grpclog"
-	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
 )
 
@@ -31,7 +30,6 @@ var _ status.Status
 var _ = runtime.String
 var _ = utilities.NewDoubleArray
 var _ = descriptor.ForMessage
-var _ = metadata.Join
 
 func request_ManifestExtractionService_Match_0(ctx context.Context, marshaler runtime.Marshaler, client ManifestExtractionServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq MatchRequest
@@ -138,14 +136,12 @@ func local_request_ManifestStorageService_Store_0(ctx context.Context, marshaler
 // RegisterManifestExtractionServiceHandlerServer registers the http handlers for service ManifestExtractionService to "mux".
 // UnaryRPC     :call ManifestExtractionServiceServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
-// Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterManifestExtractionServiceHandlerFromEndpoint instead.
+// Note that using this registration option will cause many gRPC library features (such as grpc.SendHeader, etc) to stop working. Consider using RegisterManifestExtractionServiceHandlerFromEndpoint instead.
 func RegisterManifestExtractionServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server ManifestExtractionServiceServer) error {
 
 	mux.Handle("POST", pattern_ManifestExtractionService_Match_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
-		var stream runtime.ServerTransportStream
-		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -153,7 +149,6 @@ func RegisterManifestExtractionServiceHandlerServer(ctx context.Context, mux *ru
 			return
 		}
 		resp, md, err := local_request_ManifestExtractionService_Match_0(rctx, inboundMarshaler, server, req, pathParams)
-		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -167,8 +162,6 @@ func RegisterManifestExtractionServiceHandlerServer(ctx context.Context, mux *ru
 	mux.Handle("POST", pattern_ManifestExtractionService_Extract_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
-		var stream runtime.ServerTransportStream
-		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -176,7 +169,6 @@ func RegisterManifestExtractionServiceHandlerServer(ctx context.Context, mux *ru
 			return
 		}
 		resp, md, err := local_request_ManifestExtractionService_Extract_0(rctx, inboundMarshaler, server, req, pathParams)
-		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -193,14 +185,12 @@ func RegisterManifestExtractionServiceHandlerServer(ctx context.Context, mux *ru
 // RegisterManifestStorageServiceHandlerServer registers the http handlers for service ManifestStorageService to "mux".
 // UnaryRPC     :call ManifestStorageServiceServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
-// Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterManifestStorageServiceHandlerFromEndpoint instead.
+// Note that using this registration option will cause many gRPC library features (such as grpc.SendHeader, etc) to stop working. Consider using RegisterManifestStorageServiceHandlerFromEndpoint instead.
 func RegisterManifestStorageServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server ManifestStorageServiceServer) error {
 
 	mux.Handle("POST", pattern_ManifestStorageService_Store_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
-		var stream runtime.ServerTransportStream
-		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -208,7 +198,6 @@ func RegisterManifestStorageServiceHandlerServer(ctx context.Context, mux *runti
 			return
 		}
 		resp, md, err := local_request_ManifestStorageService_Store_0(rctx, inboundMarshaler, server, req, pathParams)
-		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)

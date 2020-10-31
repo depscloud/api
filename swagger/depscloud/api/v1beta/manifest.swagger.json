@@ -156,6 +156,9 @@
           "additionalProperties": {
             "type": "string"
           }
+        },
+        "source_url": {
+          "type": "string"
         }
       },
       "description": "ExtractRequest encapsulates requirements for the `Extract` operation."

@@ -43,6 +43,7 @@ export interface MatchResponse {
 export interface ExtractRequest {
   separator: string;
   fileContents: ExtractRequest_FileContentsEntry;
+  sourceUrl: string;
 }
 
 export type ExtractRequest_FileContentsEntry = { [key: string]: string }

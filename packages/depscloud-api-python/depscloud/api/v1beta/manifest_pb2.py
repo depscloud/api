@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\037github.com/depscloud/api/v1beta',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n#depscloud/api/v1beta/manifest.proto\x12\x14\x64\x65pscloud.api.v1beta\"N\n\x12ManifestDependency\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x1a\n\x12version_constraint\x18\x02 \x01(\t\x12\x0e\n\x06scopes\x18\x03 \x03(\t\"\xa3\x01\n\x0cManifestFile\x12\x10\n\x08language\x18\x01 \x01(\t\x12\x0e\n\x06system\x18\x02 \x01(\t\x12\x12\n\nsource_url\x18\x03 \x01(\t\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x0f\n\x07version\x18\x05 \x01(\t\x12>\n\x0c\x64\x65pendencies\x18\x06 \x03(\x0b\x32(.depscloud.api.v1beta.ManifestDependency\"0\n\x0cMatchRequest\x12\x11\n\tseparator\x18\x01 \x01(\t\x12\r\n\x05paths\x18\x02 \x03(\t\"&\n\rMatchResponse\x12\x15\n\rmatched_paths\x18\x01 \x03(\t\"\xa7\x01\n\x0e\x45xtractRequest\x12\x11\n\tseparator\x18\x01 \x01(\t\x12M\n\rfile_contents\x18\x02 \x03(\x0b\x32\x36.depscloud.api.v1beta.ExtractRequest.FileContentsEntry\x1a\x33\n\x11\x46ileContentsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"M\n\x0f\x45xtractResponse\x12:\n\x0emanifest_files\x18\x01 \x03(\x0b\x32\".depscloud.api.v1beta.ManifestFile\"r\n\x0cStoreRequest\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x0b\n\x03ref\x18\x02 \x01(\t\x12\x0c\n\x04kind\x18\x03 \x01(\t\x12:\n\x0emanifest_files\x18\x04 \x03(\x0b\x32\".depscloud.api.v1beta.ManifestFile\"\x0f\n\rStoreResponse2\xc5\x01\n\x19ManifestExtractionService\x12P\n\x05Match\x12\".depscloud.api.v1beta.MatchRequest\x1a#.depscloud.api.v1beta.MatchResponse\x12V\n\x07\x45xtract\x12$.depscloud.api.v1beta.ExtractRequest\x1a%.depscloud.api.v1beta.ExtractResponse2j\n\x16ManifestStorageService\x12P\n\x05Store\x12\".depscloud.api.v1beta.StoreRequest\x1a#.depscloud.api.v1beta.StoreResponseB!Z\x1fgithub.com/depscloud/api/v1betab\x06proto3'
+  serialized_pb=b'\n#depscloud/api/v1beta/manifest.proto\x12\x14\x64\x65pscloud.api.v1beta\"N\n\x12ManifestDependency\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x1a\n\x12version_constraint\x18\x02 \x01(\t\x12\x0e\n\x06scopes\x18\x03 \x03(\t\"\xa3\x01\n\x0cManifestFile\x12\x10\n\x08language\x18\x01 \x01(\t\x12\x0e\n\x06system\x18\x02 \x01(\t\x12\x12\n\nsource_url\x18\x03 \x01(\t\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x0f\n\x07version\x18\x05 \x01(\t\x12>\n\x0c\x64\x65pendencies\x18\x06 \x03(\x0b\x32(.depscloud.api.v1beta.ManifestDependency\"0\n\x0cMatchRequest\x12\x11\n\tseparator\x18\x01 \x01(\t\x12\r\n\x05paths\x18\x02 \x03(\t\"&\n\rMatchResponse\x12\x15\n\rmatched_paths\x18\x01 \x03(\t\"\xbb\x01\n\x0e\x45xtractRequest\x12\x11\n\tseparator\x18\x01 \x01(\t\x12M\n\rfile_contents\x18\x02 \x03(\x0b\x32\x36.depscloud.api.v1beta.ExtractRequest.FileContentsEntry\x12\x12\n\nsource_url\x18\x03 \x01(\t\x1a\x33\n\x11\x46ileContentsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"M\n\x0f\x45xtractResponse\x12:\n\x0emanifest_files\x18\x01 \x03(\x0b\x32\".depscloud.api.v1beta.ManifestFile\"r\n\x0cStoreRequest\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x0b\n\x03ref\x18\x02 \x01(\t\x12\x0c\n\x04kind\x18\x03 \x01(\t\x12:\n\x0emanifest_files\x18\x04 \x03(\x0b\x32\".depscloud.api.v1beta.ManifestFile\"\x0f\n\rStoreResponse2\xc5\x01\n\x19ManifestExtractionService\x12P\n\x05Match\x12\".depscloud.api.v1beta.MatchRequest\x1a#.depscloud.api.v1beta.MatchResponse\x12V\n\x07\x45xtract\x12$.depscloud.api.v1beta.ExtractRequest\x1a%.depscloud.api.v1beta.ExtractResponse2j\n\x16ManifestStorageService\x12P\n\x05Store\x12\".depscloud.api.v1beta.StoreRequest\x1a#.depscloud.api.v1beta.StoreResponseB!Z\x1fgithub.com/depscloud/api/v1betab\x06proto3'
 )
 
 
@@ -243,8 +243,8 @@ _EXTRACTREQUEST_FILECONTENTSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=514,
-  serialized_end=565,
+  serialized_start=534,
+  serialized_end=585,
 )
 
 _EXTRACTREQUEST = _descriptor.Descriptor(
@@ -269,6 +269,13 @@ _EXTRACTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='source_url', full_name='depscloud.api.v1beta.ExtractRequest.source_url', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -282,7 +289,7 @@ _EXTRACTREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=398,
-  serialized_end=565,
+  serialized_end=585,
 )
 
 
@@ -313,8 +320,8 @@ _EXTRACTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=567,
-  serialized_end=644,
+  serialized_start=587,
+  serialized_end=664,
 )
 
 
@@ -366,8 +373,8 @@ _STOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=646,
-  serialized_end=760,
+  serialized_start=666,
+  serialized_end=780,
 )
 
 
@@ -391,8 +398,8 @@ _STORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=762,
-  serialized_end=777,
+  serialized_start=782,
+  serialized_end=797,
 )
 
 _MANIFESTFILE.fields_by_name['dependencies'].message_type = _MANIFESTDEPENDENCY
@@ -485,8 +492,8 @@ _MANIFESTEXTRACTIONSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=780,
-  serialized_end=977,
+  serialized_start=800,
+  serialized_end=997,
   methods=[
   _descriptor.MethodDescriptor(
     name='Match',
@@ -521,8 +528,8 @@ _MANIFESTSTORAGESERVICE = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=979,
-  serialized_end=1085,
+  serialized_start=999,
+  serialized_end=1105,
   methods=[
   _descriptor.MethodDescriptor(
     name='Store',

@@ -50,6 +50,7 @@ message MatchResponse {
 message ExtractRequest {
     string separator = 1;
     map<string, string> file_contents = 2;
+    string source_url = 3;
 }
 
 // ExtractResponse encapsulates response data for the `Extract` operation.

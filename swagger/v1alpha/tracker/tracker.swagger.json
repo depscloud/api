@@ -587,7 +587,8 @@
       "type": "object",
       "properties": {
         "cancel": {
-          "type": "boolean"
+          "type": "boolean",
+          "format": "boolean"
         },
         "dependentsOf": {
           "$ref": "#/definitions/trackerDependencyRequest"
@@ -653,7 +654,8 @@
       "type": "object",
       "properties": {
         "tracking": {
-          "type": "boolean"
+          "type": "boolean",
+          "format": "boolean"
         }
       }
     },
