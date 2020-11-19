@@ -8,6 +8,6 @@ require (
 	github.com/grpc-ecosystem/grpc-gateway v1.15.2
 	golang.org/x/sys v0.0.0-20190626221950-04f50cda93cb // indirect
 	golang.org/x/text v0.3.2 // indirect
-	google.golang.org/genproto v0.0.0-20201104152603-2e45c02ce95c
+	google.golang.org/genproto v0.0.0-20201119123407-9b1e624d6bc4
 	google.golang.org/grpc v1.33.1
 )
