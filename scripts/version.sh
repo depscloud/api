@@ -1,3 +1,5 @@
+set -e -o pipefail
+
 # generate a new version using nodejs
 pushd ./packages/depscloud-api-nodejs
 npm version ${1}
