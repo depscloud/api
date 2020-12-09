@@ -41,7 +41,7 @@ ${filenames}
 const packageDefinition = protoLoader.loadSync(
     filenames,
     {
-        keepCase: true,
+        keepCase: false,
         longs: String,
         enums: String,
         defaults: true,

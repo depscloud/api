@@ -17,7 +17,7 @@ filenames.push(path.join(__dirname, "graphstore", "api", "v1beta", "graphstore.p
 const packageDefinition = protoLoader.loadSync(
     filenames,
     {
-        keepCase: true,
+        keepCase: false,
         longs: String,
         enums: String,
         defaults: true,

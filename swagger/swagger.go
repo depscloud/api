@@ -189,7 +189,7 @@ func depscloudApiV1betaCoreSwaggerJson() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "depscloud/api/v1beta/core.swagger.json", size: 897, mode: os.FileMode(420), modTime: time.Unix(1604169177, 0)}
+	info := bindataFileInfo{name: "depscloud/api/v1beta/core.swagger.json", size: 897, mode: os.FileMode(420), modTime: time.Unix(1607497979, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -209,7 +209,7 @@ func depscloudApiV1betaManifestSwaggerJson() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "depscloud/api/v1beta/manifest.swagger.json", size: 7425, mode: os.FileMode(420), modTime: time.Unix(1604169177, 0)}
+	info := bindataFileInfo{name: "depscloud/api/v1beta/manifest.swagger.json", size: 7425, mode: os.FileMode(420), modTime: time.Unix(1607497979, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -229,7 +229,7 @@ func depscloudApiV1betaRpcSwaggerJson() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "depscloud/api/v1beta/rpc.swagger.json", size: 14909, mode: os.FileMode(420), modTime: time.Unix(1604169178, 0)}
+	info := bindataFileInfo{name: "depscloud/api/v1beta/rpc.swagger.json", size: 14909, mode: os.FileMode(420), modTime: time.Unix(1607497980, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -249,7 +249,7 @@ func graphstoreApiV1betaGraphstoreSwaggerJson() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "graphstore/api/v1beta/graphstore.swagger.json", size: 32741, mode: os.FileMode(420), modTime: time.Unix(1604169179, 0)}
+	info := bindataFileInfo{name: "graphstore/api/v1beta/graphstore.swagger.json", size: 32741, mode: os.FileMode(420), modTime: time.Unix(1607497981, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -269,7 +269,7 @@ func v1alphaDepsDepsSwaggerJson() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "v1alpha/deps/deps.swagger.json", size: 903, mode: os.FileMode(420), modTime: time.Unix(1604169178, 0)}
+	info := bindataFileInfo{name: "v1alpha/deps/deps.swagger.json", size: 903, mode: os.FileMode(420), modTime: time.Unix(1607497980, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -289,7 +289,7 @@ func v1alphaExtractorExtractorSwaggerJson() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "v1alpha/extractor/extractor.swagger.json", size: 4779, mode: os.FileMode(420), modTime: time.Unix(1604169178, 0)}
+	info := bindataFileInfo{name: "v1alpha/extractor/extractor.swagger.json", size: 4779, mode: os.FileMode(420), modTime: time.Unix(1607497980, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -309,7 +309,7 @@ func v1alphaSchemaSchemaSwaggerJson() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "v1alpha/schema/schema.swagger.json", size: 907, mode: os.FileMode(420), modTime: time.Unix(1604169178, 0)}
+	info := bindataFileInfo{name: "v1alpha/schema/schema.swagger.json", size: 907, mode: os.FileMode(420), modTime: time.Unix(1607497980, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -329,7 +329,7 @@ func v1alphaStoreStoreSwaggerJson() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "v1alpha/store/store.swagger.json", size: 2443, mode: os.FileMode(420), modTime: time.Unix(1604169179, 0)}
+	info := bindataFileInfo{name: "v1alpha/store/store.swagger.json", size: 2443, mode: os.FileMode(420), modTime: time.Unix(1607497980, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -349,7 +349,7 @@ func v1alphaTrackerTrackerSwaggerJson() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "v1alpha/tracker/tracker.swagger.json", size: 15838, mode: os.FileMode(420), modTime: time.Unix(1604169179, 0)}
+	info := bindataFileInfo{name: "v1alpha/tracker/tracker.swagger.json", size: 15838, mode: os.FileMode(420), modTime: time.Unix(1607497980, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
