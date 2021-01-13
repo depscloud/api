@@ -9,7 +9,7 @@ setup(
     url='https://deps.cloud/',
     install_requires=[
         "protobuf==3.14.0",
-        "grpcio==1.33.2"
+        "grpcio==1.34.1"
     ],
     packages=find_packages()
 )
