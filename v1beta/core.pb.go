@@ -102,7 +102,7 @@ type Source struct {
 	// separate from the URL as systems like GitHub and GitLab offer some
 	// artifact support.
 	Kind string `protobuf:"bytes,1,opt,name=kind,proto3" json:"kind,omitempty"`
-	// A string formatted ProviderURL
+	// A string formatted ProviderURL.
 	Url string `protobuf:"bytes,2,opt,name=url,proto3" json:"url,omitempty"`
 	// Labels contain additional metadata about the entity
 	Labels               map[string]string `protobuf:"bytes,5,rep,name=labels,proto3" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`

@@ -54,7 +54,7 @@
         ]
       }
     },
-    "/v1beta/modules/{module.language}/{module.name}/dependencies": {
+    "/v1beta/modules/{module.language}/{module.name=**}/dependencies": {
       "get": {
         "operationId": "TraversalService_GetDependencies",
         "responses": {
@@ -92,7 +92,7 @@
         ]
       }
     },
-    "/v1beta/modules/{module.language}/{module.name}/dependents": {
+    "/v1beta/modules/{module.language}/{module.name=**}/dependents": {
       "get": {
         "operationId": "TraversalService_GetDependents",
         "responses": {
@@ -130,7 +130,7 @@
         ]
       }
     },
-    "/v1beta/modules/{module.language}/{module.name}/sources": {
+    "/v1beta/modules/{module.language}/{module.name=**}/sources": {
       "get": {
         "operationId": "ModuleService_ListSources",
         "responses": {
@@ -211,7 +211,7 @@
         ]
       }
     },
-    "/v1beta/sources/{source.url}/modules": {
+    "/v1beta/sources/modules": {
       "get": {
         "operationId": "SourceService_ListModules",
         "responses": {
@@ -230,15 +230,15 @@
         },
         "parameters": [
           {
-            "name": "source.url",
-            "description": "A string formatted ProviderURL",
-            "in": "path",
-            "required": true,
+            "name": "source.kind",
+            "description": "The kind of source, typically repository or artifactory. This was kept\nseparate from the URL as systems like GitHub and GitLab offer some\nartifact support.",
+            "in": "query",
+            "required": false,
             "type": "string"
           },
           {
-            "name": "source.kind",
-            "description": "The kind of source, typically repository or artifactory. This was kept\nseparate from the URL as systems like GitHub and GitLab offer some\nartifact support.",
+            "name": "source.url",
+            "description": "A string formatted ProviderURL.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -534,7 +534,7 @@
         },
         "url": {
           "type": "string",
-          "title": "A string formatted ProviderURL"
+          "description": "A string formatted ProviderURL."
         },
         "labels": {
           "type": "object",

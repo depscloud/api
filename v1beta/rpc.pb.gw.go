@@ -68,30 +68,12 @@ func local_request_SourceService_List_0(ctx context.Context, marshaler runtime.M
 }
 
 var (
-	filter_SourceService_ListModules_0 = &utilities.DoubleArray{Encoding: map[string]int{"source": 0, "url": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_SourceService_ListModules_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
 func request_SourceService_ListModules_0(ctx context.Context, marshaler runtime.Marshaler, client SourceServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ManagedSource
 	var metadata runtime.ServerMetadata
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["source.url"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "source.url")
-	}
-
-	err = runtime.PopulateFieldFromPath(&protoReq, "source.url", val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "source.url", err)
-	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
@@ -108,24 +90,6 @@ func request_SourceService_ListModules_0(ctx context.Context, marshaler runtime.
 func local_request_SourceService_ListModules_0(ctx context.Context, marshaler runtime.Marshaler, server SourceServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ManagedSource
 	var metadata runtime.ServerMetadata
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["source.url"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "source.url")
-	}
-
-	err = runtime.PopulateFieldFromPath(&protoReq, "source.url", val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "source.url", err)
-	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
@@ -688,7 +652,7 @@ func RegisterSourceServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 var (
 	pattern_SourceService_List_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1beta", "sources"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_SourceService_ListModules_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1beta", "sources", "source.url", "modules"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_SourceService_ListModules_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1beta", "sources", "modules"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
@@ -781,7 +745,7 @@ func RegisterModuleServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 var (
 	pattern_ModuleService_List_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1beta", "modules"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_ModuleService_ListSources_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"v1beta", "modules", "module.language", "module.name", "sources"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_ModuleService_ListSources_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 3, 0, 4, 1, 5, 3, 2, 4}, []string{"v1beta", "modules", "module.language", "module.name", "sources"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
@@ -872,9 +836,9 @@ func RegisterTraversalServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 }
 
 var (
-	pattern_TraversalService_GetDependents_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"v1beta", "modules", "module.language", "module.name", "dependents"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_TraversalService_GetDependents_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 3, 0, 4, 1, 5, 3, 2, 4}, []string{"v1beta", "modules", "module.language", "module.name", "dependents"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_TraversalService_GetDependencies_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"v1beta", "modules", "module.language", "module.name", "dependencies"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_TraversalService_GetDependencies_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 3, 0, 4, 1, 5, 3, 2, 4}, []string{"v1beta", "modules", "module.language", "module.name", "dependencies"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (

@@ -37,7 +37,7 @@ message Source {
     // separate from the URL as systems like GitHub and GitLab offer some
     // artifact support.
     string kind = 1;
-    // A string formatted ProviderURL
+    // A string formatted ProviderURL.
     string url = 2;
 
     // Labels contain additional metadata about the entity
