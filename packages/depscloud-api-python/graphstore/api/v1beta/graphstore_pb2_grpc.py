@@ -132,6 +132,7 @@ class GraphStore(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -140,7 +141,7 @@ class GraphStore(object):
             graphstore_dot_api_dot_v1beta_dot_graphstore__pb2.PutRequest.SerializeToString,
             graphstore_dot_api_dot_v1beta_dot_graphstore__pb2.PutResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def Delete(request,
@@ -148,6 +149,7 @@ class GraphStore(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -156,7 +158,7 @@ class GraphStore(object):
             graphstore_dot_api_dot_v1beta_dot_graphstore__pb2.DeleteRequest.SerializeToString,
             graphstore_dot_api_dot_v1beta_dot_graphstore__pb2.DeleteResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def List(request,
@@ -164,6 +166,7 @@ class GraphStore(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -172,7 +175,7 @@ class GraphStore(object):
             graphstore_dot_api_dot_v1beta_dot_graphstore__pb2.ListRequest.SerializeToString,
             graphstore_dot_api_dot_v1beta_dot_graphstore__pb2.ListResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def Neighbors(request,
@@ -180,6 +183,7 @@ class GraphStore(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -188,7 +192,7 @@ class GraphStore(object):
             graphstore_dot_api_dot_v1beta_dot_graphstore__pb2.NeighborsRequest.SerializeToString,
             graphstore_dot_api_dot_v1beta_dot_graphstore__pb2.NeighborsResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def Traverse(request_iterator,
@@ -196,6 +200,7 @@ class GraphStore(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -204,4 +209,4 @@ class GraphStore(object):
             graphstore_dot_api_dot_v1beta_dot_graphstore__pb2.TraverseRequest.SerializeToString,
             graphstore_dot_api_dot_v1beta_dot_graphstore__pb2.TraverseResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

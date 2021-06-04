@@ -70,6 +70,7 @@ class SourceService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -78,7 +79,7 @@ class SourceService(object):
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListRequest.SerializeToString,
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListSourcesResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def ListModules(request,
@@ -86,6 +87,7 @@ class SourceService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -94,7 +96,7 @@ class SourceService(object):
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ManagedSource.SerializeToString,
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListManagedModulesResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
 class ModuleServiceStub(object):
@@ -162,6 +164,7 @@ class ModuleService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -170,7 +173,7 @@ class ModuleService(object):
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListRequest.SerializeToString,
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListModulesResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def ListSources(request,
@@ -178,6 +181,7 @@ class ModuleService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -186,7 +190,7 @@ class ModuleService(object):
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ManagedModule.SerializeToString,
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListManagedSourcesResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
 class TraversalServiceStub(object):
@@ -302,6 +306,7 @@ class TraversalService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -310,7 +315,7 @@ class TraversalService(object):
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.Dependency.SerializeToString,
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.DependentsResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def GetDependencies(request,
@@ -318,6 +323,7 @@ class TraversalService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -326,7 +332,7 @@ class TraversalService(object):
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.Dependency.SerializeToString,
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.DependenciesResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def Search(request_iterator,
@@ -334,6 +340,7 @@ class TraversalService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -342,7 +349,7 @@ class TraversalService(object):
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.SearchRequest.SerializeToString,
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.SearchResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def BreadthFirstSearch(request_iterator,
@@ -350,6 +357,7 @@ class TraversalService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -358,7 +366,7 @@ class TraversalService(object):
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.SearchRequest.SerializeToString,
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.SearchResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def DepthFirstSearch(request_iterator,
@@ -366,6 +374,7 @@ class TraversalService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -374,4 +383,4 @@ class TraversalService(object):
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.SearchRequest.SerializeToString,
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.SearchResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

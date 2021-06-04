@@ -75,6 +75,7 @@ class ManifestExtractionService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -83,7 +84,7 @@ class ManifestExtractionService(object):
             depscloud_dot_api_dot_v1beta_dot_manifest__pb2.MatchRequest.SerializeToString,
             depscloud_dot_api_dot_v1beta_dot_manifest__pb2.MatchResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def Extract(request,
@@ -91,6 +92,7 @@ class ManifestExtractionService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -99,7 +101,7 @@ class ManifestExtractionService(object):
             depscloud_dot_api_dot_v1beta_dot_manifest__pb2.ExtractRequest.SerializeToString,
             depscloud_dot_api_dot_v1beta_dot_manifest__pb2.ExtractResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
 class ManifestStorageServiceStub(object):
@@ -155,6 +157,7 @@ class ManifestStorageService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -163,4 +166,4 @@ class ManifestStorageService(object):
             depscloud_dot_api_dot_v1beta_dot_manifest__pb2.StoreRequest.SerializeToString,
             depscloud_dot_api_dot_v1beta_dot_manifest__pb2.StoreResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
