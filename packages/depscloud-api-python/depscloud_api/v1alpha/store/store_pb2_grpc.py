@@ -118,6 +118,7 @@ class GraphStore(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -126,7 +127,7 @@ class GraphStore(object):
             depscloud__api_dot_v1alpha_dot_store_dot_store__pb2.PutRequest.SerializeToString,
             depscloud__api_dot_v1alpha_dot_store_dot_store__pb2.PutResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def Delete(request,
@@ -134,6 +135,7 @@ class GraphStore(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -142,7 +144,7 @@ class GraphStore(object):
             depscloud__api_dot_v1alpha_dot_store_dot_store__pb2.DeleteRequest.SerializeToString,
             depscloud__api_dot_v1alpha_dot_store_dot_store__pb2.DeleteResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def List(request,
@@ -150,6 +152,7 @@ class GraphStore(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -158,7 +161,7 @@ class GraphStore(object):
             depscloud__api_dot_v1alpha_dot_store_dot_store__pb2.ListRequest.SerializeToString,
             depscloud__api_dot_v1alpha_dot_store_dot_store__pb2.ListResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def FindUpstream(request,
@@ -166,6 +169,7 @@ class GraphStore(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -174,7 +178,7 @@ class GraphStore(object):
             depscloud__api_dot_v1alpha_dot_store_dot_store__pb2.FindRequest.SerializeToString,
             depscloud__api_dot_v1alpha_dot_store_dot_store__pb2.FindResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def FindDownstream(request,
@@ -182,6 +186,7 @@ class GraphStore(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -190,4 +195,4 @@ class GraphStore(object):
             depscloud__api_dot_v1alpha_dot_store_dot_store__pb2.FindRequest.SerializeToString,
             depscloud__api_dot_v1alpha_dot_store_dot_store__pb2.FindResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -71,6 +71,7 @@ class SourceService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -79,7 +80,7 @@ class SourceService(object):
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.ListRequest.SerializeToString,
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.ListSourceResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def Track(request,
@@ -87,6 +88,7 @@ class SourceService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -95,7 +97,7 @@ class SourceService(object):
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.SourceRequest.SerializeToString,
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.TrackResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
 class ModuleServiceStub(object):
@@ -179,6 +181,7 @@ class ModuleService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -187,7 +190,7 @@ class ModuleService(object):
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.ListRequest.SerializeToString,
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.ListModuleResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def ListSources(request,
@@ -195,6 +198,7 @@ class ModuleService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -203,7 +207,7 @@ class ModuleService(object):
             depscloud__api_dot_v1alpha_dot_schema_dot_schema__pb2.Module.SerializeToString,
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.ListSourcesResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def ListManaged(request,
@@ -211,6 +215,7 @@ class ModuleService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -219,7 +224,7 @@ class ModuleService(object):
             depscloud__api_dot_v1alpha_dot_schema_dot_schema__pb2.Source.SerializeToString,
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.ListManagedResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
 class DependencyServiceStub(object):
@@ -287,6 +292,7 @@ class DependencyService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -295,7 +301,7 @@ class DependencyService(object):
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.DependencyRequest.SerializeToString,
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.ListDependentsResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def ListDependencies(request,
@@ -303,6 +309,7 @@ class DependencyService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -311,7 +318,7 @@ class DependencyService(object):
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.DependencyRequest.SerializeToString,
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.ListDependenciesResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
 class SearchServiceStub(object):
@@ -395,6 +402,7 @@ class SearchService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -403,7 +411,7 @@ class SearchService(object):
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.SearchRequest.SerializeToString,
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.SearchResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def BreadthFirstSearch(request_iterator,
@@ -411,6 +419,7 @@ class SearchService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -419,7 +428,7 @@ class SearchService(object):
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.SearchRequest.SerializeToString,
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.SearchResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def DepthFirstSearch(request_iterator,
@@ -427,6 +436,7 @@ class SearchService(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -435,4 +445,4 @@ class SearchService(object):
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.SearchRequest.SerializeToString,
             depscloud__api_dot_v1alpha_dot_tracker_dot_tracker__pb2.SearchResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

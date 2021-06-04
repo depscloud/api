@@ -10,8 +10,9 @@ RUN curl -sSL -o protoc.zip https://github.com/protocolbuffers/protobuf/releases
 
 ENV PATH="${PATH}:/usr/local/protoc/bin"
 
-RUN go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
-RUN go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
-RUN go get -u github.com/golang/protobuf/protoc-gen-go
-RUN go get -u github.com/gogo/protobuf/protoc-gen-gogo
-RUN go get -u github.com/go-bindata/go-bindata/...
+RUN GOBIN=/usr/local/bin go get \
+    github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway@v1.16.0 \
+    github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger@v1.16.0 \
+    google.golang.org/protobuf/cmd/protoc-gen-go@v1.26.0 \
+    google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1.0 \
+    github.com/go-bindata/go-bindata/...

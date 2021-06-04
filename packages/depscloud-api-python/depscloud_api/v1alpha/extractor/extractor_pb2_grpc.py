@@ -70,6 +70,7 @@ class DependencyExtractor(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -78,7 +79,7 @@ class DependencyExtractor(object):
             depscloud__api_dot_v1alpha_dot_extractor_dot_extractor__pb2.MatchRequest.SerializeToString,
             depscloud__api_dot_v1alpha_dot_extractor_dot_extractor__pb2.MatchResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def Extract(request,
@@ -86,6 +87,7 @@ class DependencyExtractor(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -94,4 +96,4 @@ class DependencyExtractor(object):
             depscloud__api_dot_v1alpha_dot_extractor_dot_extractor__pb2.ExtractRequest.SerializeToString,
             depscloud__api_dot_v1alpha_dot_extractor_dot_extractor__pb2.ExtractResponse.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
