@@ -30,6 +30,11 @@ message ListModulesResponse {
     repeated Module modules = 2;
 }
 
+message ListLanguagesResponse {
+    string next_page_token = 1;
+    repeated Language languages = 2;
+}
+
 message ManagedModule {
     Module module = 1;
     repeated SourceModule edge_data = 2;
@@ -48,14 +53,36 @@ message ListManagedModulesResponse {
     repeated ManagedModule modules = 1;
 }
 
+message SourcesSearchRequest {
+    string parent = 1;
+    int32 page_size = 2;
+    string page_token = 3;
+
+    Source like = 4;
+}
+
+message ModulesSearchRequest {
+    string parent = 1;
+    int32 page_size = 2;
+    string page_token = 3;
+
+    Module like = 4;
+}
+
+service LanguageService {
+    rpc List(ListRequest) returns (ListLanguagesResponse);
+}
+
 service SourceService {
     rpc List(ListRequest) returns (ListSourcesResponse);
     rpc ListModules(ManagedSource) returns (ListManagedModulesResponse);
+    rpc Search(SourcesSearchRequest) returns (ListSourcesResponse);
 }
 
 service ModuleService {
     rpc List(ListRequest) returns (ListModulesResponse);
     rpc ListSources(ManagedModule) returns (ListManagedSourcesResponse);
+    rpc Search(ModulesSearchRequest) returns (ListModulesResponse);
 }
 
 // traversal rpc

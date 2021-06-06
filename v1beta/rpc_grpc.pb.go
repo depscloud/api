@@ -14,12 +14,99 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
+// LanguageServiceClient is the client API for LanguageService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LanguageServiceClient interface {
+	List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListLanguagesResponse, error)
+}
+
+type languageServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLanguageServiceClient(cc grpc.ClientConnInterface) LanguageServiceClient {
+	return &languageServiceClient{cc}
+}
+
+func (c *languageServiceClient) List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListLanguagesResponse, error) {
+	out := new(ListLanguagesResponse)
+	err := c.cc.Invoke(ctx, "/depscloud.api.v1beta.LanguageService/List", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LanguageServiceServer is the server API for LanguageService service.
+// All implementations must embed UnimplementedLanguageServiceServer
+// for forward compatibility
+type LanguageServiceServer interface {
+	List(context.Context, *ListRequest) (*ListLanguagesResponse, error)
+	mustEmbedUnimplementedLanguageServiceServer()
+}
+
+// UnimplementedLanguageServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedLanguageServiceServer struct {
+}
+
+func (UnimplementedLanguageServiceServer) List(context.Context, *ListRequest) (*ListLanguagesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedLanguageServiceServer) mustEmbedUnimplementedLanguageServiceServer() {}
+
+// UnsafeLanguageServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LanguageServiceServer will
+// result in compilation errors.
+type UnsafeLanguageServiceServer interface {
+	mustEmbedUnimplementedLanguageServiceServer()
+}
+
+func RegisterLanguageServiceServer(s grpc.ServiceRegistrar, srv LanguageServiceServer) {
+	s.RegisterService(&LanguageService_ServiceDesc, srv)
+}
+
+func _LanguageService_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LanguageServiceServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/depscloud.api.v1beta.LanguageService/List",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LanguageServiceServer).List(ctx, req.(*ListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LanguageService_ServiceDesc is the grpc.ServiceDesc for LanguageService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LanguageService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "depscloud.api.v1beta.LanguageService",
+	HandlerType: (*LanguageServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "List",
+			Handler:    _LanguageService_List_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "depscloud/api/v1beta/rpc.proto",
+}
+
 // SourceServiceClient is the client API for SourceService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SourceServiceClient interface {
 	List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListSourcesResponse, error)
 	ListModules(ctx context.Context, in *ManagedSource, opts ...grpc.CallOption) (*ListManagedModulesResponse, error)
+	Search(ctx context.Context, in *SourcesSearchRequest, opts ...grpc.CallOption) (*ListSourcesResponse, error)
 }
 
 type sourceServiceClient struct {
@@ -48,12 +135,22 @@ func (c *sourceServiceClient) ListModules(ctx context.Context, in *ManagedSource
 	return out, nil
 }
 
+func (c *sourceServiceClient) Search(ctx context.Context, in *SourcesSearchRequest, opts ...grpc.CallOption) (*ListSourcesResponse, error) {
+	out := new(ListSourcesResponse)
+	err := c.cc.Invoke(ctx, "/depscloud.api.v1beta.SourceService/Search", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // SourceServiceServer is the server API for SourceService service.
 // All implementations must embed UnimplementedSourceServiceServer
 // for forward compatibility
 type SourceServiceServer interface {
 	List(context.Context, *ListRequest) (*ListSourcesResponse, error)
 	ListModules(context.Context, *ManagedSource) (*ListManagedModulesResponse, error)
+	Search(context.Context, *SourcesSearchRequest) (*ListSourcesResponse, error)
 	mustEmbedUnimplementedSourceServiceServer()
 }
 
@@ -66,6 +163,9 @@ func (UnimplementedSourceServiceServer) List(context.Context, *ListRequest) (*Li
 }
 func (UnimplementedSourceServiceServer) ListModules(context.Context, *ManagedSource) (*ListManagedModulesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListModules not implemented")
+}
+func (UnimplementedSourceServiceServer) Search(context.Context, *SourcesSearchRequest) (*ListSourcesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Search not implemented")
 }
 func (UnimplementedSourceServiceServer) mustEmbedUnimplementedSourceServiceServer() {}
 
@@ -116,6 +216,24 @@ func _SourceService_ListModules_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SourceService_Search_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SourcesSearchRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SourceServiceServer).Search(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/depscloud.api.v1beta.SourceService/Search",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SourceServiceServer).Search(ctx, req.(*SourcesSearchRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // SourceService_ServiceDesc is the grpc.ServiceDesc for SourceService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -131,6 +249,10 @@ var SourceService_ServiceDesc = grpc.ServiceDesc{
 			MethodName: "ListModules",
 			Handler:    _SourceService_ListModules_Handler,
 		},
+		{
+			MethodName: "Search",
+			Handler:    _SourceService_Search_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "depscloud/api/v1beta/rpc.proto",
@@ -142,6 +264,7 @@ var SourceService_ServiceDesc = grpc.ServiceDesc{
 type ModuleServiceClient interface {
 	List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListModulesResponse, error)
 	ListSources(ctx context.Context, in *ManagedModule, opts ...grpc.CallOption) (*ListManagedSourcesResponse, error)
+	Search(ctx context.Context, in *ModulesSearchRequest, opts ...grpc.CallOption) (*ListModulesResponse, error)
 }
 
 type moduleServiceClient struct {
@@ -170,12 +293,22 @@ func (c *moduleServiceClient) ListSources(ctx context.Context, in *ManagedModule
 	return out, nil
 }
 
+func (c *moduleServiceClient) Search(ctx context.Context, in *ModulesSearchRequest, opts ...grpc.CallOption) (*ListModulesResponse, error) {
+	out := new(ListModulesResponse)
+	err := c.cc.Invoke(ctx, "/depscloud.api.v1beta.ModuleService/Search", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ModuleServiceServer is the server API for ModuleService service.
 // All implementations must embed UnimplementedModuleServiceServer
 // for forward compatibility
 type ModuleServiceServer interface {
 	List(context.Context, *ListRequest) (*ListModulesResponse, error)
 	ListSources(context.Context, *ManagedModule) (*ListManagedSourcesResponse, error)
+	Search(context.Context, *ModulesSearchRequest) (*ListModulesResponse, error)
 	mustEmbedUnimplementedModuleServiceServer()
 }
 
@@ -188,6 +321,9 @@ func (UnimplementedModuleServiceServer) List(context.Context, *ListRequest) (*Li
 }
 func (UnimplementedModuleServiceServer) ListSources(context.Context, *ManagedModule) (*ListManagedSourcesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListSources not implemented")
+}
+func (UnimplementedModuleServiceServer) Search(context.Context, *ModulesSearchRequest) (*ListModulesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Search not implemented")
 }
 func (UnimplementedModuleServiceServer) mustEmbedUnimplementedModuleServiceServer() {}
 
@@ -238,6 +374,24 @@ func _ModuleService_ListSources_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ModuleService_Search_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ModulesSearchRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ModuleServiceServer).Search(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/depscloud.api.v1beta.ModuleService/Search",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ModuleServiceServer).Search(ctx, req.(*ModulesSearchRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ModuleService_ServiceDesc is the grpc.ServiceDesc for ModuleService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -252,6 +406,10 @@ var ModuleService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListSources",
 			Handler:    _ModuleService_ListSources_Handler,
+		},
+		{
+			MethodName: "Search",
+			Handler:    _ModuleService_Search_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

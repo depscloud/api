@@ -5,6 +5,67 @@ import grpc
 from depscloud.api.v1beta import rpc_pb2 as depscloud_dot_api_dot_v1beta_dot_rpc__pb2
 
 
+class LanguageServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.List = channel.unary_unary(
+                '/depscloud.api.v1beta.LanguageService/List',
+                request_serializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListRequest.SerializeToString,
+                response_deserializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListLanguagesResponse.FromString,
+                )
+
+
+class LanguageServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def List(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_LanguageServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'List': grpc.unary_unary_rpc_method_handler(
+                    servicer.List,
+                    request_deserializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListRequest.FromString,
+                    response_serializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListLanguagesResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'depscloud.api.v1beta.LanguageService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class LanguageService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def List(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/depscloud.api.v1beta.LanguageService/List',
+            depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListRequest.SerializeToString,
+            depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListLanguagesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
 class SourceServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 
@@ -24,6 +85,11 @@ class SourceServiceStub(object):
                 request_serializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ManagedSource.SerializeToString,
                 response_deserializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListManagedModulesResponse.FromString,
                 )
+        self.Search = channel.unary_unary(
+                '/depscloud.api.v1beta.SourceService/Search',
+                request_serializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.SourcesSearchRequest.SerializeToString,
+                response_deserializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListSourcesResponse.FromString,
+                )
 
 
 class SourceServiceServicer(object):
@@ -41,6 +107,12 @@ class SourceServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def Search(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_SourceServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -53,6 +125,11 @@ def add_SourceServiceServicer_to_server(servicer, server):
                     servicer.ListModules,
                     request_deserializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ManagedSource.FromString,
                     response_serializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListManagedModulesResponse.SerializeToString,
+            ),
+            'Search': grpc.unary_unary_rpc_method_handler(
+                    servicer.Search,
+                    request_deserializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.SourcesSearchRequest.FromString,
+                    response_serializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListSourcesResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -98,6 +175,23 @@ class SourceService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def Search(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/depscloud.api.v1beta.SourceService/Search',
+            depscloud_dot_api_dot_v1beta_dot_rpc__pb2.SourcesSearchRequest.SerializeToString,
+            depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListSourcesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class ModuleServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -118,6 +212,11 @@ class ModuleServiceStub(object):
                 request_serializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ManagedModule.SerializeToString,
                 response_deserializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListManagedSourcesResponse.FromString,
                 )
+        self.Search = channel.unary_unary(
+                '/depscloud.api.v1beta.ModuleService/Search',
+                request_serializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ModulesSearchRequest.SerializeToString,
+                response_deserializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListModulesResponse.FromString,
+                )
 
 
 class ModuleServiceServicer(object):
@@ -135,6 +234,12 @@ class ModuleServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def Search(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ModuleServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -147,6 +252,11 @@ def add_ModuleServiceServicer_to_server(servicer, server):
                     servicer.ListSources,
                     request_deserializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ManagedModule.FromString,
                     response_serializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListManagedSourcesResponse.SerializeToString,
+            ),
+            'Search': grpc.unary_unary_rpc_method_handler(
+                    servicer.Search,
+                    request_deserializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ModulesSearchRequest.FromString,
+                    response_serializer=depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListModulesResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -189,6 +299,23 @@ class ModuleService(object):
         return grpc.experimental.unary_unary(request, target, '/depscloud.api.v1beta.ModuleService/ListSources',
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ManagedModule.SerializeToString,
             depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListManagedSourcesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Search(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/depscloud.api.v1beta.ModuleService/Search',
+            depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ModulesSearchRequest.SerializeToString,
+            depscloud_dot_api_dot_v1beta_dot_rpc__pb2.ListModulesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

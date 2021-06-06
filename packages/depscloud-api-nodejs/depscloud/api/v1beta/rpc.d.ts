@@ -17,6 +17,7 @@ import {
 } from "@grpc/grpc-js";
 
 import {
+  Language,
   Module,
   ModuleDependency,
   Source,
@@ -39,6 +40,11 @@ export interface ListModulesResponse {
   modules: Array<Module>;
 }
 
+export interface ListLanguagesResponse {
+  nextPageToken: string;
+  languages: Array<Language>;
+}
+
 export interface ManagedModule {
   module: Module;
   edgeData: Array<SourceModule>;
@@ -55,6 +61,20 @@ export interface ListManagedSourcesResponse {
 
 export interface ListManagedModulesResponse {
   modules: Array<ManagedModule>;
+}
+
+export interface SourcesSearchRequest {
+  parent: string;
+  pageSize: number;
+  pageToken: string;
+  like: Source;
+}
+
+export interface ModulesSearchRequest {
+  parent: string;
+  pageSize: number;
+  pageToken: string;
+  like: Module;
 }
 
 export interface Dependency {
@@ -86,9 +106,22 @@ export interface SearchResponse {
   sources: Array<ManagedSource>;
 }
 
+export interface ILanguageService { 
+  list(call: ServerUnaryCall<ListRequest, ListLanguagesResponse>, callback: (error: Error, response: ListLanguagesResponse) => void): void;
+}
+
+export class LanguageService extends Client {
+  public static service: ServiceDefinition<ILanguageService>;
+
+  constructor(address: string, credentials: ChannelCredentials, options?: object); 
+  public list(request: ListRequest, callback: (error: Error, response: ListLanguagesResponse) => void): void;
+  public list(request: ListRequest, metadata: Metadata, callback: (error: Error, response: ListLanguagesResponse) => void): void;
+}
+
 export interface ISourceService { 
   list(call: ServerUnaryCall<ListRequest, ListSourcesResponse>, callback: (error: Error, response: ListSourcesResponse) => void): void; 
-  listModules(call: ServerUnaryCall<ManagedSource, ListManagedModulesResponse>, callback: (error: Error, response: ListManagedModulesResponse) => void): void;
+  listModules(call: ServerUnaryCall<ManagedSource, ListManagedModulesResponse>, callback: (error: Error, response: ListManagedModulesResponse) => void): void; 
+  search(call: ServerUnaryCall<SourcesSearchRequest, ListSourcesResponse>, callback: (error: Error, response: ListSourcesResponse) => void): void;
 }
 
 export class SourceService extends Client {
@@ -98,12 +131,15 @@ export class SourceService extends Client {
   public list(request: ListRequest, callback: (error: Error, response: ListSourcesResponse) => void): void;
   public list(request: ListRequest, metadata: Metadata, callback: (error: Error, response: ListSourcesResponse) => void): void; 
   public listModules(request: ManagedSource, callback: (error: Error, response: ListManagedModulesResponse) => void): void;
-  public listModules(request: ManagedSource, metadata: Metadata, callback: (error: Error, response: ListManagedModulesResponse) => void): void;
+  public listModules(request: ManagedSource, metadata: Metadata, callback: (error: Error, response: ListManagedModulesResponse) => void): void; 
+  public search(request: SourcesSearchRequest, callback: (error: Error, response: ListSourcesResponse) => void): void;
+  public search(request: SourcesSearchRequest, metadata: Metadata, callback: (error: Error, response: ListSourcesResponse) => void): void;
 }
 
 export interface IModuleService { 
   list(call: ServerUnaryCall<ListRequest, ListModulesResponse>, callback: (error: Error, response: ListModulesResponse) => void): void; 
-  listSources(call: ServerUnaryCall<ManagedModule, ListManagedSourcesResponse>, callback: (error: Error, response: ListManagedSourcesResponse) => void): void;
+  listSources(call: ServerUnaryCall<ManagedModule, ListManagedSourcesResponse>, callback: (error: Error, response: ListManagedSourcesResponse) => void): void; 
+  search(call: ServerUnaryCall<ModulesSearchRequest, ListModulesResponse>, callback: (error: Error, response: ListModulesResponse) => void): void;
 }
 
 export class ModuleService extends Client {
@@ -113,7 +149,9 @@ export class ModuleService extends Client {
   public list(request: ListRequest, callback: (error: Error, response: ListModulesResponse) => void): void;
   public list(request: ListRequest, metadata: Metadata, callback: (error: Error, response: ListModulesResponse) => void): void; 
   public listSources(request: ManagedModule, callback: (error: Error, response: ListManagedSourcesResponse) => void): void;
-  public listSources(request: ManagedModule, metadata: Metadata, callback: (error: Error, response: ListManagedSourcesResponse) => void): void;
+  public listSources(request: ManagedModule, metadata: Metadata, callback: (error: Error, response: ListManagedSourcesResponse) => void): void; 
+  public search(request: ModulesSearchRequest, callback: (error: Error, response: ListModulesResponse) => void): void;
+  public search(request: ModulesSearchRequest, metadata: Metadata, callback: (error: Error, response: ListModulesResponse) => void): void;
 }
 
 export interface ITraversalService { 

@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\037github.com/depscloud/api/v1beta',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1e\x64\x65pscloud/api/v1beta/rpc.proto\x12\x14\x64\x65pscloud.api.v1beta\x1a\x1f\x64\x65pscloud/api/v1beta/core.proto\"D\n\x0bListRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"]\n\x13ListSourcesResponse\x12\x17\n\x0fnext_page_token\x18\x01 \x01(\t\x12-\n\x07sources\x18\x02 \x03(\x0b\x32\x1c.depscloud.api.v1beta.Source\"]\n\x13ListModulesResponse\x12\x17\n\x0fnext_page_token\x18\x01 \x01(\t\x12-\n\x07modules\x18\x02 \x03(\x0b\x32\x1c.depscloud.api.v1beta.Module\"t\n\rManagedModule\x12,\n\x06module\x18\x01 \x01(\x0b\x32\x1c.depscloud.api.v1beta.Module\x12\x35\n\tedge_data\x18\x02 \x03(\x0b\x32\".depscloud.api.v1beta.SourceModule\"t\n\rManagedSource\x12,\n\x06source\x18\x01 \x01(\x0b\x32\x1c.depscloud.api.v1beta.Source\x12\x35\n\tedge_data\x18\x02 \x03(\x0b\x32\".depscloud.api.v1beta.SourceModule\"R\n\x1aListManagedSourcesResponse\x12\x34\n\x07sources\x18\x01 \x03(\x0b\x32#.depscloud.api.v1beta.ManagedSource\"R\n\x1aListManagedModulesResponse\x12\x34\n\x07modules\x18\x01 \x03(\x0b\x32#.depscloud.api.v1beta.ManagedModule\"u\n\nDependency\x12,\n\x06module\x18\x01 \x01(\x0b\x32\x1c.depscloud.api.v1beta.Module\x12\x39\n\tedge_data\x18\x02 \x03(\x0b\x32&.depscloud.api.v1beta.ModuleDependency\"J\n\x12\x44\x65pendentsResponse\x12\x34\n\ndependents\x18\x01 \x03(\x0b\x32 .depscloud.api.v1beta.Dependency\"N\n\x14\x44\x65pendenciesResponse\x12\x36\n\x0c\x64\x65pendencies\x18\x01 \x03(\x0b\x32 .depscloud.api.v1beta.Dependency\"\x87\x02\n\rSearchRequest\x12\x0e\n\x06\x63\x61ncel\x18\x01 \x01(\x08\x12\x38\n\x0bmodules_for\x18\x05 \x01(\x0b\x32#.depscloud.api.v1beta.ManagedSource\x12:\n\x10\x64\x65pendencies_for\x18\x06 \x01(\x0b\x32 .depscloud.api.v1beta.Dependency\x12\x37\n\rdependents_of\x18\x07 \x01(\x0b\x32 .depscloud.api.v1beta.Dependency\x12\x37\n\nsources_of\x18\x08 \x01(\x0b\x32#.depscloud.api.v1beta.ManagedModule\"\xa0\x02\n\x0eSearchResponse\x12\x34\n\x07request\x18\x01 \x01(\x0b\x32#.depscloud.api.v1beta.SearchRequest\x12\x34\n\x07modules\x18\x05 \x03(\x0b\x32#.depscloud.api.v1beta.ManagedModule\x12\x36\n\x0c\x64\x65pendencies\x18\x06 \x03(\x0b\x32 .depscloud.api.v1beta.Dependency\x12\x34\n\ndependents\x18\x07 \x03(\x0b\x32 .depscloud.api.v1beta.Dependency\x12\x34\n\x07sources\x18\x08 \x03(\x0b\x32#.depscloud.api.v1beta.ManagedSource2\xcb\x01\n\rSourceService\x12T\n\x04List\x12!.depscloud.api.v1beta.ListRequest\x1a).depscloud.api.v1beta.ListSourcesResponse\x12\x64\n\x0bListModules\x12#.depscloud.api.v1beta.ManagedSource\x1a\x30.depscloud.api.v1beta.ListManagedModulesResponse2\xcb\x01\n\rModuleService\x12T\n\x04List\x12!.depscloud.api.v1beta.ListRequest\x1a).depscloud.api.v1beta.ListModulesResponse\x12\x64\n\x0bListSources\x12#.depscloud.api.v1beta.ManagedModule\x1a\x30.depscloud.api.v1beta.ListManagedSourcesResponse2\xf1\x03\n\x10TraversalService\x12[\n\rGetDependents\x12 .depscloud.api.v1beta.Dependency\x1a(.depscloud.api.v1beta.DependentsResponse\x12_\n\x0fGetDependencies\x12 .depscloud.api.v1beta.Dependency\x1a*.depscloud.api.v1beta.DependenciesResponse\x12W\n\x06Search\x12#.depscloud.api.v1beta.SearchRequest\x1a$.depscloud.api.v1beta.SearchResponse(\x01\x30\x01\x12\x63\n\x12\x42readthFirstSearch\x12#.depscloud.api.v1beta.SearchRequest\x1a$.depscloud.api.v1beta.SearchResponse(\x01\x30\x01\x12\x61\n\x10\x44\x65pthFirstSearch\x12#.depscloud.api.v1beta.SearchRequest\x1a$.depscloud.api.v1beta.SearchResponse(\x01\x30\x01\x42!Z\x1fgithub.com/depscloud/api/v1betab\x06proto3'
+  serialized_pb=b'\n\x1e\x64\x65pscloud/api/v1beta/rpc.proto\x12\x14\x64\x65pscloud.api.v1beta\x1a\x1f\x64\x65pscloud/api/v1beta/core.proto\"D\n\x0bListRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"]\n\x13ListSourcesResponse\x12\x17\n\x0fnext_page_token\x18\x01 \x01(\t\x12-\n\x07sources\x18\x02 \x03(\x0b\x32\x1c.depscloud.api.v1beta.Source\"]\n\x13ListModulesResponse\x12\x17\n\x0fnext_page_token\x18\x01 \x01(\t\x12-\n\x07modules\x18\x02 \x03(\x0b\x32\x1c.depscloud.api.v1beta.Module\"c\n\x15ListLanguagesResponse\x12\x17\n\x0fnext_page_token\x18\x01 \x01(\t\x12\x31\n\tlanguages\x18\x02 \x03(\x0b\x32\x1e.depscloud.api.v1beta.Language\"t\n\rManagedModule\x12,\n\x06module\x18\x01 \x01(\x0b\x32\x1c.depscloud.api.v1beta.Module\x12\x35\n\tedge_data\x18\x02 \x03(\x0b\x32\".depscloud.api.v1beta.SourceModule\"t\n\rManagedSource\x12,\n\x06source\x18\x01 \x01(\x0b\x32\x1c.depscloud.api.v1beta.Source\x12\x35\n\tedge_data\x18\x02 \x03(\x0b\x32\".depscloud.api.v1beta.SourceModule\"R\n\x1aListManagedSourcesResponse\x12\x34\n\x07sources\x18\x01 \x03(\x0b\x32#.depscloud.api.v1beta.ManagedSource\"R\n\x1aListManagedModulesResponse\x12\x34\n\x07modules\x18\x01 \x03(\x0b\x32#.depscloud.api.v1beta.ManagedModule\"y\n\x14SourcesSearchRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12*\n\x04like\x18\x04 \x01(\x0b\x32\x1c.depscloud.api.v1beta.Source\"y\n\x14ModulesSearchRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12*\n\x04like\x18\x04 \x01(\x0b\x32\x1c.depscloud.api.v1beta.Module\"u\n\nDependency\x12,\n\x06module\x18\x01 \x01(\x0b\x32\x1c.depscloud.api.v1beta.Module\x12\x39\n\tedge_data\x18\x02 \x03(\x0b\x32&.depscloud.api.v1beta.ModuleDependency\"J\n\x12\x44\x65pendentsResponse\x12\x34\n\ndependents\x18\x01 \x03(\x0b\x32 .depscloud.api.v1beta.Dependency\"N\n\x14\x44\x65pendenciesResponse\x12\x36\n\x0c\x64\x65pendencies\x18\x01 \x03(\x0b\x32 .depscloud.api.v1beta.Dependency\"\x87\x02\n\rSearchRequest\x12\x0e\n\x06\x63\x61ncel\x18\x01 \x01(\x08\x12\x38\n\x0bmodules_for\x18\x05 \x01(\x0b\x32#.depscloud.api.v1beta.ManagedSource\x12:\n\x10\x64\x65pendencies_for\x18\x06 \x01(\x0b\x32 .depscloud.api.v1beta.Dependency\x12\x37\n\rdependents_of\x18\x07 \x01(\x0b\x32 .depscloud.api.v1beta.Dependency\x12\x37\n\nsources_of\x18\x08 \x01(\x0b\x32#.depscloud.api.v1beta.ManagedModule\"\xa0\x02\n\x0eSearchResponse\x12\x34\n\x07request\x18\x01 \x01(\x0b\x32#.depscloud.api.v1beta.SearchRequest\x12\x34\n\x07modules\x18\x05 \x03(\x0b\x32#.depscloud.api.v1beta.ManagedModule\x12\x36\n\x0c\x64\x65pendencies\x18\x06 \x03(\x0b\x32 .depscloud.api.v1beta.Dependency\x12\x34\n\ndependents\x18\x07 \x03(\x0b\x32 .depscloud.api.v1beta.Dependency\x12\x34\n\x07sources\x18\x08 \x03(\x0b\x32#.depscloud.api.v1beta.ManagedSource2i\n\x0fLanguageService\x12V\n\x04List\x12!.depscloud.api.v1beta.ListRequest\x1a+.depscloud.api.v1beta.ListLanguagesResponse2\xac\x02\n\rSourceService\x12T\n\x04List\x12!.depscloud.api.v1beta.ListRequest\x1a).depscloud.api.v1beta.ListSourcesResponse\x12\x64\n\x0bListModules\x12#.depscloud.api.v1beta.ManagedSource\x1a\x30.depscloud.api.v1beta.ListManagedModulesResponse\x12_\n\x06Search\x12*.depscloud.api.v1beta.SourcesSearchRequest\x1a).depscloud.api.v1beta.ListSourcesResponse2\xac\x02\n\rModuleService\x12T\n\x04List\x12!.depscloud.api.v1beta.ListRequest\x1a).depscloud.api.v1beta.ListModulesResponse\x12\x64\n\x0bListSources\x12#.depscloud.api.v1beta.ManagedModule\x1a\x30.depscloud.api.v1beta.ListManagedSourcesResponse\x12_\n\x06Search\x12*.depscloud.api.v1beta.ModulesSearchRequest\x1a).depscloud.api.v1beta.ListModulesResponse2\xf1\x03\n\x10TraversalService\x12[\n\rGetDependents\x12 .depscloud.api.v1beta.Dependency\x1a(.depscloud.api.v1beta.DependentsResponse\x12_\n\x0fGetDependencies\x12 .depscloud.api.v1beta.Dependency\x1a*.depscloud.api.v1beta.DependenciesResponse\x12W\n\x06Search\x12#.depscloud.api.v1beta.SearchRequest\x1a$.depscloud.api.v1beta.SearchResponse(\x01\x30\x01\x12\x63\n\x12\x42readthFirstSearch\x12#.depscloud.api.v1beta.SearchRequest\x1a$.depscloud.api.v1beta.SearchResponse(\x01\x30\x01\x12\x61\n\x10\x44\x65pthFirstSearch\x12#.depscloud.api.v1beta.SearchRequest\x1a$.depscloud.api.v1beta.SearchResponse(\x01\x30\x01\x42!Z\x1fgithub.com/depscloud/api/v1betab\x06proto3'
   ,
   dependencies=[depscloud_dot_api_dot_v1beta_dot_core__pb2.DESCRIPTOR,])
 
@@ -151,6 +151,45 @@ _LISTMODULESRESPONSE = _descriptor.Descriptor(
 )
 
 
+_LISTLANGUAGESRESPONSE = _descriptor.Descriptor(
+  name='ListLanguagesResponse',
+  full_name='depscloud.api.v1beta.ListLanguagesResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='depscloud.api.v1beta.ListLanguagesResponse.next_page_token', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='languages', full_name='depscloud.api.v1beta.ListLanguagesResponse.languages', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=349,
+  serialized_end=448,
+)
+
+
 _MANAGEDMODULE = _descriptor.Descriptor(
   name='ManagedModule',
   full_name='depscloud.api.v1beta.ManagedModule',
@@ -185,8 +224,8 @@ _MANAGEDMODULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=349,
-  serialized_end=465,
+  serialized_start=450,
+  serialized_end=566,
 )
 
 
@@ -224,8 +263,8 @@ _MANAGEDSOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=467,
-  serialized_end=583,
+  serialized_start=568,
+  serialized_end=684,
 )
 
 
@@ -256,8 +295,8 @@ _LISTMANAGEDSOURCESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=585,
-  serialized_end=667,
+  serialized_start=686,
+  serialized_end=768,
 )
 
 
@@ -288,8 +327,114 @@ _LISTMANAGEDMODULESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=669,
-  serialized_end=751,
+  serialized_start=770,
+  serialized_end=852,
+)
+
+
+_SOURCESSEARCHREQUEST = _descriptor.Descriptor(
+  name='SourcesSearchRequest',
+  full_name='depscloud.api.v1beta.SourcesSearchRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='depscloud.api.v1beta.SourcesSearchRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='depscloud.api.v1beta.SourcesSearchRequest.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='depscloud.api.v1beta.SourcesSearchRequest.page_token', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='like', full_name='depscloud.api.v1beta.SourcesSearchRequest.like', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=854,
+  serialized_end=975,
+)
+
+
+_MODULESSEARCHREQUEST = _descriptor.Descriptor(
+  name='ModulesSearchRequest',
+  full_name='depscloud.api.v1beta.ModulesSearchRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='depscloud.api.v1beta.ModulesSearchRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='depscloud.api.v1beta.ModulesSearchRequest.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='depscloud.api.v1beta.ModulesSearchRequest.page_token', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='like', full_name='depscloud.api.v1beta.ModulesSearchRequest.like', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=977,
+  serialized_end=1098,
 )
 
 
@@ -327,8 +472,8 @@ _DEPENDENCY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=753,
-  serialized_end=870,
+  serialized_start=1100,
+  serialized_end=1217,
 )
 
 
@@ -359,8 +504,8 @@ _DEPENDENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=872,
-  serialized_end=946,
+  serialized_start=1219,
+  serialized_end=1293,
 )
 
 
@@ -391,8 +536,8 @@ _DEPENDENCIESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=948,
-  serialized_end=1026,
+  serialized_start=1295,
+  serialized_end=1373,
 )
 
 
@@ -451,8 +596,8 @@ _SEARCHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1029,
-  serialized_end=1292,
+  serialized_start=1376,
+  serialized_end=1639,
 )
 
 
@@ -511,18 +656,21 @@ _SEARCHRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1295,
-  serialized_end=1583,
+  serialized_start=1642,
+  serialized_end=1930,
 )
 
 _LISTSOURCESRESPONSE.fields_by_name['sources'].message_type = depscloud_dot_api_dot_v1beta_dot_core__pb2._SOURCE
 _LISTMODULESRESPONSE.fields_by_name['modules'].message_type = depscloud_dot_api_dot_v1beta_dot_core__pb2._MODULE
+_LISTLANGUAGESRESPONSE.fields_by_name['languages'].message_type = depscloud_dot_api_dot_v1beta_dot_core__pb2._LANGUAGE
 _MANAGEDMODULE.fields_by_name['module'].message_type = depscloud_dot_api_dot_v1beta_dot_core__pb2._MODULE
 _MANAGEDMODULE.fields_by_name['edge_data'].message_type = depscloud_dot_api_dot_v1beta_dot_core__pb2._SOURCEMODULE
 _MANAGEDSOURCE.fields_by_name['source'].message_type = depscloud_dot_api_dot_v1beta_dot_core__pb2._SOURCE
 _MANAGEDSOURCE.fields_by_name['edge_data'].message_type = depscloud_dot_api_dot_v1beta_dot_core__pb2._SOURCEMODULE
 _LISTMANAGEDSOURCESRESPONSE.fields_by_name['sources'].message_type = _MANAGEDSOURCE
 _LISTMANAGEDMODULESRESPONSE.fields_by_name['modules'].message_type = _MANAGEDMODULE
+_SOURCESSEARCHREQUEST.fields_by_name['like'].message_type = depscloud_dot_api_dot_v1beta_dot_core__pb2._SOURCE
+_MODULESSEARCHREQUEST.fields_by_name['like'].message_type = depscloud_dot_api_dot_v1beta_dot_core__pb2._MODULE
 _DEPENDENCY.fields_by_name['module'].message_type = depscloud_dot_api_dot_v1beta_dot_core__pb2._MODULE
 _DEPENDENCY.fields_by_name['edge_data'].message_type = depscloud_dot_api_dot_v1beta_dot_core__pb2._MODULEDEPENDENCY
 _DEPENDENTSRESPONSE.fields_by_name['dependents'].message_type = _DEPENDENCY
@@ -539,10 +687,13 @@ _SEARCHRESPONSE.fields_by_name['sources'].message_type = _MANAGEDSOURCE
 DESCRIPTOR.message_types_by_name['ListRequest'] = _LISTREQUEST
 DESCRIPTOR.message_types_by_name['ListSourcesResponse'] = _LISTSOURCESRESPONSE
 DESCRIPTOR.message_types_by_name['ListModulesResponse'] = _LISTMODULESRESPONSE
+DESCRIPTOR.message_types_by_name['ListLanguagesResponse'] = _LISTLANGUAGESRESPONSE
 DESCRIPTOR.message_types_by_name['ManagedModule'] = _MANAGEDMODULE
 DESCRIPTOR.message_types_by_name['ManagedSource'] = _MANAGEDSOURCE
 DESCRIPTOR.message_types_by_name['ListManagedSourcesResponse'] = _LISTMANAGEDSOURCESRESPONSE
 DESCRIPTOR.message_types_by_name['ListManagedModulesResponse'] = _LISTMANAGEDMODULESRESPONSE
+DESCRIPTOR.message_types_by_name['SourcesSearchRequest'] = _SOURCESSEARCHREQUEST
+DESCRIPTOR.message_types_by_name['ModulesSearchRequest'] = _MODULESSEARCHREQUEST
 DESCRIPTOR.message_types_by_name['Dependency'] = _DEPENDENCY
 DESCRIPTOR.message_types_by_name['DependentsResponse'] = _DEPENDENTSRESPONSE
 DESCRIPTOR.message_types_by_name['DependenciesResponse'] = _DEPENDENCIESRESPONSE
@@ -571,6 +722,13 @@ ListModulesResponse = _reflection.GeneratedProtocolMessageType('ListModulesRespo
   })
 _sym_db.RegisterMessage(ListModulesResponse)
 
+ListLanguagesResponse = _reflection.GeneratedProtocolMessageType('ListLanguagesResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTLANGUAGESRESPONSE,
+  '__module__' : 'depscloud.api.v1beta.rpc_pb2'
+  # @@protoc_insertion_point(class_scope:depscloud.api.v1beta.ListLanguagesResponse)
+  })
+_sym_db.RegisterMessage(ListLanguagesResponse)
+
 ManagedModule = _reflection.GeneratedProtocolMessageType('ManagedModule', (_message.Message,), {
   'DESCRIPTOR' : _MANAGEDMODULE,
   '__module__' : 'depscloud.api.v1beta.rpc_pb2'
@@ -598,6 +756,20 @@ ListManagedModulesResponse = _reflection.GeneratedProtocolMessageType('ListManag
   # @@protoc_insertion_point(class_scope:depscloud.api.v1beta.ListManagedModulesResponse)
   })
 _sym_db.RegisterMessage(ListManagedModulesResponse)
+
+SourcesSearchRequest = _reflection.GeneratedProtocolMessageType('SourcesSearchRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SOURCESSEARCHREQUEST,
+  '__module__' : 'depscloud.api.v1beta.rpc_pb2'
+  # @@protoc_insertion_point(class_scope:depscloud.api.v1beta.SourcesSearchRequest)
+  })
+_sym_db.RegisterMessage(SourcesSearchRequest)
+
+ModulesSearchRequest = _reflection.GeneratedProtocolMessageType('ModulesSearchRequest', (_message.Message,), {
+  'DESCRIPTOR' : _MODULESSEARCHREQUEST,
+  '__module__' : 'depscloud.api.v1beta.rpc_pb2'
+  # @@protoc_insertion_point(class_scope:depscloud.api.v1beta.ModulesSearchRequest)
+  })
+_sym_db.RegisterMessage(ModulesSearchRequest)
 
 Dependency = _reflection.GeneratedProtocolMessageType('Dependency', (_message.Message,), {
   'DESCRIPTOR' : _DEPENDENCY,
@@ -637,15 +809,41 @@ _sym_db.RegisterMessage(SearchResponse)
 
 DESCRIPTOR._options = None
 
-_SOURCESERVICE = _descriptor.ServiceDescriptor(
-  name='SourceService',
-  full_name='depscloud.api.v1beta.SourceService',
+_LANGUAGESERVICE = _descriptor.ServiceDescriptor(
+  name='LanguageService',
+  full_name='depscloud.api.v1beta.LanguageService',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1586,
-  serialized_end=1789,
+  serialized_start=1932,
+  serialized_end=2037,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='List',
+    full_name='depscloud.api.v1beta.LanguageService.List',
+    index=0,
+    containing_service=None,
+    input_type=_LISTREQUEST,
+    output_type=_LISTLANGUAGESRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_LANGUAGESERVICE)
+
+DESCRIPTOR.services_by_name['LanguageService'] = _LANGUAGESERVICE
+
+
+_SOURCESERVICE = _descriptor.ServiceDescriptor(
+  name='SourceService',
+  full_name='depscloud.api.v1beta.SourceService',
+  file=DESCRIPTOR,
+  index=1,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=2040,
+  serialized_end=2340,
   methods=[
   _descriptor.MethodDescriptor(
     name='List',
@@ -667,6 +865,16 @@ _SOURCESERVICE = _descriptor.ServiceDescriptor(
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
+  _descriptor.MethodDescriptor(
+    name='Search',
+    full_name='depscloud.api.v1beta.SourceService.Search',
+    index=2,
+    containing_service=None,
+    input_type=_SOURCESSEARCHREQUEST,
+    output_type=_LISTSOURCESRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
 ])
 _sym_db.RegisterServiceDescriptor(_SOURCESERVICE)
 
@@ -677,11 +885,11 @@ _MODULESERVICE = _descriptor.ServiceDescriptor(
   name='ModuleService',
   full_name='depscloud.api.v1beta.ModuleService',
   file=DESCRIPTOR,
-  index=1,
+  index=2,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1792,
-  serialized_end=1995,
+  serialized_start=2343,
+  serialized_end=2643,
   methods=[
   _descriptor.MethodDescriptor(
     name='List',
@@ -703,6 +911,16 @@ _MODULESERVICE = _descriptor.ServiceDescriptor(
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
+  _descriptor.MethodDescriptor(
+    name='Search',
+    full_name='depscloud.api.v1beta.ModuleService.Search',
+    index=2,
+    containing_service=None,
+    input_type=_MODULESSEARCHREQUEST,
+    output_type=_LISTMODULESRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
 ])
 _sym_db.RegisterServiceDescriptor(_MODULESERVICE)
 
@@ -713,11 +931,11 @@ _TRAVERSALSERVICE = _descriptor.ServiceDescriptor(
   name='TraversalService',
   full_name='depscloud.api.v1beta.TraversalService',
   file=DESCRIPTOR,
-  index=2,
+  index=3,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1998,
-  serialized_end=2495,
+  serialized_start=2646,
+  serialized_end=3143,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetDependents',
