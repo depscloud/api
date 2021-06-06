@@ -10,6 +10,12 @@ package depscloud.api.v1beta;
 
 option go_package = "github.com/depscloud/api/v1beta";
 
+// A language represents a programming language for which we have a dependency graph.
+message Language {
+    // The name of the programming language.
+    string name = 1;
+}
+
 // ProviderURL is a specifically formatted URI to create standard a standard
 // representation for a source. The following shows example ProviderURL:
 //  # General Format

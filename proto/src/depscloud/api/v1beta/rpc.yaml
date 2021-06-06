@@ -3,12 +3,18 @@ config_version: 3
 
 http:
   rules:
+    # /v1beta/languages
+    ## LanguageService
+    - selector: depscloud.api.v1beta.LanguageService.List
+      get: /v1beta/languages
+
     # /v1beta/sources
     ## SourceService
     - selector: depscloud.api.v1beta.SourceService.List
       get: /v1beta/sources
     - selector: depscloud.api.v1beta.SourceService.ListModules
       get: /v1beta/sources/modules
+
     # /v1beta/modules
     ## ModuleService
     - selector: depscloud.api.v1beta.ModuleService.List

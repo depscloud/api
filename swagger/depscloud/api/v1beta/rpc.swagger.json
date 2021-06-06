@@ -11,6 +11,49 @@
     "application/json"
   ],
   "paths": {
+    "/v1beta/languages": {
+      "get": {
+        "operationId": "LanguageService_List",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1betaListLanguagesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "parent",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page_token",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "LanguageService"
+        ]
+      }
+    },
     "/v1beta/modules": {
       "get": {
         "operationId": "ModuleService_List",
@@ -341,6 +384,30 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/v1betaDependency"
+          }
+        }
+      }
+    },
+    "v1betaLanguage": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the programming language."
+        }
+      },
+      "description": "A language represents a programming language for which we have a dependency graph."
+    },
+    "v1betaListLanguagesResponse": {
+      "type": "object",
+      "properties": {
+        "next_page_token": {
+          "type": "string"
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1betaLanguage"
           }
         }
       }

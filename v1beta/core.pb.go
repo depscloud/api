@@ -27,6 +27,55 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// A language represents a programming language for which we have a dependency graph.
+type Language struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// The name of the programming language.
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+}
+
+func (x *Language) Reset() {
+	*x = Language{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_depscloud_api_v1beta_core_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Language) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Language) ProtoMessage() {}
+
+func (x *Language) ProtoReflect() protoreflect.Message {
+	mi := &file_depscloud_api_v1beta_core_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Language.ProtoReflect.Descriptor instead.
+func (*Language) Descriptor() ([]byte, []int) {
+	return file_depscloud_api_v1beta_core_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *Language) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
 // ProviderURL is a specifically formatted URI to create standard a standard
 // representation for a source. The following shows example ProviderURL:
 //  # General Format
@@ -54,7 +103,7 @@ type ProviderURL struct {
 func (x *ProviderURL) Reset() {
 	*x = ProviderURL{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_depscloud_api_v1beta_core_proto_msgTypes[0]
+		mi := &file_depscloud_api_v1beta_core_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -67,7 +116,7 @@ func (x *ProviderURL) String() string {
 func (*ProviderURL) ProtoMessage() {}
 
 func (x *ProviderURL) ProtoReflect() protoreflect.Message {
-	mi := &file_depscloud_api_v1beta_core_proto_msgTypes[0]
+	mi := &file_depscloud_api_v1beta_core_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -80,7 +129,7 @@ func (x *ProviderURL) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderURL.ProtoReflect.Descriptor instead.
 func (*ProviderURL) Descriptor() ([]byte, []int) {
-	return file_depscloud_api_v1beta_core_proto_rawDescGZIP(), []int{0}
+	return file_depscloud_api_v1beta_core_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *ProviderURL) GetProvider() string {
@@ -131,7 +180,7 @@ type Source struct {
 func (x *Source) Reset() {
 	*x = Source{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_depscloud_api_v1beta_core_proto_msgTypes[1]
+		mi := &file_depscloud_api_v1beta_core_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -144,7 +193,7 @@ func (x *Source) String() string {
 func (*Source) ProtoMessage() {}
 
 func (x *Source) ProtoReflect() protoreflect.Message {
-	mi := &file_depscloud_api_v1beta_core_proto_msgTypes[1]
+	mi := &file_depscloud_api_v1beta_core_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -157,7 +206,7 @@ func (x *Source) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Source.ProtoReflect.Descriptor instead.
 func (*Source) Descriptor() ([]byte, []int) {
-	return file_depscloud_api_v1beta_core_proto_rawDescGZIP(), []int{1}
+	return file_depscloud_api_v1beta_core_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Source) GetKind() string {
@@ -198,7 +247,7 @@ type Module struct {
 func (x *Module) Reset() {
 	*x = Module{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_depscloud_api_v1beta_core_proto_msgTypes[2]
+		mi := &file_depscloud_api_v1beta_core_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -211,7 +260,7 @@ func (x *Module) String() string {
 func (*Module) ProtoMessage() {}
 
 func (x *Module) ProtoReflect() protoreflect.Message {
-	mi := &file_depscloud_api_v1beta_core_proto_msgTypes[2]
+	mi := &file_depscloud_api_v1beta_core_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -224,7 +273,7 @@ func (x *Module) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Module.ProtoReflect.Descriptor instead.
 func (*Module) Descriptor() ([]byte, []int) {
-	return file_depscloud_api_v1beta_core_proto_rawDescGZIP(), []int{2}
+	return file_depscloud_api_v1beta_core_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Module) GetLanguage() string {
@@ -265,7 +314,7 @@ type SourceModule struct {
 func (x *SourceModule) Reset() {
 	*x = SourceModule{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_depscloud_api_v1beta_core_proto_msgTypes[3]
+		mi := &file_depscloud_api_v1beta_core_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -278,7 +327,7 @@ func (x *SourceModule) String() string {
 func (*SourceModule) ProtoMessage() {}
 
 func (x *SourceModule) ProtoReflect() protoreflect.Message {
-	mi := &file_depscloud_api_v1beta_core_proto_msgTypes[3]
+	mi := &file_depscloud_api_v1beta_core_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -291,7 +340,7 @@ func (x *SourceModule) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SourceModule.ProtoReflect.Descriptor instead.
 func (*SourceModule) Descriptor() ([]byte, []int) {
-	return file_depscloud_api_v1beta_core_proto_rawDescGZIP(), []int{3}
+	return file_depscloud_api_v1beta_core_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *SourceModule) GetVersion() string {
@@ -335,7 +384,7 @@ type ModuleDependency struct {
 func (x *ModuleDependency) Reset() {
 	*x = ModuleDependency{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_depscloud_api_v1beta_core_proto_msgTypes[4]
+		mi := &file_depscloud_api_v1beta_core_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -348,7 +397,7 @@ func (x *ModuleDependency) String() string {
 func (*ModuleDependency) ProtoMessage() {}
 
 func (x *ModuleDependency) ProtoReflect() protoreflect.Message {
-	mi := &file_depscloud_api_v1beta_core_proto_msgTypes[4]
+	mi := &file_depscloud_api_v1beta_core_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -361,7 +410,7 @@ func (x *ModuleDependency) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ModuleDependency.ProtoReflect.Descriptor instead.
 func (*ModuleDependency) Descriptor() ([]byte, []int) {
-	return file_depscloud_api_v1beta_core_proto_rawDescGZIP(), []int{4}
+	return file_depscloud_api_v1beta_core_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ModuleDependency) GetRef() string {
@@ -398,7 +447,9 @@ var file_depscloud_api_v1beta_core_proto_rawDesc = []byte{
 	0x0a, 0x1f, 0x64, 0x65, 0x70, 0x73, 0x63, 0x6c, 0x6f, 0x75, 0x64, 0x2f, 0x61, 0x70, 0x69, 0x2f,
 	0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x2f, 0x63, 0x6f, 0x72, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74,
 	0x6f, 0x12, 0x14, 0x64, 0x65, 0x70, 0x73, 0x63, 0x6c, 0x6f, 0x75, 0x64, 0x2e, 0x61, 0x70, 0x69,
-	0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x22, 0x6f, 0x0a, 0x0b, 0x50, 0x72, 0x6f, 0x76, 0x69,
+	0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x22, 0x1e, 0x0a, 0x08, 0x4c, 0x61, 0x6e, 0x67, 0x75,
+	0x61, 0x67, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x22, 0x6f, 0x0a, 0x0b, 0x50, 0x72, 0x6f, 0x76, 0x69,
 	0x64, 0x65, 0x72, 0x55, 0x52, 0x4c, 0x12, 0x1a, 0x0a, 0x08, 0x70, 0x72, 0x6f, 0x76, 0x69, 0x64,
 	0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x70, 0x72, 0x6f, 0x76, 0x69, 0x64,
 	0x65, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x68, 0x6f, 0x73, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
@@ -473,23 +524,24 @@ func file_depscloud_api_v1beta_core_proto_rawDescGZIP() []byte {
 	return file_depscloud_api_v1beta_core_proto_rawDescData
 }
 
-var file_depscloud_api_v1beta_core_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_depscloud_api_v1beta_core_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_depscloud_api_v1beta_core_proto_goTypes = []interface{}{
-	(*ProviderURL)(nil),      // 0: depscloud.api.v1beta.ProviderURL
-	(*Source)(nil),           // 1: depscloud.api.v1beta.Source
-	(*Module)(nil),           // 2: depscloud.api.v1beta.Module
-	(*SourceModule)(nil),     // 3: depscloud.api.v1beta.SourceModule
-	(*ModuleDependency)(nil), // 4: depscloud.api.v1beta.ModuleDependency
-	nil,                      // 5: depscloud.api.v1beta.Source.LabelsEntry
-	nil,                      // 6: depscloud.api.v1beta.Module.LabelsEntry
-	nil,                      // 7: depscloud.api.v1beta.SourceModule.LabelsEntry
-	nil,                      // 8: depscloud.api.v1beta.ModuleDependency.LabelsEntry
+	(*Language)(nil),         // 0: depscloud.api.v1beta.Language
+	(*ProviderURL)(nil),      // 1: depscloud.api.v1beta.ProviderURL
+	(*Source)(nil),           // 2: depscloud.api.v1beta.Source
+	(*Module)(nil),           // 3: depscloud.api.v1beta.Module
+	(*SourceModule)(nil),     // 4: depscloud.api.v1beta.SourceModule
+	(*ModuleDependency)(nil), // 5: depscloud.api.v1beta.ModuleDependency
+	nil,                      // 6: depscloud.api.v1beta.Source.LabelsEntry
+	nil,                      // 7: depscloud.api.v1beta.Module.LabelsEntry
+	nil,                      // 8: depscloud.api.v1beta.SourceModule.LabelsEntry
+	nil,                      // 9: depscloud.api.v1beta.ModuleDependency.LabelsEntry
 }
 var file_depscloud_api_v1beta_core_proto_depIdxs = []int32{
-	5, // 0: depscloud.api.v1beta.Source.labels:type_name -> depscloud.api.v1beta.Source.LabelsEntry
-	6, // 1: depscloud.api.v1beta.Module.labels:type_name -> depscloud.api.v1beta.Module.LabelsEntry
-	7, // 2: depscloud.api.v1beta.SourceModule.labels:type_name -> depscloud.api.v1beta.SourceModule.LabelsEntry
-	8, // 3: depscloud.api.v1beta.ModuleDependency.labels:type_name -> depscloud.api.v1beta.ModuleDependency.LabelsEntry
+	6, // 0: depscloud.api.v1beta.Source.labels:type_name -> depscloud.api.v1beta.Source.LabelsEntry
+	7, // 1: depscloud.api.v1beta.Module.labels:type_name -> depscloud.api.v1beta.Module.LabelsEntry
+	8, // 2: depscloud.api.v1beta.SourceModule.labels:type_name -> depscloud.api.v1beta.SourceModule.LabelsEntry
+	9, // 3: depscloud.api.v1beta.ModuleDependency.labels:type_name -> depscloud.api.v1beta.ModuleDependency.LabelsEntry
 	4, // [4:4] is the sub-list for method output_type
 	4, // [4:4] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name
@@ -504,7 +556,7 @@ func file_depscloud_api_v1beta_core_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_depscloud_api_v1beta_core_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ProviderURL); i {
+			switch v := v.(*Language); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -516,7 +568,7 @@ func file_depscloud_api_v1beta_core_proto_init() {
 			}
 		}
 		file_depscloud_api_v1beta_core_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Source); i {
+			switch v := v.(*ProviderURL); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -528,7 +580,7 @@ func file_depscloud_api_v1beta_core_proto_init() {
 			}
 		}
 		file_depscloud_api_v1beta_core_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Module); i {
+			switch v := v.(*Source); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -540,7 +592,7 @@ func file_depscloud_api_v1beta_core_proto_init() {
 			}
 		}
 		file_depscloud_api_v1beta_core_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SourceModule); i {
+			switch v := v.(*Module); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -552,6 +604,18 @@ func file_depscloud_api_v1beta_core_proto_init() {
 			}
 		}
 		file_depscloud_api_v1beta_core_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SourceModule); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_depscloud_api_v1beta_core_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ModuleDependency); i {
 			case 0:
 				return &v.state
@@ -570,7 +634,7 @@ func file_depscloud_api_v1beta_core_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_depscloud_api_v1beta_core_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   9,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
