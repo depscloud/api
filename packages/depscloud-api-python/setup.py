@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='depscloud_api',
-    version='0.3.2',
+    version='0.3.3',
     license='MIT',
     description='Python client to the deps.cloud API',
     author='deps.cloud Authors',
