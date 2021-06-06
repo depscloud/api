@@ -14,11 +14,15 @@ http:
       get: /v1beta/sources
     - selector: depscloud.api.v1beta.SourceService.ListModules
       get: /v1beta/sources/modules
+    - selector: depscloud.api.v1beta.SourceService.Search
+      get: /v1beta/sources/search
 
     # /v1beta/modules
     ## ModuleService
     - selector: depscloud.api.v1beta.ModuleService.List
       get: /v1beta/modules
+    - selector: depscloud.api.v1beta.ModuleService.Search
+      get: /v1beta/modules/search
     - selector: depscloud.api.v1beta.ModuleService.ListSources
       get: /v1beta/modules/{module.language}/{module.name=**}/sources
     ## TraversalService

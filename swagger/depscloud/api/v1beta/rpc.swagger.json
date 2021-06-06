@@ -97,6 +97,63 @@
         ]
       }
     },
+    "/v1beta/modules/search": {
+      "get": {
+        "operationId": "ModuleService_Search",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1betaListModulesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "parent",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page_token",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "like.language",
+            "description": "The language associated with the module.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "like.name",
+            "description": "The name of the application or library.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ModuleService"
+        ]
+      }
+    },
     "/v1beta/modules/{module.language}/{module.name=**}/dependencies": {
       "get": {
         "operationId": "TraversalService_GetDependencies",
@@ -281,6 +338,63 @@
           },
           {
             "name": "source.url",
+            "description": "A string formatted ProviderURL.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SourceService"
+        ]
+      }
+    },
+    "/v1beta/sources/search": {
+      "get": {
+        "operationId": "SourceService_Search",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1betaListSourcesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "parent",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page_token",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "like.kind",
+            "description": "The kind of source, typically repository or artifactory. This was kept\nseparate from the URL as systems like GitHub and GitLab offer some\nartifact support.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "like.url",
             "description": "A string formatted ProviderURL.",
             "in": "query",
             "required": false,
